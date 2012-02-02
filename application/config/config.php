@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/smartscan-website2/';
+$config['base_url']	= 'http://localhost/smartscan-website/';
 
 /*
 |--------------------------------------------------------------------------
