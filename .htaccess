@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond $1 !^(index\.php|public|resources|css|img|js|robots\.txt|favicon\.ico)
+    RewriteRule ^(.*)$ ./index.php/$1 [L]
+    
+</IfModule> 
