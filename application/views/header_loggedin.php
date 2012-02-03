@@ -41,16 +41,20 @@
 
 <div id="container">
 
-	<div id="header_wrapper">
-		<header>
-		
-			<nav class="login_navigation">
-				<ul>
-					<li><a href="auth/logout">Logout</a></li>
-					<li><a href="home">Home</a></li>
+  <header>
+
+    <div id="header_top"></div>
+
+    <div id="header_inner">
+  
+      <nav class="login_navigation">
+        <ul>
+          <li><a href="auth/logout">Logout</a></li>
           <li><a href="#"><?php echo $username; ?></a></li>
-				</ul>
-			</nav>
-			
-		</header>
-	</div>
+          <li><a href="home">Home</a></li>
+        </ul>
+      </nav>
+
+    </div>
+      
+  </header>

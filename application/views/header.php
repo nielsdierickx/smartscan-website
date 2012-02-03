@@ -41,15 +41,19 @@
 
 <div id="container">
 
-	<div id="header_wrapper">
-		<header>
-		
+	<header>
+
+    <div id="header_top"></div>
+
+    <div id="header_inner">
+	
 			<nav class="login_navigation">
 				<ul>
 					<li><a href="auth/login">Login</a></li>
 					<li><a href="home">Home</a></li>
 				</ul>
 			</nav>
+
+    </div>
 			
-		</header>
-	</div>
+	</header>
