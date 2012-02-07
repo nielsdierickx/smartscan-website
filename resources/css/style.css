@@ -211,175 +211,129 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
-label {
-	display: block;
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
 }
 
-/* Header ------------------------------------------------ */
+div#container {
+	background-color: #f4f6f8;
+}
 
 header {
-	background-color: #353535;
-    padding-top: 0.75em;
-    -moz-box-shadow: 0px 1px 2px #255f7e;
-    -webkit-box-shadow: 0px 1px 2px #255f7e;
-    box-shadow: 0px 1px 2px #255f7e;
-	width: 100%;
+	height: 65px;
+	background-color: #2c373c;
 }
 
-div#header_top {
+div#header_pattern {
+	height: 65px;
+	background: url('../img/right_strip_pattern.png') repeat;
+}
+
+div#header_nav {
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	height: 45px;
 	width: 100%;
-	height: 0.75em;
-	/*background:transparent url(../img/pattern.png) repeat-x top left;*/
-	background-color: #F07F2F;
+	margin-top: 18px;
+	background-color: #353535;
+	border-top: 1px solid #546870;
+	border-bottom: 1px solid #546870;
 }
 
 div#header_inner {
 	margin: 0 auto;
-	width: 100%;
-	max-width: 1000px;
-	height: 3em;
+	max-width: 960px;
+	height: 45px;
 }
 
-nav.login_navigation ul { 
-	list-style:none;
+div#logo h1 {
+	float: left;
+	height: 45px;
 }
 
-nav.login_navigation li {
-	/*display: inline-block;*/
-	float: right;
-	font-family: "museo-sans-rounded", lucida grande, sans-serif;
-	font-weight: 300;
-	/*position:relative;*/
-	text-align: right;
-	/*line-height: 1.5em;*/
-}
-
-nav.login_navigation li a {
-	display: block; 
-	/*white-space: nowrap;*/ 
-	padding: 0.85em 1.5em; 
-	color: #ffffff; 
+div#logo h1 a{
+	font: bold 12px 'Droid Sans', sans-serif;
+	color: #e5e5e5;
 	text-decoration: none;
+	line-height: 45px;
+	display: block;
 }
 
-nav.login_navigation li a:hover {
-	color:#fff; 
-	background:#F07F2F;
+div#logo h1 a span{
+	color: #ff9001;
+}
+
+nav#main_navigation, nav#main_navigation ul {
+	float: right;
+	height: 45px;
+}
+
+nav#main_navigation li {
+	float: right;
+	margin-left: 40px;
+	/*background: url('../img/lock-icon.png') no-repeat center left;*/
+}
+
+nav#main_navigation li a img {
+	padding-right: 10px;
+}
+
+nav#main_navigation ul li a {
+	font: bold 12px 'Droid Sans', sans-serif;
+	color: #e5e5e5;
+	text-decoration: none;
+	line-height: 45px;
+	display: block;
+}
+
+div#banner {
+	height: 420px;
+	background-color: #2c373c;
+	border-bottom: 2px solid #cacaca;
+}
+
+div#banner_pattern {
+	height: 420px;
+	background: url('../img/right_strip_pattern.png') repeat;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#footer_banner {
-	background-color: #353535;
-	border-top: 1px solid #CACACA;
-	box-shadow: 0 1px 0 rgba(255,255,255,0.4),0 0 10px rgba(0,0,0,0.1);
-	
-	height: 4em;
-
-	width: 100%;
+div#main {
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	max-width: 960px;
 	overflow: hidden;
 }
 
-#footer_wrapper {
-	margin: 0 auto;
-}
 
-footer {
-	width: 100%;
-	margin: 0 auto;
-	max-width: 1000px;
-}
-
-footer ul li {
-	display: block;
+div#content_left {
 	float: left;
-	font-family: "museo-sans-rounded", lucida grande, sans-serif;
-	font-weight: 300;
-	color: #ffffff;
+	height: 305px;
+	width: 305px;
+	background-color: #FFFFFF;
+	border: 1px solid #cacaca;
+}
+
+div#content_middle {
+	float: left;
+	height: 305px;
+	width: 305px;
+	background-color: #FFFFFF;
+	border: 1px solid #cacaca;
+	margin: 0px 19px;
+}
+
+div#content_right {
+	float: left;
+	height: 305px;
+	width: 305px;
+	background-color: #FFFFFF;
+	border: 1px solid #cacaca;
 }
 
 
-
-#main {
-	width: 100%;
-	margin: 0 auto;
-	padding: 20px 20px 20px 20px;
-	max-width: 960px;
-	margin-top: 2em;
-	background-color: #ffffff;
-	height: 700px;
-
-	background-color:#fff;
-    -moz-box-shadow: 0 0 1px #e5eaed;
-    -webkit-box-shadow: 0 0 1px #e5eaed;
-    box-shadow: 0 0 1px #e5eaed;
-
-
-  /*background-color: #F8F9FA;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#F8F9FA), to(#ffffff)); 
-  background-image: -webkit-linear-gradient(top, #F8F9FA, #ffffff); 
-  background-image:    -moz-linear-gradient(top, #F8F9FA, #ffffff); 
-  background-image:     -ms-linear-gradient(top, #F8F9FA, #ffffff); 
-  background-image:      -o-linear-gradient(top, #F8F9FA, #ffffff); 
-  background-image:         linear-gradient(to bottom, #F8F9FA, #ffffff);
-
-
-  -webkit-box-shadow: 0px 0px 4px #f8f9fa; 
-     -moz-box-shadow: 0px 0px 4px #f8f9fa; 
-          box-shadow: 0px 0px 4px #f8f9fa; */
-
-
-}
-
-html, body {
-	height: 100%;
-}
-
-div#container {
-	/* sticky footer*/
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	/* hoogte van footer + margins + borders */
-	margin-bottom: -4em;
-	background:transparent url(../img/pattern.png) repeat-x top left;
-	background-color: #f8f9fa;
-}
-
-div.push {
-	/* hoogte van footer + margins + borders */
-	height: 4em;
-}
-
-
-#content_banner {
-	width: 100%;
-	height: 18em;
-	border: 1px solid #000000;
-  	background-color: #ccc;
-}
 
 
 

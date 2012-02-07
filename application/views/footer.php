@@ -2,18 +2,10 @@
 
 </div> <!--! end of #container -->
 
-<div id="footer_banner">
-	<div id="footer_wrapper">
+<footer>
+			
+</footer><!-- end footer -->
 
-		<footer>
-			
-			<ul>
-				<li>Footer</li>
-			</ul>
-			
-		</footer><!-- end footer -->
-	</div>
-</div>
 
 <!-- JavaScript at the bottom for fast page loading -->
 

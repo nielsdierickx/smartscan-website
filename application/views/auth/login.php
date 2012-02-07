@@ -1,15 +1,15 @@
 <div id="main" role="main">
 
-	<div class="pageTitle">Login</div>
-    <div class="pageTitleBorder"></div>
-	<p>Please login with your email/username and password below.</p>
+	<h1>Login</h1>
+
+  <div class="contentBox">
 	
 	<div id="infoMessage"><?php echo $message;?></div>
 	
     <?php echo form_open("auth/login");?>
     	
       <p>
-      	<label for="identity">Email/Username:</label>
+      	<label for="identity">Email:</label>
       	<?php echo form_input($identity);?>
       </p>
       
@@ -28,5 +28,7 @@
 
       
     <?php echo form_close();?>
+
+  </div>
 
 </div>
