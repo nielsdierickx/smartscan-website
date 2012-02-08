@@ -215,6 +215,11 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+body {
+	font: 13px 'Droid Sans', sans-serif;
+	line-height: 20px;	
+}
+
 div#container {
 	background-color: #f4f6f8;
 }
@@ -259,7 +264,7 @@ div#logo h1 a{
 	display: block;
 }
 
-div#logo h1 a span{
+div#logo h1 a span, div#welcome h1 span{
 	color: #ff9001;
 }
 
@@ -279,7 +284,7 @@ nav#main_navigation li a img {
 }
 
 nav#main_navigation ul li a {
-	font: bold 12px 'Droid Sans', sans-serif;
+	font-weight: 700;
 	color: #e5e5e5;
 	text-decoration: none;
 	line-height: 45px;
@@ -290,6 +295,7 @@ div#banner {
 	height: 420px;
 	background-color: #2c373c;
 	border-bottom: 2px solid #cacaca;
+	overflow: hidden;
 }
 
 div#banner_pattern {
@@ -297,6 +303,64 @@ div#banner_pattern {
 	background: url('../img/right_strip_pattern.png') repeat;
 }
 
+div#welcome {
+	margin: 0 auto;
+	padding-top: 50px;
+	padding-left: 200px;
+	width: 800px;
+}
+
+div#welcome img {
+	float: left;
+}
+
+div#welcome h1, h2{
+	float: left;
+	color: #e5e5e5;
+	font-family: 'Droid Sans' sans-serif;
+}
+
+div#welcome h1 {
+	font-size: 36px;
+	margin: 50px;
+}
+
+div#welcome h2 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 18px;
+	margin: 20px 50px;
+}
+
+input.banner-button {
+	width: 265px;
+	height: 60px;
+	margin: 70px 90px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: #FFFFFF;
+
+	border: 1px solid #546870;
+
+  -webkit-border-radius: 12px; 
+     -moz-border-radius: 12px; 
+          border-radius: 12px; 
+
+  
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+
+
+  background-color: #fba93f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fba93f), to(#f37037)); 
+  background-image: -webkit-linear-gradient(top, #fba93f, #f37037); 
+  background-image:    -moz-linear-gradient(top, #fba93f, #f37037); 
+  background-image:     -ms-linear-gradient(top, #fba93f, #f37037); 
+  background-image:      -o-linear-gradient(top, #fba93f, #f37037); 
+  background-image:         linear-gradient(to bottom, #fba93f, #f37037);
+
+
+}
 
 
 div#main {
@@ -314,6 +378,22 @@ div#content_left {
 	width: 305px;
 	background-color: #FFFFFF;
 	border: 1px solid #cacaca;
+}
+
+div#content_left h1, div#content_left p, div#content_middle h1, div#content_middle p, div#content_right h1, div#content_right p {
+	padding: 20px 15px;
+}
+
+div#content_left h1, div#content_middle h1, div#content_right h1 {
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 24px;
+}
+
+div#content_left h1 img, div#content_middle h1 img, div#content_right h1 img {
+	margin-right: 25px;
+	width: 40px;
+	height: 40px;
 }
 
 div#content_middle {

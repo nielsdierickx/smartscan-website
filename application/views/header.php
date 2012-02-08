@@ -24,7 +24,7 @@
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" type="text/css" href="resources/css/style.css">
-  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Bree+Serif' rel='stylesheet' type='text/css'>
   <link rel="icon" href="resources/favicon.ico" type="image/ico"> 
   <!-- end CSS-->
 
@@ -53,7 +53,7 @@
 
         <nav id="main_navigation">
           <ul>
-            <li><a href="#"><img src="resources/img/lock-icon.png">Aanmelden</a></li>
+            <li><a href="#"><img src="resources/img/lock-icon.png" alt="Aanmelden icoon">Aanmelden</a></li>
           </ul>
         </nav>
 
