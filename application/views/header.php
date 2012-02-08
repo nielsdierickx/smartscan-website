@@ -53,7 +53,7 @@
 
         <nav id="main_navigation">
           <ul>
-            <li><a href="#"><img src="resources/img/lock-icon.png" alt="Aanmelden icoon">Aanmelden</a></li>
+            <li><a href="auth/login"><img src="resources/img/lock-icon.png" alt="Aanmelden icoon">Aanmelden</a></li>
           </ul>
         </nav>
 

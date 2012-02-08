@@ -207,8 +207,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
 
-/* ==|== primary styles =====================================================
-   Author: 
+/* ==|== Primary styles =====================================================
+   Author: Niels Dierickx
    ========================================================================== */
 
 h1, h2, h3, h4, h5, h6 {
@@ -223,6 +223,18 @@ body {
 div#container {
 	background-color: #f4f6f8;
 }
+
+div#main {
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	max-width: 960px;
+	overflow: hidden;
+}
+
+/* ****************************************************************************
+--- Header
+**************************************************************************** */
 
 header {
 	height: 65px;
@@ -276,7 +288,6 @@ nav#main_navigation, nav#main_navigation ul {
 nav#main_navigation li {
 	float: right;
 	margin-left: 40px;
-	/*background: url('../img/lock-icon.png') no-repeat center left;*/
 }
 
 nav#main_navigation li a img {
@@ -291,17 +302,25 @@ nav#main_navigation ul li a {
 	display: block;
 }
 
+nav#main_navigation ul li a:hover {
+	color: #ff9001;
+}
+
+/* ****************************************************************************
+--- Home Banner
+**************************************************************************** */
+
 div#banner {
 	height: 420px;
 	border-bottom: 2px solid #cacaca;
 	overflow: hidden;
 
 	background-color:#2c373c;
-	background-image: -moz-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
+	background-image: -moz-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
 	background-image: -webkit-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
-	background-image: -o-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
-	background-image: -ms-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
-	background-image: radial-gradient(50% 50%, farthest-corner, #4f636b #2c373c 40%)
+	background-image: -o-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
+	background-image: -ms-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
+	background-image: radial-gradient(50% 50%, circle farthest-corner, #4f636b #2c373c 40%)
 }
 
 div#banner_pattern {
@@ -346,37 +365,27 @@ input.banner-button {
 	font-weight: 400;
 	font-size: 18px;
 	color: #FFFFFF;
-
 	border: 1px solid #546870;
 
-  -webkit-border-radius: 12px; 
-     -moz-border-radius: 12px; 
-          border-radius: 12px; 
+  	-webkit-border-radius: 12px; 
+    -moz-border-radius: 12px; 
+    border-radius: 12px; 
+	-moz-background-clip: padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip: padding-box;
 
-  
-  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
-
-
-  background-color: #fba93f;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fba93f), to(#f37037)); 
-  background-image: -webkit-linear-gradient(top, #fba93f, #f37037); 
-  background-image:    -moz-linear-gradient(top, #fba93f, #f37037); 
-  background-image:     -ms-linear-gradient(top, #fba93f, #f37037); 
-  background-image:      -o-linear-gradient(top, #fba93f, #f37037); 
-  background-image:         linear-gradient(to bottom, #fba93f, #f37037);
-
-
+	background-color: #fba93f;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fba93f), to(#f37037)); 
+	background-image: -webkit-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -moz-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -ms-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -o-linear-gradient(top, #fba93f, #f37037); 
+	background-image: linear-gradient(to bottom, #fba93f, #f37037);
 }
 
-
-div#main {
-	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	max-width: 960px;
-	overflow: hidden;
-}
-
+/* ****************************************************************************
+--- Home Content
+**************************************************************************** */
 
 div#content_left {
 	float: left;
@@ -417,6 +426,92 @@ div#content_right {
 	width: 305px;
 	background-color: #FFFFFF;
 	border: 1px solid #cacaca;
+}
+
+
+
+
+div.content_title {
+	height: 120px;
+	border-bottom: 2px solid #cacaca;
+	overflow: hidden;
+
+	background-color:#2c373c;
+	background-image: -moz-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
+	background-image: -webkit-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
+	background-image: -o-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
+	background-image: -ms-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
+	background-image: radial-gradient(50% 50%, circle farthest-corner, #4f636b #2c373c 40%)
+}
+
+div.content_title_pattern {
+	height: 120px;
+	background: url('../img/right_strip_pattern.png') repeat;
+}
+
+div.content_title_wrapper {
+	margin: 0 auto;
+	line-height: 120px;
+	max-width: 960px;
+}
+
+div.content_title_wrapper img {
+	float: left;
+	margin-left: 20px;
+	margin-top: 40px;
+	margin-right: 30px;
+}
+
+div.content_title_wrapper h1 {
+	float: left;
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 24px;
+	color: #e5e5e5;
+}
+
+input[type=text], input[type=password] {
+	display: block;
+	width: 285px;
+	height: 30px;
+	font-family: 'Droid Sans', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	color: #000000;
+	border: 1px solid #cacaca;
+	padding: 2px 10px;
+
+  	-webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius: 5px; 
+	-moz-background-clip: padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip: padding-box;
+}
+
+input[type=submit] {
+	width: 140px;
+	height: 40px;
+	font-family: 'Bree Serif', serif;
+	font-weight: 400;
+	font-size: 18px;
+	color: #FFFFFF;
+	border: 1px solid #546870;
+
+  	-webkit-border-radius: 12px; 
+    -moz-border-radius: 12px; 
+    border-radius: 12px; 
+	-moz-background-clip: padding; 
+	-webkit-background-clip: padding-box; 
+	background-clip: padding-box;
+
+	background-color: #fba93f;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fba93f), to(#f37037)); 
+	background-image: -webkit-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -moz-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -ms-linear-gradient(top, #fba93f, #f37037); 
+	background-image: -o-linear-gradient(top, #fba93f, #f37037); 
+	background-image: linear-gradient(to bottom, #fba93f, #f37037);
 }
 
 

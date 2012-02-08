@@ -24,6 +24,7 @@
   <!-- CSS: implied media=all -->
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Bree+Serif' rel='stylesheet' type='text/css'>
   <link rel="icon" href="resources/favicon.ico" type="image/ico"> 
   <!-- end CSS-->
 
@@ -43,18 +44,22 @@
 
   <header>
 
-    <div id="header_top"></div>
+    <div id="header_pattern"></div>
+    <div id="header_nav">
 
-    <div id="header_inner">
-  
-      <nav class="login_navigation">
-        <ul>
-          <li><a href="auth/logout">Logout</a></li>
-          <li><a href="#"><?php echo $username; ?></a></li>
-          <li><a href="home">Home</a></li>
-        </ul>
-      </nav>
+      <div id="header_inner">
 
+        <div id="logo"><h1><a href="#"><span>Smart</span>Scan</a></h1></div>
+
+        <nav id="main_navigation">
+          <ul>
+            <li><a href="#"><img src="resources/img/profile-icon.png" alt="Profiel icoon"><?php echo $username; ?></a></li>
+            <li><a href="auth/logout"><img src="resources/img/lock-icon.png" alt="Afmelden icoon">Afmelden</a></li>
+          </ul>
+        </nav>
+
+      </div>
+    
     </div>
       
   </header>

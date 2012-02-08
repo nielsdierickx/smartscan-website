@@ -21,7 +21,7 @@
 
 	<div id="content_left">
 
-		<h1><img src="resources/img/lock-icon.png" alt="Plannen icoon">Plannen</h1>
+		<h1><img src="resources/img/lock-icon-big.png" alt="Plannen icoon">Plannen</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
@@ -29,7 +29,7 @@
 	
 	<div id="content_middle">
 
-		<h1><img src="resources/img/lock-icon.png" alt="Scannen icoon">Scannen</h1>
+		<h1><img src="resources/img/lock-icon-big.png" alt="Scannen icoon">Scannen</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
@@ -37,7 +37,7 @@
 
 	<div id="content_right">
 
-		<h1><img src="resources/img/lock-icon.png" alt="Beheren icoon">Beheren</h1>
+		<h1><img src="resources/img/lock-icon-big.png" alt="Beheren icoon">Beheren</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
