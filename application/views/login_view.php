@@ -1,8 +1,19 @@
+<div class="content_title">
+
+  <div class="content_title_pattern">
+    <div class="content_title_wrapper">
+
+      <img src="resources/img/lock-icon-big.png" alt="icon">
+      <h1><?php echo $title; ?></h1>
+    
+    </div>  
+  </div>
+
+</div>
+
 <div id="main" role="main">
 	
-	<h1>Login</h1>
-	
-	<?php echo form_open('login');?>
+	<?php echo form_open('auth/login');?>
 	
 	<p>
 		<?php
@@ -18,7 +29,7 @@
 		?>
 	</p>
 	
-	<?php echo form_submit('submit', 'Login'); ?>
+	<?php echo form_submit('submit', 'Aanmelden'); ?>
 	
 	<?php echo form_close(); ?>
 	
@@ -27,4 +38,5 @@
 	</div>
 	
 </div>
+
       

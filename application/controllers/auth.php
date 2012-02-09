@@ -46,11 +46,14 @@ class Auth extends CI_Controller {
 	//log the user in
 	function login()
 	{
-		$this->data['title'] = "Login";
+		$this->data['title'] = "Aanmelden";
 
 		//validate form input
-		$this->form_validation->set_rules('identity', 'Identity', 'required');
+		$this->form_validation->set_rules('identity', 'Identity', 'required|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		$this->form_validation->set_message('required', 'Oops, iets vergeten in te vullen');
+		$this->form_validation->set_message('valid_email', 'Dit is geen geldig e-mailadres');
 
 		if ($this->form_validation->run() == true)
 		{ //check to see if the user is logging in
@@ -73,16 +76,27 @@ class Auth extends CI_Controller {
 		else
 		{  //the user is not logging in so display the login page
 			//set the flash data error message if there is one
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$this->data['message'] = $this->session->flashdata('message');
 
 			$this->data['identity'] = array('name' => 'identity',
 				'id' => 'identity',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('identity'),
 			);
+
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
+			);
+
+			$this->data['remember_checkbox'] = array('name' => 'remember',
+				'id' => 'remember',
+				'type' => 'checkbox',
+				'class' => 'checkbox_remember',
+			);
+
+			$this->data['remember_label'] = array('for' => 'remember',
+				'class' => 'label_remember',
 			);
 			
 			$this->load->view('header');
@@ -169,7 +183,13 @@ class Auth extends CI_Controller {
 	//forgot password
 	function forgot_password()
 	{
-		$this->form_validation->set_rules('email', 'Email Address', 'required');
+		$this->data['title'] = "Wachtwoord vergeten";
+
+		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
+
+		$this->form_validation->set_message('required', 'Oops, iets vergeten in te vullen');
+		$this->form_validation->set_message('valid_email', 'Dit is geen geldig e-mailadres');
+
 		if ($this->form_validation->run() == false)
 		{
 			//setup the input
@@ -177,8 +197,11 @@ class Auth extends CI_Controller {
 				'id' => 'email',
 			);
 			//set any errors and display the form
-			$this->data['message'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('message');
+			$this->data['message'] = /*(validation_errors()) ? validation_errors() :*/ $this->session->flashdata('message');
+
+			$this->load->view('header');
 			$this->load->view('auth/forgot_password', $this->data);
+			$this->load->view('footer');
 		}
 		else
 		{
