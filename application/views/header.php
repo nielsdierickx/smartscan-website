@@ -54,6 +54,7 @@
         <nav id="main_navigation">
           <ul>
             <li><a href="auth/login"><img src="resources/img/lock-icon.png" alt="Aanmelden icoon">Aanmelden</a></li>
+            <li><a href="auth/register"><img src="resources/img/profile-icon.png" alt="Registreren icoon">Registreren</a></li>
           </ul>
         </nav>
 
