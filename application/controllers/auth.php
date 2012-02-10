@@ -114,7 +114,7 @@ class Auth extends CI_Controller {
 		$logout = $this->ion_auth->logout();
 
 		//redirect them back to the page they came from
-		redirect('auth', 'refresh');
+		redirect('login', 'refresh');
 	}
 
 	//change password
@@ -400,7 +400,7 @@ class Auth extends CI_Controller {
 	//register a new user
 	function register()
 	{
-		$this->data['title'] = "Registreer";
+		$this->data['title'] = "Registreren";
 
 		//validate form input
 		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
