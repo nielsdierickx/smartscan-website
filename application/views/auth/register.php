@@ -49,4 +49,7 @@
 
     </div>
 
+    <div class="right-column">
+    </div>
+
 </div>

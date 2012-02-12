@@ -320,7 +320,7 @@ class Auth extends CI_Controller {
 		$this->form_validation->set_rules('phone3', 'Third Part of Phone', 'required|xss_clean|min_length[4]|max_length[4]');
 		$this->form_validation->set_rules('company', 'Company Name', 'required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required|matches[password]');
 
 		if ($this->form_validation->run() == true)
 		{
@@ -405,7 +405,12 @@ class Auth extends CI_Controller {
 		//validate form input
 		$this->form_validation->set_rules('email', 'Email Address', 'required|valid_email');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
-		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required');
+		$this->form_validation->set_rules('password_confirm', 'Password Confirmation', 'required|matches[password]');
+
+		$this->form_validation->set_message('required', 'Oops, iets vergeten in te vullen');
+		$this->form_validation->set_message('valid_email', 'Dit is geen geldig e-mailadres');
+		$this->form_validation->set_message('min_length', 'Moet minstens 8 tekens lang zijn');
+		$this->form_validation->set_message('matches', 'Niet hetzelfde wachtwoord');
 
 		if ($this->form_validation->run() == true)
 		{

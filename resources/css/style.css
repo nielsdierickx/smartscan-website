@@ -227,8 +227,7 @@ div#container {
 
 div#main {
 	margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding: 30px 20px;
 	max-width: 960px;
 	overflow: hidden;
 }
@@ -262,6 +261,7 @@ div#header_inner {
 	margin: 0 auto;
 	max-width: 960px;
 	height: 45px;
+	padding: 0 20px;
 }
 
 div#logo h1 {
@@ -270,7 +270,7 @@ div#logo h1 {
 }
 
 div#logo h1 a{
-	font: bold 12px 'Droid Sans', sans-serif;
+	font: bold 13px 'Droid Sans', sans-serif;
 	color: #e5e5e5;
 	text-decoration: none;
 	line-height: 45px;
@@ -487,10 +487,22 @@ div.content_title_wrapper h1 {
 **************************************************************************** */
 
 .content_background {
+	float: left;
+	background-color: #FFFFFF;
+	overflow: hidden;
+	width: 598px;
+	padding: 30px;
+	border: 1px solid #cacaca;
+}
+
+.right-column {
+	float: right;
+	width: 270px;
+	height: 300px;
+	margin-left: 25px;
 	background-color: #FFFFFF;
 	overflow: hidden;
 	border: 1px solid #cacaca;
-	padding: 30px;
 }
 
 form p {
