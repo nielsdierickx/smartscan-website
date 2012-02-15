@@ -53,7 +53,7 @@
 
         <nav id="main_navigation">
           <ul>
-            <li><a href="#"><img src="resources/img/profile-icon.png" alt="Profiel icoon"><?php echo $username; ?></a></li>
+            <li><a href="<?php echo 'user/' . $username; ?>"><img src="resources/img/profile-icon.png" alt="Profiel icoon"><?php echo $username; ?></a></li>
             <li><a href="logout"><img src="resources/img/lock-icon.png" alt="Afmelden icoon">Afmelden</a></li>
           </ul>
         </nav>
