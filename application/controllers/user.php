@@ -4,18 +4,25 @@ class User extends User_Controller {
 
 	function __construct()
 	{
+		// Check of user is ingelogd in class User_Controller (MY_Controller)
 		parent::__construct();
 	}
 
 	public function index($profile_name)
 	{ 
-		$data['title'] =  $profile_name;
-		$data['profile_name'] =  $profile_name;
-		$data['username'] =  $this->user->username;
+		// Check of naam in url overeenkomt met naam van ingelogde user (anders redirect)
+		if($profile_name == $this->user->username)
+		{
+			$data['title'] =  $profile_name;
+			$data['username'] =  $this->user->username;
 
-		$this->load->view('header_loggedin', $data);
-		$this->load->view('user_view', $data);
-		$this->load->view('footer', $data);
+			$this->load->view('header_loggedin', $data);
+			$this->load->view('user_view', $data);
+			$this->load->view('footer', $data);
+		}
+		else {
+			redirect('/', 'refresh');
+		}
 	
 	}
 }

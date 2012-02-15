@@ -12,14 +12,9 @@
     <div class="content_background">
     
     <?php 
-		if(isset($user) && $username == $profile_name) 
-		{ 
-			echo "username: " . $user->username . "<br/>";
-			echo "e-mail adres: " . $user->email . "<br/>";
-			echo "naam: " . $user->first_name . " " . $user->last_name . "<br/>";
-
-		}
-		else { echo $profile_name;}
+		echo "username: " . $user->username . "<br/>";
+		echo "e-mail adres: " . $user->email . "<br/>";
+		echo "naam: " . $user->first_name . " " . $user->last_name . "<br/>";
  	?>
 
     </div>

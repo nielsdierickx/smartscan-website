@@ -14,7 +14,7 @@ class User_Controller extends CI_Controller {
             $this->load->vars($data);
         }
         else {
-            //redirect('/');
+            redirect('login', 'refresh');
         }
     }
 }
