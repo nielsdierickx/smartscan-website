@@ -53,8 +53,9 @@
 
         <nav id="main_navigation">
           <ul>
-            <li><a href="login"><img src="resources/img/lock-icon.png" alt="Aanmelden icoon">Aanmelden</a></li>
-            <li><a href="register"><img src="resources/img/profile-icon.png" alt="Registreren icoon">Registreren</a></li>
+            <!-- <li><input type="search" placeholder="Zoeken..."></li> -->
+            <li><a href="login"><img src="resources/img/icon-lock-small.png" alt="Aanmelden icoon">Aanmelden</a></li>
+            <li><a href="register"><img src="resources/img/icon-register-small.png" alt="Registreren icoon">Registreren</a></li>
           </ul>
         </nav>
 

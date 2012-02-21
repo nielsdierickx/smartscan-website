@@ -1,7 +1,7 @@
 <div class="content_title">
     <div class="content_title_pattern">
         <div class="content_title_wrapper">
-            <img src="resources/img/lock-icon-big.png" alt="icon">
+            <img src="resources/img/icon-lock.png" alt="icon">
             <h1><?php echo $title; ?></h1>
         </div>  
     </div>
@@ -15,18 +15,18 @@
 
     <div id="infoMessage"><?php echo $message;?></div>
 
-    <p>
+    <p class="form-item">
         <?php
-            echo form_label('E-mail:', 'identity');
+            echo form_label('E-mailadres', 'identity');
             echo form_input($identity);
         ?>
     </p>
 
     <?php echo form_error('identity', '<div class="error">', '</div>'); ?>
 
-    <p>
+    <p class="form-item">
         <?php
-            echo form_label('Wachtwoord:', 'password');
+            echo form_label('Wachtwoord', 'password');
             echo form_input($password);
         ?>
     </p>
@@ -35,7 +35,7 @@
 
     <p><a href="auth/forgot_password">Ik ben mijn wachtwoord vergeten</a></p>
 
-    <p>
+    <p class="form-footer">
 	   <?php 
             echo form_submit('submit', 'Aanmelden');
             echo form_checkbox($remember_checkbox);
@@ -45,6 +45,11 @@
      
     <?php echo form_close();?>
 
+    </div>
+
+    <div class="right-column">
+        <p class="side-header-title">Heb je nog geen account?</p>
+        <p class="form-footer"><a href="register" class="button">Registreer je nu gratis</a></p>
     </div>
 
 </div>
