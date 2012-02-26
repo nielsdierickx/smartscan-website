@@ -45,7 +45,7 @@ $route['login'] = 'auth/login';
 $route['logout'] = 'auth/logout';
 $route['register'] = 'auth/register';
 
-$route['user/(:any)'] = "user/index/$1";
+$route['profile/(:any)'] = "profile/index/$1";
 
 
 /* End of file routes.php */

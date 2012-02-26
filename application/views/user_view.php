@@ -1,7 +1,7 @@
 <div class="content_title">
     <div class="content_title_pattern">
         <div class="content_title_wrapper">
-            <img src="resources/img/lock-icon-big.png" alt="icon">
+            <img src="resources/img/icon-register.png" alt="icon">
             <h1><?php echo $title; ?></h1>
         </div>  
     </div>
