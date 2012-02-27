@@ -177,14 +177,14 @@ nav#main_navigation li a img {
 
 nav#main_navigation ul li a {
   font-weight: 700;
-  color: #bbbbbb;
+  color: #F0F0ED;
   text-decoration: none;
   line-height: 45px;
   display: block;
 }
 
 nav#main_navigation ul li a:hover {
-  color: #ffffff;
+  color: #5EA1CF;
 }
 
 /* ****************************************************************************
@@ -234,7 +234,7 @@ div#welcome-text {
   width: 918px;
   background-color: #F0F0ED;
   padding: 20px;
-  border: 1px solid #353535;
+  border: 1px solid #3A8AC0;
   overflow: hidden;
 }
 
@@ -409,10 +409,19 @@ div.content_title_wrapper h1 {
   border: 1px solid #cacaca;
 }
 
+.content-right-column {
+  float: right;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  width: 598px;
+  padding: 30px;
+  border: 1px solid #cacaca;
+}
+
 .right-column {
   float: right;
-  width: 210px;
-  margin-left: 25px;
+  width: 208px;
+  margin-left: 30px;
   background-color: #FFFFFF;
   overflow: hidden;
   padding: 30px;
@@ -573,7 +582,132 @@ input[type=submit], .button {
 
 footer {
   background-color: #FFFFFF;
-  height: 800px;
+  height: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+.ac-container{
+  width: 268px;
+  margin-right: 30px;
+  text-align: left;
+  float: left;
+}
+.ac-container label{
+  font-family: 'Droid Sans' sans-serif;
+  font-weight: bold;
+  padding: 5px 20px;
+  position: relative;
+  z-index: 20;
+  display: block;
+  height: 30px;
+  cursor: pointer;
+  color: #FFFFFF;
+  /*text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);*/
+  line-height: 33px;
+  font-size: 14px;
+  background: #B0D2E8;
+  border-top: 1px solid #666666;
+  border-left: 1px solid #666666;
+  border-right: 1px solid #666666;
+  /*box-shadow: 
+    0px 0px 0px 1px rgba(155,155,155,0.3), 
+    1px 0px 0px 0px rgba(255,255,255,0.9) inset, 
+    0px 2px 2px rgba(0,0,0,0.1);*/
+}
+
+.ac-container label:hover{
+  background: #5EA1CF;
+}
+.ac-container input:checked + label,
+.ac-container input:checked + label:hover{
+  background: #5EA1CF;
+  color: #FFFFFF;
+  text-shadow: 0px 1px 1px rgba(255,255,255, 0.6);
+  border-bottom: 1px solid #666666;
+  box-shadow: 
+    0px 0px 0px 1px rgba(155,155,155,0.3), 
+    0px 2px 2px rgba(0,0,0,0.1);
+}
+
+.ac-label-last {
+  border-bottom: 1px solid #666666;
+}
+
+.selected {
+  font-weight: bold;
+}
+
+/*.ac-container label:hover:after,
+.ac-container input:checked + label:hover:after{
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  right: 13px;
+  top: 7px;
+}*/
+
+.ac-container input{
+  display: none;
+}
+.ac-container article{
+  background: rgba(255, 255, 255, 0.5);
+  /*margin-top: -1px;*/
+  margin-bottom: -2px;
+  overflow: hidden;
+  height: 0px;
+  position: relative;
+  z-index: 10;
+  -webkit-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+  -moz-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+  -o-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+  -ms-transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+  transition: height 0.3s ease-in-out, box-shadow 0.6s linear;
+  border: 1px solid #CACACA;
+}
+
+.ac-container article a {
+  display: block;
+  color: #353535;
+  line-height: 24px;
+  font-size: 14px;
+  padding: 10px 20px 10px 20px;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
+  border-top: 1px solid #CACACA
+}
+
+.ac-container article a:first-child {
+  border-top: none;
+}
+
+.ac-container article a:hover {
+  background-color: #DFEDF6;
+}
+
+.ac-container input:checked ~ article{
+  -webkit-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+  -moz-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+  -o-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+  -ms-transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+  transition: height 0.5s ease-in-out, box-shadow 0.1s linear;
+  /*box-shadow: 0px 0px 0px 1px rgba(155,155,155,0.3);*/
+}
+.ac-container input:checked ~ article.ac-two-lines{
+  height: 88px;
+}
+.ac-container input:checked ~ article.ac-one-line{
+  height: 44px;
+}
+.ac-container input:checked ~ article.ac-large{
+  height: 230px;
 }
 
 
