@@ -14,36 +14,51 @@ class Profile extends User_Controller {
 
 	public function index()
 	{ 
-		// Check of naam in url overeenkomt met naam van ingelogde user (anders redirect)
-		// if($profile_name == $this->user->username)
-		// {
-			
+		$data['profile_content'] = $this->load->view('profile/profile-main', '', true);
 
-			$this->load->view('header_loggedin');
-			$this->load->view('profile/profile-master');
-			$this->load->view('footer');
-			
-		// }
-		// else {
-		// 	redirect('/', 'refresh');
-		// }
-	
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');	
+	}
+
+	public function edit()
+	{
+		$data['profile_content'] = $this->load->view('profile/profile-edit', '', true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
+		
 	}
 
 	public function lists()
 	{
-		$this->load->view('profile/profile-lists');
+		$data['profile_content'] = $this->load->view('profile/profile-lists', '', true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
 	}
 
-	public function load_profile()
+	public function newlist()
 	{
-		$this->load->view('profile/profile-main');
+		$data['profile_content'] = $this->load->view('profile/profile-newlist', '', true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
 	}
 
-	public function load_profile_edit()
+	public function transactions()
 	{
-		$this->load->view('profile/profile-edit');
+		$data['profile_content'] = $this->load->view('profile/profile-transactions', '', true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
 	}
+
+	
 
 }
 

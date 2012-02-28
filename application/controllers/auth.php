@@ -66,7 +66,7 @@ class Auth extends CI_Controller {
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
 
 				$name = $this->ion_auth->user()->row()->username;
-				redirect('profile/' . $name, 'refresh');
+				redirect('profile', 'refresh');
 			}
 			else
 			{ //if the login was un-successful

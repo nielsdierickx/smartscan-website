@@ -1,4 +1,4 @@
-Lijstjes
+Nieuwe lijst
 
 <script>
 
@@ -9,9 +9,9 @@ Lijstjes
 
         $('#side-nav').find('a').removeClass('selected');
         $('#side-nav').find('a').removeClass('arrow-selected');
-        $('#side-nav').find('a:eq(4)').removeClass('arrow-default');
-        $('#side-nav').find('a:eq(4)').addClass('selected');
-        $('#side-nav').find('a:eq(4)').addClass('arrow-selected');  	
+        $('#side-nav').find('a:eq(5)').removeClass('arrow-default');
+        $('#side-nav').find('a:eq(5)').addClass('selected');
+        $('#side-nav').find('a:eq(5)').addClass('arrow-selected');  	
   
     });
 

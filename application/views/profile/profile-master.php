@@ -9,64 +9,25 @@
 
 <div id="main" role="main">
 
-    <section class="ac-container">
-        <div>
-            <input id="ac-1" name="accordion-1" type="radio" checked />
-            <label for="ac-1" id="load_profile">Profiel</label>
-            <article class="ac-two-lines">
-                <a href="profile/load_profile" class="selected">Overzicht</a>
-                <a href="profile/load_profile_edit">Bewerken</a>
-            </article>
-        </div>
-        <div>
-            <input id="ac-2" name="accordion-1" type="radio" />
-            <label for="ac-2" id="lists">Lijstjes</label>
-            <article class="ac-two-lines">
-                <a href="profile/lists" id="list-overzicht">Overzicht</a>
-                <a href="profile/list_new">Nieuw</a>
-            </article>
-        </div>
-        <div>
-            <input id="ac-3" name="accordion-1" type="radio" />
-            <label for="ac-3" class="ac-label-last">Aankopen</label>
-            <article class="ac-one-line">
-                <a href="profile/aankopen">Overzicht</a>
-            </article>
-        </div>
-    </section>
+    <nav id="side-nav">
 
-    <div class="content-right-column" id="response">
+        <ul>
+            <li class="side-nav-header"><a href="profile">Profiel</a></li>
+            <li class="side-nav-link"><a href="profile" class="nav-border arrow-default">Overzicht</a></li>
+            <li class="side-nav-link"><a href="profile/edit" class="arrow-default">Bewerken</a></li>
+            <li class="side-nav-header"><a href="profile/lists">Lijstjes</a></li>
+            <li class="side-nav-link"><a href="profile/lists" class="nav-border arrow-default">Overzicht</a></li>
+            <li class="side-nav-link"><a href="profile/newlist" class="arrow-default">Nieuw</a></li>
+            <li class="side-nav-header"><a href="profile/transactions">Aankopen</a></li>
+            <li class="side-nav-link"><a href="profile/transactions" class="nav-border arrow-default">Overzicht</a></li>
+        </ul>
 
-        <?php echo $this->load->view('profile/profile-main'); ?>
+    </nav>
 
+    <div class="content-right-column" id="profile-content">
+        
+        <?php echo $profile_content; ?>
+    
     </div>
 
 </div>
-
-<script>
-    $(document).ready(function(){
-
-        var div = $('div#response');
-
-        $('.ac-container').find('a').on('click', function(e) {
-            var href = $(this).attr('href');
-
-            div.load(href);
-            $('a').removeClass('selected');
-            $(this).addClass('selected');
-
-            e.preventDefault();
-        });
-
-        $('.ac-container').find('label').on('click', function() {
-            var href = $(this).attr('id');
-
-            div.load('profile/' + href);
-            $('a').removeClass('selected');
-
-            // TODO: Eerste link class selected maken
-            $(this).closest('div').next().find('article a:first').addClass('selected');
-
-        });
-    });
-</script>
