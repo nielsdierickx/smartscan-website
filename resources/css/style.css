@@ -657,6 +657,52 @@ nav#side-nav .nav-border {
 }
 
 
+.lists-overview {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #CACACA;
+}
+
+.lists-overview li {
+  display: block;
+  border-bottom: 1px solid #CACACA;
+}
+
+.lists-overview li:nth-child(even) {
+  background-color: #DFEDF6; 
+}
+
+.lists-overview li:last-child {
+  border-bottom: none;
+}
+
+.lists-overview li a {
+  display: block;
+  position: relative;
+  padding: 10px 10px;
+  width: 100%;
+  background-image: url(../img/arrow-default.png);
+  background-position: 93% center;
+  background-repeat: no-repeat;
+  color: #353535;
+}
+
+.lists-overview li a span {
+  position: absolute;
+  right: 80px;
+  width: 30px;
+  background-color: #5EA1CF;
+  text-align: center;
+  color: #FFFFFF;
+  border: 1px solid #353535;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 30px;
+  padding: 0;
+}
 
 
 /* End Primary Styles */
