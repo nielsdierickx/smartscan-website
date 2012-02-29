@@ -4,8 +4,6 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['username'] = 'Anoniem';
-
 		if($this->ion_auth->logged_in())
 		{
 			$user = $this->ion_auth->user()->row();
@@ -16,9 +14,8 @@ class Home extends CI_Controller {
 		{
 			$this->load->view('header');
 		}
-		
 			
-		$this->load->view('home/home_view', $data);
+		$this->load->view('home/landing-page');
 		$this->load->view('footer');	
 	}
 	

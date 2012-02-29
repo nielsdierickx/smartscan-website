@@ -1,8 +1,24 @@
-<?php 
-	echo "username: " . $user->username . "<br/>";
-    echo "e-mail adres: " . $user->email . "<br/>";
-    echo "naam: " . $user->first_name . " " . $user->last_name . "<br/>";
-?>
+<div class="profile-content">
+
+    <img src="resources/img/default_avatar.jpg" alt="avatar">
+    
+    <div id="profile-info">
+
+        <?php 
+            echo "username: " . $user->username . "<br/>";
+            echo "e-mail adres: " . $user->email . "<br/>";
+            echo "naam: " . $user->first_name . " " . $user->last_name . "<br/>";
+        ?>
+
+    </div>  
+
+</div>
+
+<ul class="lists-overview">
+    <li><a href="">Promotie feed?</a></li>
+    <li><a href="">Nu 30% korting op dit product !</a></li>
+    <li><a href="">2 Kopen, 1 gratis !</a></li>
+</ul>
 
 <script>
 

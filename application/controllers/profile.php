@@ -4,7 +4,9 @@ class Profile extends User_Controller {
 
 	function __construct()
 	{
-		// Check of user is ingelogd in class User_Controller (MY_Controller)
+		// Check of user is ingelogd in class User_Controller (core/MY_Controller)
+		// User wordt naar login page geredirect als hij niet is ingelogd
+		// In __construct functie zodat het geldig is op elke functie van deze klasse
 		parent::__construct();
 
 		$data['title'] =  $this->user->first_name . " " . $this->user->last_name;
@@ -14,6 +16,7 @@ class Profile extends User_Controller {
 
 	public function index()
 	{ 
+		// Derde parameter zorgt ervoor dat de view niet in de browser wordt geladen, maar wordt doorgegeven als een string
 		$data['profile_content'] = $this->load->view('profile/profile-main', '', true);
 
 		$this->load->view('header_loggedin');
@@ -57,8 +60,6 @@ class Profile extends User_Controller {
 		$this->load->view('profile/profile-master', $data);
 		$this->load->view('footer');
 	}
-
-	
 
 }
 

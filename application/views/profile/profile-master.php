@@ -24,7 +24,7 @@
 
     </nav>
 
-    <div class="content-right-column" id="profile-content">
+    <div class="content-right-column">
         
         <?php echo $profile_content; ?>
     
