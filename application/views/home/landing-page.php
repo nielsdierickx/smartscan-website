@@ -11,7 +11,7 @@
 		<div id="welcome-text">
 
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor est.</p>
-			<a href="register" class="button-big">Registreer je nu gratis</a>
+			<a href="register" class="button-big button-gradient">Registreer je nu gratis</a>
 
 		</div><!-- end welcome-text -->
 

@@ -84,11 +84,13 @@ class Auth extends CI_Controller {
 				'id' => 'identity',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('identity'),
+				'class' => 'round',
 			);
 
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
+				'class' => 'round',
 			);
 
 			$this->data['remember_checkbox'] = array('name' => 'remember',
@@ -99,6 +101,11 @@ class Auth extends CI_Controller {
 
 			$this->data['remember_label'] = array('for' => 'remember',
 				'class' => 'label_remember',
+			);
+
+			$this->data['submit'] = array('name' => 'submit',
+				'value' => 'Aanmelden',
+				'class' => 'button button-gradient round',
 			);
 			
 			$this->load->view('header');
@@ -481,6 +488,11 @@ class Auth extends CI_Controller {
 				'id' => 'password_confirm',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
+			);
+
+			$this->data['submit'] = array('name' => 'submit',
+				'value' => 'Registreren',
+				'class' => 'button button-gradient round',
 			);
 
 			$this->load->view('header');

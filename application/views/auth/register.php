@@ -43,7 +43,7 @@
 
                 <?php echo form_error('password_confirm', '<div class="error">', '</div>'); ?>
 
-                <p class="form-footer"><?php echo form_submit('submit', 'Registreer');?></p>
+                <p class="form-footer"><?php echo form_submit($submit);?></p>
 
                 <?php echo form_close();?>
 
@@ -51,7 +51,7 @@
 
     <div class="right-column">
         <p class="side-header-title">Heb je nog vragen?</p>
-        <p class="form-footer"><a href="register" class="button">Contacteer ons</a></p>
+        <p class="form-footer"><a href="register" class="button button-gradient round">Contacteer ons</a></p>
     </div>
 
 </div>

@@ -1,3 +1,5 @@
+<input type="search" class="search round" placeholder="Zoeken...">
+
 <ul class="lists-overview">
 	<li><a href="">BBQ<span>20</span></a></li>
 	<li><a href="">Voor de bomma<span>6</span></a></li>

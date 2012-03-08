@@ -7,7 +7,7 @@ class Home extends CI_Controller {
 		if($this->ion_auth->logged_in())
 		{
 			$user = $this->ion_auth->user()->row();
-			$data['username'] = $user->username;
+			$data['email'] = $user->email;
 			$this->load->view('header_loggedin', $data);	
 		}
 		else

@@ -12,9 +12,9 @@
     <nav id="side-nav">
 
         <ul>
-            <li class="side-nav-header"><a href="profile">Profiel</a></li>
+            <li class="side-nav-header"><a href="profile">Dashboard</a></li>
             <li class="side-nav-link"><a href="profile" class="nav-border arrow-default">Overzicht</a></li>
-            <li class="side-nav-link"><a href="profile/edit" class="arrow-default">Bewerken</a></li>
+            <li class="side-nav-link"><a href="profile/edit" class="arrow-default">Profiel Bewerken</a></li>
             <li class="side-nav-header"><a href="profile/lists">Lijstjes</a></li>
             <li class="side-nav-link"><a href="profile/lists" class="nav-border arrow-default">Overzicht</a></li>
             <li class="side-nav-link"><a href="profile/newlist" class="arrow-default">Nieuw</a></li>

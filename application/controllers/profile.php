@@ -11,6 +11,7 @@ class Profile extends User_Controller {
 
 		$data['title'] =  $this->user->first_name . " " . $this->user->last_name;
 		$data['username'] =  $this->user->username;
+		$data['email'] =  $this->user->email;
 		$this->load->vars($data);
 	}
 
@@ -26,7 +27,29 @@ class Profile extends User_Controller {
 
 	public function edit()
 	{
-		$data['profile_content'] = $this->load->view('profile/profile-edit', '', true);
+
+		// $data['voornaam'] =  $this->user->first_name;
+
+		$data['first_name'] = array('name' => 'first_name',
+				'id' => 'first_name',
+				'type' => 'text',
+				'value' => $this->user->first_name,
+				'class' => 'round',
+		);
+
+		$data['last_name'] = array('name' => 'last_name',
+				'id' => 'last_name',
+				'type' => 'text',
+				'value' => $this->user->last_name,
+				'class' => 'round',
+		);
+
+		$data['submit'] = array('name' => 'submit',
+				'value' => 'Wijzigingen opslaan',
+				'class' => 'button button-gradient round',
+			);
+
+		$data['profile_content'] = $this->load->view('profile/profile-edit', $data, true);
 
 		$this->load->view('header_loggedin');
 		$this->load->view('profile/profile-master', $data);
@@ -45,7 +68,14 @@ class Profile extends User_Controller {
 
 	public function newlist()
 	{
-		$data['profile_content'] = $this->load->view('profile/profile-newlist', '', true);
+		$data['list_name'] = array('name' => 'list_name',
+				'id' => 'list_name',
+				'type' => 'text',
+				'placeholder' => 'Typ hier de naam van je lijstje',
+				'class' => 'round',
+		);
+
+		$data['profile_content'] = $this->load->view('profile/profile-newlist', $data, true);
 
 		$this->load->view('header_loggedin');
 		$this->load->view('profile/profile-master', $data);
