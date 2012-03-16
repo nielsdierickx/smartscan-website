@@ -10,7 +10,7 @@
 <div id="main" role="main">
 
     <div class="content_background">
-        <p>Vul hieronder je gegevens in om je te registreren.</p>
+        <p class="register-info">Vul hieronder je gegevens in om je te registreren.</p>
             
             <div id="infoMessage"><?php echo $message;?></div>
             
@@ -18,7 +18,7 @@
 
                 <p class="form-item">
                     <?php
-                        echo form_label('E-mail:', 'email');
+                        echo form_label('E-mail', 'email');
                         echo form_input($email);
                     ?>
                 </p>
@@ -27,7 +27,7 @@
 
                 <p class="form-item">
                     <?php
-                        echo form_label('Wachtwoord:', 'password');
+                        echo form_label('Wachtwoord', 'password');
                         echo form_input($password);
                     ?>
                 </p>
@@ -36,7 +36,7 @@
 
                 <p class="form-item">
                     <?php
-                        echo form_label('Herhaal wachtwoord:', 'password_confirm');
+                        echo form_label('Herhaal wachtwoord', 'password_confirm');
                         echo form_input($password_confirm);
                     ?>
                 </p>
@@ -50,6 +50,19 @@
     </div>
 
     <div class="right-column">
+        <p class="side-header-title">Waarom registreren?</p>
+        
+        <p class="form-footer">
+            <ul>
+                <li>Voordelen</li>
+                <li>Nog een voordeel</li>
+                <li>Nog een voordeel</li>
+            </ul>
+        </p>
+        
+    </div>
+
+    <div class="right-second-column">
         <p class="side-header-title">Heb je nog vragen?</p>
         <p class="form-footer"><a href="register" class="button button-gradient round">Contacteer ons</a></p>
     </div>

@@ -2,13 +2,16 @@
     
     <div id="newlist-header">
 
-    <p id="newlist-name">
+    <div id="newlist-name">
         
 	        <?php
 	            // echo form_label('Naam', 'list_name');
 	            echo form_input($list_name);
 	        ?>
-    </p>
+
+    <!-- <a href="" class="button button-gradient round list-submit">Lijstje bewaren</a> -->
+
+</div>
 
     <div id="shopping-basket"><a href="">Winkelmandje<span>40</span></a>
     	<p id="shopping-basket-price"><a href="">Totaal: €58,50</a></p>

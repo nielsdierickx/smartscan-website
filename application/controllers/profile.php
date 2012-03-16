@@ -46,7 +46,7 @@ class Profile extends User_Controller {
 
 		$data['submit'] = array('name' => 'submit',
 				'value' => 'Wijzigingen opslaan',
-				'class' => 'button button-gradient round',
+				'class' => 'button-accent button-accent-gradient round',
 			);
 
 		$data['profile_content'] = $this->load->view('profile/profile-edit', $data, true);

@@ -105,7 +105,7 @@ class Auth extends CI_Controller {
 
 			$this->data['submit'] = array('name' => 'submit',
 				'value' => 'Aanmelden',
-				'class' => 'button button-gradient round',
+				'class' => 'button-accent button-accent-gradient round',
 			);
 			
 			$this->load->view('header');
@@ -492,7 +492,7 @@ class Auth extends CI_Controller {
 
 			$this->data['submit'] = array('name' => 'submit',
 				'value' => 'Registreren',
-				'class' => 'button button-gradient round',
+				'class' => 'button-accent button-accent-gradient round',
 			);
 
 			$this->load->view('header');
