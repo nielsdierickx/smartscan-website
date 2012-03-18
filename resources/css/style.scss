@@ -1,4 +1,33 @@
-/* HTML5 Boilerplate  */
+
+// SASS - Smartscan Website
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Colors
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+$color: #EE7601; // Orange #EE7601
+$color-light: lighten($color, 10%);
+$color-lightest: lighten($color, 30%);
+$color-dark: darken($color, 10%);
+
+$color-accent: #78B732; // Green #78B732 
+$color-accent-light: lighten($color-accent, 10%);
+$color-accent-lightest: lighten($color-accent, 30%);
+$color-accent-dark: darken($color-accent, 10%);
+
+$color-support: #796155; // Brown #796155
+$color-support-light: lighten($color-support, 10%);
+$color-support-lightest: lighten($color-support, 40%);
+
+$color-back: #E9E0DB; // Brown #E9E0DB
+$color-back-light: lighten($color-back, 10%);
+$color-back-dark: darken($color-back, 10%);
+$color-back-darkest: darken($color-back, 30%);
+
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- HTML5 Boilerplate
+// -----------------------------------------------------------------------------------------------------------------------------------
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
@@ -9,8 +38,8 @@ html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 10
 html, button, input, select, textarea { font-family: sans-serif; color: #222; }
 body { margin: 0; font-size: 1em; line-height: 1.4; }
 
-::-moz-selection { background: #5EA1CF; color: #fff; text-shadow: none; }
-::selection { background: #5EA1CF; color: #fff; text-shadow: none; }
+::-moz-selection { background: $color; color: #fff; text-shadow: none; }
+::selection { background: $color; color: #fff; text-shadow: none; }
 
 abbr[title] { border-bottom: 1px dotted; }
 b, strong { font-weight: bold; }
@@ -60,44 +89,11 @@ td { vertical-align: top; }
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
 
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- Colors
------------------------------------------------------------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- General
+// -----------------------------------------------------------------------------------------------------------------------------------
 
-/* Blue #5EA1CF */
-/* Orange #EE7601 */
-
-$color: #EE7601; 
-$color-light: lighten($color, 10%);
-$color-lightest: lighten($color, 30%);
-$color-dark: darken($color, 10%);
-
-$color-back: #E9E0DB;
-$color-back-light: lighten($color-back, 10%);
-$color-back-dark: darken($color-back, 10%);
-$color-back-darkest: darken($color-back, 30%);
-
-$color-support: #796155;
-$color-support-light: lighten($color-support, 10%);
-$color-support-lightest: lighten($color-support, 40%);
-
-$color-accent: #78B732;
-$color-accent-light: lighten($color-accent, 10%);
-$color-accent-lightest: lighten($color-accent, 30%);
-$color-accent-dark: darken($color-accent, 10%);
-
-$color-second: #353535;
-$color-second-light: lighten($color-second, 10%);
-$color-second-lightest: lighten($color-second, 30%);
-
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- General
------------------------------------------------------------------------------------------------------------------------------------ */
-
-.fl { float: left; }
-.fr { float: right; }
-
-.round {
+@mixin round {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -118,13 +114,13 @@ div#main {
 }
 
 
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- Typography
------------------------------------------------------------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Typography
+// -----------------------------------------------------------------------------------------------------------------------------------
 
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 
-a { color: #5EA1CF; }
+a { color: $color; }
 a:visited { color: $color; }
 a:hover { color: $color-light; }
 a:focus { outline: thin dotted; }
@@ -139,113 +135,90 @@ body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; }
 .bree-serif { font-family: 'Bree Serif', serif;}
 
 
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- Buttons
------------------------------------------------------------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Buttons
+// -----------------------------------------------------------------------------------------------------------------------------------
 
-.button-accent-gradient {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-accent-light), color-stop(100%, $color-accent));
-  background-image: -webkit-linear-gradient(top, $color-accent-light, $color-accent);
-  background-image: -moz-linear-gradient(top, $color-accent-light, $color-accent);
-  background-image: -o-linear-gradient(top, $color-accent-light, $color-accent);
-  background-image: -ms-linear-gradient(top, $color-accent-light, $color-accent);
-  background-image: linear-gradient(top, $color-accent-light, $color-accent);
+@mixin button {
+  @include round;
+  font-weight: bold;
+  color: white !important;
+  line-height: 1 !important;
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px;
+  -webkit-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
+  -moz-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
+  box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
 }
 
-.button-accent-gradient:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-accent-lightest), color-stop(100%, $color-accent));
-  background-image: -webkit-linear-gradient(top, $color-accent-lightest, $color-accent);
-  background-image: -moz-linear-gradient(top, $color-accent-lightest, $color-accent);
-  background-image: -o-linear-gradient(top, $color-accent-lightest, $color-accent);
-  background-image: -ms-linear-gradient(top, $color-accent-lightest, $color-accent);
-  background-image: linear-gradient(top, $color-accent-lightest, $color-accent);
-}
-
-.button-gradient {
+@mixin button-bg {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-light), color-stop(100%, $color));
   background-image: -webkit-linear-gradient(top, $color-light, $color);
   background-image: -moz-linear-gradient(top, $color-light, $color);
   background-image: -o-linear-gradient(top, $color-light, $color);
   background-image: -ms-linear-gradient(top, $color-light, $color);
   background-image: linear-gradient(top, $color-light, $color);
+
+  &:hover {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-lightest), color-stop(100%, $color));
+    background-image: -webkit-linear-gradient(top, $color-lightest, $color);
+    background-image: -moz-linear-gradient(top, $color-lightest, $color);
+    background-image: -o-linear-gradient(top, $color-lightest, $color);
+    background-image: -ms-linear-gradient(top, $color-lightest, $color);
+    background-image: linear-gradient(top, $color-lightest, $color);    
+  }
 }
 
-.button-gradient:hover {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-lightest), color-stop(100%, $color));
-  background-image: -webkit-linear-gradient(top, $color-lightest, $color);
-  background-image: -moz-linear-gradient(top, $color-lightest, $color);
-  background-image: -o-linear-gradient(top, $color-lightest, $color);
-  background-image: -ms-linear-gradient(top, $color-lightest, $color);
-  background-image: linear-gradient(top, $color-lightest, $color);
+@mixin button-bg-accent {
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-accent-light), color-stop(100%, $color-accent));
+  background-image: -webkit-linear-gradient(top, $color-accent-light, $color-accent);
+  background-image: -moz-linear-gradient(top, $color-accent-light, $color-accent);
+  background-image: -o-linear-gradient(top, $color-accent-light, $color-accent);
+  background-image: -ms-linear-gradient(top, $color-accent-light, $color-accent);
+  background-image: linear-gradient(top, $color-accent-light, $color-accent);
+
+  &:hover {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, $color-accent-lightest), color-stop(100%, $color-accent));
+    background-image: -webkit-linear-gradient(top, $color-accent-lightest, $color-accent);
+    background-image: -moz-linear-gradient(top, $color-accent-lightest, $color-accent);
+    background-image: -o-linear-gradient(top, $color-accent-lightest, $color-accent);
+    background-image: -ms-linear-gradient(top, $color-accent-lightest, $color-accent);
+    background-image: linear-gradient(top, $color-accent-lightest, $color-accent);
+  }
 }
 
 .button {
-  font-weight: bold;
+  @include button;
+  @include button-bg;
   padding: 10px 15px;
-  color: white !important;
-  line-height: 1 !important;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 14px;
-  white-space: nowrap;
   border: 1px solid $color-dark;
-  text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px;
-  -webkit-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  -moz-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .button-accent {
-  font-weight: bold;
+  @include button;
+  @include button-bg-accent;
   padding: 10px 15px;
-  color: white !important;
-  line-height: 1 !important;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 14px;
-  white-space: nowrap;
   border: 1px solid $color-accent-dark;
-  text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px;
-  -webkit-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  -moz-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
 }
 
 .button-accent-big {
-  font-weight: bold;
+  @include button;
+  @include button-bg-accent;
   padding: 15px 20px;
-  color: white !important;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
   font-size: 18px;
   border: 1px solid $color-accent-dark;
-  text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px;
-  -webkit-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  -moz-box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  box-shadow: rgba(255,255,255,0.3) 0 1px 0 inset,rgba(0,0,0,0.05) 0 1px 2px;
-  
-  
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-
-  background-position: 95% center;
-  background-repeat: no-repeat; 
 }
 
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- Header
------------------------------------------------------------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Header
+// -----------------------------------------------------------------------------------------------------------------------------------
 
 header {
   height: 55px;
@@ -260,7 +233,7 @@ div#header-nav {
   margin-top: 10px;
   background-color: #353535;
   border-top: 1px solid $color-dark;
-  border-bottom: 1px solid #353535;
+  border-bottom: 1px solid darken(#353535, 30%);
 }
 
 div#header-nav-inner {
@@ -314,25 +287,24 @@ nav#navigation-main ul li a:hover {
   color: $color-light;
 }
 
-/* -----------------------------------------------------------------------------------------------------------------------------------
---- Content
------------------------------------------------------------------------------------------------------------------------------------ */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Content
+// -----------------------------------------------------------------------------------------------------------------------------------
 
-/* ****************************************************************************
---- Landing Page
-**************************************************************************** */
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Landing Page
+// -----------------------------------------------------------------------------------------------------------------------------------
 
 div#landing-header {
   height: 580px;
   border-bottom: 2px solid $color-back;
   overflow: hidden;
-
-  background: #5EA1CF url('../img/right_strip_pattern.png') repeat;
-  background-image: url('../img/right_strip_pattern.png'), -moz-radial-gradient(50% 50%, circle farthest-corner, #F0F0ED, #5EA1CF 40%);
+  background: #FFFFFF url('../img/right_strip_pattern.png') repeat;
+  background-image: url('../img/right_strip_pattern.png'), -moz-radial-gradient(50% 50%, circle farthest-corner, #FFFFFF, #FFFFFF 40%);
   background-image: url('../img/right_strip_pattern.png'), -webkit-radial-gradient(50% 50%, farthest-corner, #FFFFFF, #FFFFFF 40%);
-  background-image: url('../img/right_strip_pattern.png'), -o-radial-gradient(50% 50%, circle farthest-corner, #F0F0ED, #5EA1CF 40%);
-  background-image: url('../img/right_strip_pattern.png'), -ms-radial-gradient(50% 50%, circle farthest-corner, #F0F0ED, #5EA1CF 40%);
-  background-image: url('../img/right_strip_pattern.png'), radial-gradient(50% 50%, circle farthest-corner, #F0F0ED #5EA1CF 40%)
+  background-image: url('../img/right_strip_pattern.png'), -o-radial-gradient(50% 50%, circle farthest-corner, #FFFFFF, #FFFFFF 40%);
+  background-image: url('../img/right_strip_pattern.png'), -ms-radial-gradient(50% 50%, circle farthest-corner, #FFFFFF, #FFFFFF 40%);
+  background-image: url('../img/right_strip_pattern.png'), radial-gradient(50% 50%, circle farthest-corner, #FFFFFF #FFFFFF 40%)
 }
 
 div#welcome {
@@ -342,7 +314,7 @@ div#welcome {
 }
 
 div#welcome-image img {
-  /*margin: 30px 0px*/
+  margin-top: 20px;
 }
 
 div#welcome-text {
@@ -366,11 +338,6 @@ div#welcome-text p {
   margin-top: 25px;
 }
 
-div#welcome-text img {
-  /*margin-left: 10px;*/
-}
-
-
 div#welcome h1, h2{
   float: left;
   color: #e5e5e5;
@@ -389,100 +356,42 @@ div#welcome h2 {
   margin: 20px 50px;
 }
 
-input.banner-button {
-  width: 265px;
-  height: 60px;
-  margin: 70px 90px;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #FFFFFF;
-  border: 1px solid #546870;
-
-    -webkit-border-radius: 12px; 
-    -moz-border-radius: 12px; 
-    border-radius: 12px; 
-  -moz-background-clip: padding; 
-  -webkit-background-clip: padding-box; 
-  background-clip: padding-box;
-
-  background-color: #fba93f;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fba93f), to(#f37037)); 
-  background-image: -webkit-linear-gradient(top, #fba93f, #f37037); 
-  background-image: -moz-linear-gradient(top, #fba93f, #f37037); 
-  background-image: -ms-linear-gradient(top, #fba93f, #f37037); 
-  background-image: -o-linear-gradient(top, #fba93f, #f37037); 
-  background-image: linear-gradient(to bottom, #fba93f, #f37037);
-}
-
-input.banner-button:hover {
-  background-color: #faa73e;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fdb251), to(#ff9001)); 
-  background-image: -webkit-linear-gradient(top, #fdb251, #ff9001); 
-  background-image: -moz-linear-gradient(top, #fba93f, #f37037); 
-  background-image: -ms-linear-gradient(top, #fba93f, #f37037); 
-  background-image: -o-linear-gradient(top, #fba93f, #f37037); 
-  background-image: linear-gradient(to bottom, #fba93f, #f37037);
-}
 
 /* ****************************************************************************
---- Home Content
+--- Landing Page Content
 **************************************************************************** */
 
-div#content_left {
+div.landing-content-box {
   float: left;
-  height: 305px;
-  width: 305px;
-  background-color: #FFFFFF;
-  border: 1px solid $color-support;
-}
-
-div#content_left h1, div#content_left p, div#content_middle h1, div#content_middle p, div#content_right h1, div#content_right p {
+  height: 248px;
+  width: 248px;
   padding: 20px;
+  margin: 0px 15px;
+  background-color: #FFFFFF;
+  border: 1px solid $color-back-dark;
 }
 
-div#content_left h1, div#content_middle h1, div#content_right h1 {
+div.landing-content-box h1 {
   font-family: 'Bree Serif', serif;
   font-weight: 400;
   font-size: 24px;
+  margin-bottom: 30px;
 }
 
-div#content_left h1 img, div#content_middle h1 img, div#content_right h1 img {
+div.landing-content-box h1 img {
   margin-right: 30px;
 }
 
-div#content_middle {
-  float: left;
-  height: 305px;
-  width: 305px;
-  background-color: #FFFFFF;
-  border: 1px solid $color-support;
-  margin: 0px 19px;
-}
-
-div#content_right {
-  float: left;
-  height: 305px;
-  width: 305px;
-  background-color: #FFFFFF;
-  border: 1px solid $color-support;
-}
 
 /* ****************************************************************************
---- Content Title
+--- Content Header
 **************************************************************************** */
 
 div.content_title {
   height: 90px;
   border-bottom: 2px solid $color-support-light;
   overflow: hidden;
-
   background-color: $color-support-lightest;
-  /*background-image: -moz-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
-  background-image: -webkit-radial-gradient(50% 50%, farthest-corner, #4f636b, #2c373c 40%);
-  background-image: -o-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
-  background-image: -ms-radial-gradient(50% 50%, circle farthest-corner, #4f636b, #2c373c 40%);
-  background-image: radial-gradient(50% 50%, circle farthest-corner, #4f636b #2c373c 40%)*/
 }
 
 div.content_title_pattern {
@@ -522,17 +431,13 @@ div.content_title_wrapper h1 {
   overflow: hidden;
   width: 598px;
   padding: 30px;
-  border: 1px solid $color-support-lightest;
+  border: 1px solid $color-back-dark;
 }
 
 .content-right-column {
   float: right;
-  /*background-color: #FFFFFF;*/
   overflow: hidden;
   width: 660px;
-  /*width: 598px;*/
-  /*padding: 30px;*/
-  /*border: 1px solid #cacaca;*/
 }
 
 .right-column {
@@ -542,18 +447,7 @@ div.content_title_wrapper h1 {
   background-color: #FFFFFF;
   overflow: hidden;
   padding: 30px;
-  border: 1px solid $color-support-lightest;
-}
-
-.right-second-column {
-  float: right;
-  margin-top: 20px;
-  width: 208px;
-  margin-left: 30px;
-  background-color: #FFFFFF;
-  overflow: hidden;
-  padding: 30px;
-  border: 1px solid $color-support-lightest;
+  border: 1px solid $color-back-dark;
 }
 
 .side-header-title {
@@ -577,7 +471,7 @@ form p {
   height: 24px;
   line-height: 24px;
 
-  background: $color-dark;
+  background-color: #ed330f;
   border-radius: 3px;
   color: white;
   padding: 2px 15px;
@@ -587,7 +481,7 @@ form p {
 
 .error::before {
     content: "\25C0";
-    color: $color-dark;
+    color: #ed330f;
     position: absolute;
     top: 3px;
     left:-6px;
@@ -826,7 +720,7 @@ input[type=search] {
   height: 45px;
   outline: none;
   padding-left: 20px;
-  background-image: url(../img/ic_zoom.png);
+  background-image: url(../img/search-icon-small.png);
   background-position: 97% center;
   background-repeat: no-repeat;
   color: #353535;
@@ -921,6 +815,15 @@ div#shopping-basket span {
 
 .list-submit {
   margin-top: 20px;
+}
+
+.register-list {
+  list-style: none;
+}
+
+.register-list li {
+  background: url(../img/list-bullet.png) left center no-repeat;
+  padding-left: 20px;
 }
 
 /* -----------------------------------------------------------------------------------------------------------------------------------

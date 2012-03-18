@@ -11,7 +11,7 @@
 		<div id="welcome-text">
 
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor est.</p>
-			<a href="register" class="button-accent-big button-accent-gradient">Registreer je nu gratis</a>
+			<a href="register" class="button-accent-big">Registreer je nu gratis</a>
 
 		</div><!-- end welcome-text -->
 
@@ -22,29 +22,29 @@
 
 <div id="main" role="main">
 		
-	<div id="content_left">
+	<div class="landing-content-box">
 
 		<h1><img src="resources/img/ic_list.png" alt="Plannen icoon">Plannen</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
-	</div>
+	</div><!-- end landing-left -->
 	
-	<div id="content_middle">
+	<div class="landing-content-box">
 
 		<h1><img src="resources/img/ic_zoom.png" alt="Scannen icoon">Scannen</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
-	</div>
+	</div><!-- end landing-middle -->
 
-	<div id="content_right">
+	<div class="landing-content-box">
 
 		<h1><img src="resources/img/ic_graph.png" alt="Beheren icoon">Beheren</h1>
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
-	</div>
+	</div><!-- end landing-right -->
 	
 	
 		

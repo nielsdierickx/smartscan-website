@@ -53,7 +53,7 @@
         <p class="side-header-title">Waarom registreren?</p>
         
         <p class="form-footer">
-            <ul>
+            <ul class="register-list">
                 <li>Voordelen</li>
                 <li>Nog een voordeel</li>
                 <li>Nog een voordeel</li>
@@ -62,9 +62,9 @@
         
     </div>
 
-    <div class="right-second-column">
+    <!-- <div class="right-second-column">
         <p class="side-header-title">Heb je nog vragen?</p>
         <p class="form-footer"><a href="register" class="button button-gradient round">Contacteer ons</a></p>
-    </div>
+    </div> -->
 
 </div>
