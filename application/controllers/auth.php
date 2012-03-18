@@ -105,7 +105,7 @@ class Auth extends CI_Controller {
 
 			$this->data['submit'] = array('name' => 'submit',
 				'value' => 'Aanmelden',
-				'class' => 'button-accent button-accent-gradient round',
+				'class' => 'button-accent',
 			);
 			
 			$this->load->view('header');
@@ -204,6 +204,11 @@ class Auth extends CI_Controller {
 			//setup the input
 			$this->data['email'] = array('name' => 'email',
 				'id' => 'email',
+			);
+
+			$this->data['submit'] = array('name' => 'submit',
+				'value' => 'Reset mijn wachtwoord',
+				'class' => 'button-accent',
 			);
 			//set any errors and display the form
 			$this->data['message'] = /*(validation_errors()) ? validation_errors() :*/ $this->session->flashdata('message');
@@ -492,7 +497,7 @@ class Auth extends CI_Controller {
 
 			$this->data['submit'] = array('name' => 'submit',
 				'value' => 'Registreren',
-				'class' => 'button-accent button-accent-gradient round',
+				'class' => 'button-accent',
 			);
 
 			$this->load->view('header');

@@ -1,15 +1,13 @@
 <div class="content_title">
-    <div class="content_title_pattern">
         <div class="content_title_wrapper">
             <img src="resources/img/icon-lock.png" alt="icon">
             <h1><?php echo $title; ?></h1>
-        </div>  
-    </div>
+        </div>
 </div>
 
 <div id="main" role="main">
 
-    <div class="content_background">
+    <div class="column-left">
     
     <?php echo form_open("auth/login");?>
 
@@ -47,8 +45,8 @@
 
     </div>
 
-    <div class="right-column">
-        <p class="side-header-title">Heb je nog geen account?</p>
+    <div class="column-right">
+        <p class="column-right-title">Heb je nog geen account?</p>
         <p class="form-footer"><a href="register" class="button button-gradient round">Registreer je nu gratis</a></p>
     </div>
 

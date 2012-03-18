@@ -1,16 +1,14 @@
 <div class="content_title">
-    <div class="content_title_pattern">
         <div class="content_title_wrapper">
             <img src="resources/img/icon-register.png" alt="icon">
             <h1><?php echo $title; ?></h1>
-        </div>  
-    </div>
+        </div>
 </div>
 
 <div id="main" role="main">
 
-    <div class="content_background">
-        <p class="register-info">Vul hieronder je gegevens in om je te registreren.</p>
+    <div class="column-left">
+        <p class="form-info">Vul hieronder je gegevens in om je te registreren.</p>
             
             <div id="infoMessage"><?php echo $message;?></div>
             
@@ -49,8 +47,8 @@
 
     </div>
 
-    <div class="right-column">
-        <p class="side-header-title">Waarom registreren?</p>
+    <div class="column-right">
+        <p class="column-right-title">Waarom registreren?</p>
         
         <p class="form-footer">
             <ul class="register-list">

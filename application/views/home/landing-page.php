@@ -45,7 +45,5 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 
 	</div><!-- end landing-right -->
-	
-	
 		
-</div>
+</div><!-- end main -->

@@ -1,10 +1,8 @@
 <div class="content_title">
-    <div class="content_title_pattern">
         <div class="content_title_wrapper">
             <img src="resources/img/icon-register.png" alt="icon">
             <h1><?php echo $title; ?></h1>
-        </div>  
-    </div>
+        </div>
 </div>
 
 <div id="main" role="main">
@@ -24,7 +22,7 @@
 
     </nav>
 
-    <div class="content-right-column">
+    <div class="profile-right-column">
         
         <?php echo $profile_content; ?>
     
