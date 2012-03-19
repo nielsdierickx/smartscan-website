@@ -1,18 +1,11 @@
-<input type="search" class="search round" placeholder="Zoeken...">
+<p class="list-header"><?php echo $listname ?><a href="profile/lists">Overzicht lijstjes</a></p>
 
 <ul class="lists-overview">
-    <?php
-        
-        $i=0;
-        foreach ($lists as $list) {
-                
-            echo '<li><a href="profile/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . '<span>' 
-            . $products[$i] . '</span></a></li>';
-            
-            $i++;   
-        }
+    <?php foreach ($products as $product):?>
 
-    ?>
+        <?php echo '<li><a href="">' . $product->name . '<span>1</span></a></li>'; ?>
+
+    <?php endforeach;?>
 
 </ul>
 

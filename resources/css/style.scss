@@ -103,7 +103,7 @@ td { vertical-align: top; }
 
 div#container {
   background-color: $color-back-light;
-  border-bottom: 2px solid $color-back-dark;
+  border-bottom: 2px solid $color-back;
 }
 
 div#main {
@@ -711,6 +711,27 @@ nav#side-nav .nav-border {
   text-align: center;
   color: #FFFFFF;
   border: 1px solid #353535;
+}
+
+.list-header {
+  padding: 10px 0px 10px 20px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #FFFFFF;
+  background-color: $color;
+  border: 1px solid $color-support-lightest;
+}
+
+.list-header a {
+  float: right;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  color: #FFFFFF;
+  margin-right: 20px;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------

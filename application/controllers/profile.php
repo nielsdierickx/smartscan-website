@@ -59,7 +59,38 @@ class Profile extends User_Controller {
 
 	public function lists()
 	{
-		$data['profile_content'] = $this->load->view('profile/profile-lists', '', true);
+		$this->load->model('lists_model');
+
+		$lists = $this->lists_model->get_all_by_id($this->user->id);
+
+		foreach ($lists as $list) {
+
+			$products[] = $this->lists_model->get_product_count($list->id);
+			
+		 }		
+
+		$data['products'] = $products;
+		$data['lists'] = $lists;
+
+		$data['profile_content'] = $this->load->view('profile/profile-lists', $data, true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
+	}
+
+	public function listDetail($listname)
+	{
+		$this->load->model('lists_model');
+
+		$listname = strtoupper(str_replace("-", " ", $listname));
+
+		$listid = $this->lists_model->get_list_id($listname, $this->user->id);
+
+		$data['products'] = $this->lists_model->get_products($listid);
+		$data['listname'] = $listname;
+
+		$data['profile_content'] = $this->load->view('profile/profile-listdetail', $data, true);
 
 		$this->load->view('header_loggedin');
 		$this->load->view('profile/profile-master', $data);
