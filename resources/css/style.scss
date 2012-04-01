@@ -247,7 +247,7 @@ div#logo h1 {
 }
 
 div#logo h1 a{
-  font: bold 13px 'Droid Sans', sans-serif;
+  font: bold 13px 'Droid Sans' sans-serif;
   color: #e5e5e5;
   text-decoration: none;
   line-height: 45px;
@@ -393,9 +393,9 @@ div#welcome h2 {
 
 div.content_title {
   height: 90px;
-  border-bottom: 2px solid $color-support-light;
+  border-bottom: 2px solid $color-back;
   overflow: hidden;
-  background: $color-support-lightest url('../img/right_strip_pattern.png') repeat;
+  background: url('../img/right_strip_pattern.png') repeat;
 }
 
 div.content_title_wrapper {
@@ -413,9 +413,10 @@ div.content_title_wrapper h1 {
   float: left;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
-  font-size: 24px;
-  color: #FFFFFF;
-  text-shadow: rgba(0, 0, 0, 0.3) 0px -1px 0px;
+  font-size: 20px;
+  color: #555555;
+  // margin-left: 10px;
+  text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -553,7 +554,7 @@ div#infoMessage {
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 input[type=search] {
-  display: block;
+  display: block !important;
   font-family: 'Droid Sans', sans-serif;
   font-weight: 400;
   font-size: 13px;
@@ -714,15 +715,14 @@ nav#side-nav .nav-border {
 }
 
 .list-header {
-  padding: 10px 0px 10px 20px;
-  margin-bottom: 20px;
+  padding: 12px 0px 12px 0px;
+  margin-bottom: 30px;
   font-weight: bold;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
   font-size: 16px;
-  color: #FFFFFF;
-  background-color: $color;
-  border: 1px solid $color-support-lightest;
+  color: #555555;
+  border-bottom: 1px solid $color-support-lightest;
 }
 
 .list-header a {
@@ -730,7 +730,7 @@ nav#side-nav .nav-border {
   font-family: 'Droid Sans', sans-serif;
   font-weight: bold;
   font-size: 13px;
-  color: #FFFFFF;
+  color: $color;
   margin-right: 20px;
 }
 

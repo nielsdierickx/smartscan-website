@@ -1,4 +1,4 @@
-<p class="list-header"><?php echo $listname ?><a href="profile/lists">Overzicht lijstjes</a></p>
+<p class="list-header"><?php echo strtolower($listname) ?><a href="profile/lists">Alle lijstjes</a></p>
 
 <ul class="lists-overview">
     <?php foreach ($products as $product):?>

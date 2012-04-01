@@ -14,6 +14,13 @@ class Lists_model extends CI_Model {
         return $query->result();
     }
 
+    function get_all_by_name($name, $userid)
+    {
+        $this->db->select('*')->from('lists')->where('user_id', $userid)->like('name', $name);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     function get_product_count($listid)
     {
         return $this->db->where('list_id', $listid)->count_all_results('list_details');

@@ -61,22 +61,71 @@ class Profile extends User_Controller {
 	{
 		$this->load->model('lists_model');
 
-		$lists = $this->lists_model->get_all_by_id($this->user->id);
+		if($this->input->is_ajax_request())
+		{
+			try 
+			{
+				$search = $this->input->post('search-lists');
+				
+				if(!$lists = $this->lists_model->get_all_by_name($search, $this->user->id))
+				{
+					throw new Exception('Geen lijstjes gevonden');
+				}
 
-		foreach ($lists as $list) {
+				foreach ($lists as $list) 
+				{
+					$products[] = $this->lists_model->get_product_count($list->id);
+			 	}
 
-			$products[] = $this->lists_model->get_product_count($list->id);
-			
-		 }		
+				$data['products'] = $products;
+				$data['lists'] = $lists;
+			}
+			catch (Exception $e)
+			{
+				$data['feedback'] = $e->getMessage();
+			}
 
-		$data['products'] = $products;
-		$data['lists'] = $lists;
+			echo $this->load->view('ajax/search-lists', $data, true);
+		}
+		else
+		{
+			try 
+			{
+				if($search = $this->input->post('search-lists'))
+				{
+					if(!$lists = $this->lists_model->get_all_by_name($search, $this->user->id))
+					{
+						throw new Exception('Geen lijstjes gevonden');
+					}
+				}
+				else 
+				{
+					if(!$lists = $this->lists_model->get_all_by_id($this->user->id))
+					{
+						throw new Exception('Je hebt nog geen lijstjes');
+					}
+				}
 
-		$data['profile_content'] = $this->load->view('profile/profile-lists', $data, true);
+				foreach ($lists as $list) 
+				{
+					$products[] = $this->lists_model->get_product_count($list->id);
+			 	}		
+				
+				$data['products'] = $products;
+				$data['lists'] = $lists;
 
-		$this->load->view('header_loggedin');
-		$this->load->view('profile/profile-master', $data);
-		$this->load->view('footer');
+			}
+			catch (Exception $e)
+			{
+				$data['feedback'] = $e->getMessage();
+			}
+
+			$data['profile_content'] = $this->load->view('profile/profile-lists', $data, true);
+
+			$this->load->view('header_loggedin');
+			$this->load->view('profile/profile-master', $data);
+			$this->load->view('footer');
+		}
 	}
 
 	public function listDetail($listname)
@@ -91,6 +140,15 @@ class Profile extends User_Controller {
 		$data['listname'] = $listname;
 
 		$data['profile_content'] = $this->load->view('profile/profile-listdetail', $data, true);
+
+		$this->load->view('header_loggedin');
+		$this->load->view('profile/profile-master', $data);
+		$this->load->view('footer');
+	}
+
+	public function productDetail($listname, $product)
+	{
+		$data['profile_content'] = $this->load->view('profile/profile-productdetail', '', true);
 
 		$this->load->view('header_loggedin');
 		$this->load->view('profile/profile-master', $data);
