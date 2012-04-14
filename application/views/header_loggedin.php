@@ -42,8 +42,8 @@
 
                 <nav id="navigation-main">
                     <ul>
-                        <li><a href="profile"><img src="resources/img/icon-register-small.png" alt="Profiel"><?php echo $email; ?></a></li>
-                        <li><a href="logout"><img src="resources/img/icon-lock-small.png" alt="Afmelden">Afmelden</a></li>
+                        <li><a href="profile"><!-- <img src="resources/img/icon-register-small.png" alt="Profiel"> --><?php echo $email; ?> &nbsp; &#x25BE;</a></li>
+                        <!-- <li><a href="logout"><img src="resources/img/icon-lock-small.png" alt="Afmelden">Afmelden</a></li> -->
                     </ul>
                 </nav>
             

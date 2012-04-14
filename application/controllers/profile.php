@@ -69,7 +69,7 @@ class Profile extends User_Controller {
 				
 				if(!$lists = $this->lists_model->get_all_by_name($search, $this->user->id))
 				{
-					throw new Exception('Geen lijstjes gevonden');
+					throw new Exception('Geen lijstjes gevonden voor "' . $this->input->post('search-lists') . '".' . '<br/>Probeer een andere zoekterm.');
 				}
 
 				foreach ($lists as $list) 
@@ -157,6 +157,10 @@ class Profile extends User_Controller {
 
 	public function newlist()
 	{
+		$this->load->model('lists_model');
+
+		$data['categories'] = $this->lists_model->get_categories();
+
 		$data['list_name'] = array('name' => 'list_name',
 				'id' => 'list_name',
 				'type' => 'text',

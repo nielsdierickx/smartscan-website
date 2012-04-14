@@ -219,19 +219,20 @@ body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; }
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 header {
-  height: 55px;
+  height: 50px;
   background: $color url('../img/right_strip_pattern.png') repeat;
 }
 
 div#header-nav {
   position: absolute;
   top: 0px;
-  height: 43px;
   width: 100%;
-  margin-top: 10px;
-  background-color: #353535;
-  border-top: 1px solid $color-dark;
+  margin-top: 8px;
+  background: #353535 url('../img/bg-header.png') repeat-x;
   border-bottom: 1px solid darken(#353535, 30%);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 div#header-nav-inner {
@@ -244,6 +245,7 @@ div#header-nav-inner {
 div#logo h1 {
   float: left;
   height: 45px;
+  font-size: 13px !important;
 }
 
 div#logo h1 a{
@@ -261,6 +263,7 @@ div#logo h1 a span {
 nav#navigation-main, nav#navigation-main ul {
   float: right;
   height: 45px;
+  font-size: 12px;
 }
 
 nav#navigation-main li {
@@ -312,10 +315,19 @@ nav#navigation-main ul li a:hover {
   border: 1px solid $color-back-dark;
 }
 
+.profile-left-column {
+  //width: 268px;
+  width: 150px;
+  margin-right: 30px;
+  text-align: left;
+  float: left;
+}
+
 .profile-right-column {
   float: right;
   overflow: hidden;
-  width: 660px;
+  //width: 660px;
+  width: 750px;
 }
 
 .column-right-title {
@@ -567,6 +579,7 @@ input[type=search] {
 }
 
 .search {
+  float: left;
   width: 660px;
   margin-bottom: 30px;
   height: 45px;
@@ -668,11 +681,39 @@ nav#side-nav .nav-border {
   border-bottom: 1px solid $color-support-lightest;
 }
 
+
+
+
+nav#profile-nav ul li {
+  float: right;
+  background: rgba(233, 224, 219, 0.60);
+  height: 100%;
+}
+
+nav#profile-nav a {
+  display: block;
+  padding: 15px 40px 0px 40px;
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #555555;
+  text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
+}
+
+nav#profile-nav a:hover {
+  background: rgba(238, 118, 1, 0.40);
+}
+
+nav#profile-nav .selected {
+  background: rgba(238, 118, 1, 0.60);
+}
+
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- Profile Lists
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 .lists-overview {
+  clear: both;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -734,11 +775,39 @@ nav#side-nav .nav-border {
   margin-right: 20px;
 }
 
+.feedback {
+  clear: both;
+  line-height: 40px;
+  color: #ed330f;
+}
+
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- Profile New List
 // -----------------------------------------------------------------------------------------------------------------------------------
 
+.newlist-left-column {
+  margin-right: 30px;
+  text-align: left;
+  float: left;
+  width: 268px;
+}
+
+.newlist-right-column {
+  float: right;
+  overflow: hidden;
+  width: 660px;
+}
+
+.newlist {
+  float: right;
+  height: 22px;
+  width: 22px;
+  font-size: 28px;
+  text-align: center;
+}
+
 div#list-categories {
+  clear: both;
   display: block;
   overflow: hidden;
   margin: 0 auto;
@@ -752,11 +821,29 @@ div#list-categories {
 .categories-overview li{
   @include round;
   float: left;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 198px;
   background-color: #FFFFFF;
-  margin: 0px 15px 30px 15px;
+  margin-bottom: 30px;
   border: 1px solid $color-support-lightest;
+}
+
+.categories-overview .category-left {
+  margin-right: 15px;
+}
+
+.categories-overview .category-middle {
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.categories-overview .category-right {
+  margin-left: 15px;
+}
+
+.categories-overview li img {
+  width: 100%;
+  height: 100%;
 }
 
 .categories-overview li a {
@@ -771,7 +858,7 @@ div#list-categories {
 
 div#newlist-header {
   overflow: hidden;
-  margin-bottom: 30px;
+  height: 500px;
   background-color: #FFFFFF;
   padding: 20px;
   border: 1px solid #CACACA;
@@ -788,14 +875,14 @@ div#newlist-name {
 }
 
 div#shopping-basket {
-  float: right;
+  float: left;
   width: 200px;
   color: #353535;
 }
 
 div#shopping-basket a {
   clear: both;
-  float: right;
+  float: left;
   color: #353535;
 }
 
@@ -807,7 +894,7 @@ p#shopping-basket-price {
 }
 
 div#shopping-basket span {
-  margin-left: 20px;
+  margin-right: 20px;
   display: inline-block;
   height: 25px;
   width: 30px;
@@ -829,6 +916,43 @@ div#shopping-basket span {
 .register-list li {
   background: url(../img/list-bullet.png) left center no-repeat;
   padding-left: 20px;
+}
+
+figure {
+  display: block;
+  position: relative;
+  float:left;
+  overflow: hidden;
+}
+
+figcaption {
+  position: absolute;
+  background: rgba(0,0,0,0.75);
+  padding: 10px 20px;
+  
+  width: 100%; 
+
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+}
+
+figcaption p {
+  color: $color;
+  font-weight: bold;
+}
+
+.categories-overview li:hover
+{
+  border: 1px solid $color;
+}
+
+figure:hover figcaption {
+  opacity: 1;
+  left: 0;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------

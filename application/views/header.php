@@ -42,8 +42,8 @@
 
                 <nav id="navigation-main">
                     <ul>
-                        <li><a href="login"><img src="resources/img/icon-lock-small.png" alt="Aanmelden">Aanmelden</a></li>
-                        <li><a href="register"><img src="resources/img/icon-register-small.png" alt="Registreren">Registreren</a></li>
+                        <li><a href="login"><!-- <img src="resources/img/icon-lock-small.png" alt="Aanmelden"> -->Aanmelden</a></li>
+                        <li><a href="register"><!-- <img src="resources/img/icon-register-small.png" alt="Registreren"> -->Registreren</a></li>
                     </ul>
                 </nav>
             

@@ -40,4 +40,11 @@ class Lists_model extends CI_Model {
         return $query->result(); 
     }
 
+    function get_categories()
+    {
+        $this->db->select('*')->from('categories');
+        $query = $this->db->get();
+        return $query->result();  
+    }
+
 }

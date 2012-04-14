@@ -1,41 +1,62 @@
-<form action="" method="post">
-    <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
-    <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
-</form>
+<div class="profile-left-column">
 
-<div id="lists-overview">
+    <!-- <a href="profile/newlist" class="button-accent">Maak nieuwe lijst</a>
 
-    <?php if (isset($feedback)): ?>
-        <div class="feedback">
-            <?php echo $feedback; ?>
-        </div>
-    <?php endif;?>
+    <br/><br/><br/> -->
+
+    <select>
+        <option value="sorteer">Sorteer</option>
+        <option value="naam">Naam</option>
+        <option value="datum">Datum toegevoegd</option>
+        <option value="items">Aantal items</option>
+    </select>
+
+</div>
+
+<div class="profile-right-column">
+
+    <form action="" method="post">
+        <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
+        <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
+    </form>
+
+    <a href="profile/newlist" class="button-accent newlist">+</a>
+
+    <div id="lists-overview">
+
+        <?php if (isset($feedback)): ?>
+            <div class="feedback">
+                <?php echo $feedback; ?>
+            </div>
+        <?php endif;?>
 
 
 
-    <?php if (isset($lists)): ?>
+        <?php if (isset($lists)): ?>
 
-    <ul class="lists-overview">
+        <ul class="lists-overview">
 
-        <?php
-        
-        $i=0;
-
-        foreach ($lists as $list) 
-        {
-                
-            echo '<li><a href="profile/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
-            '<span>' . $products[$i] . '</span></a></li>';
+            <?php
             
-            $i++;   
-        }
+            $i=0;
 
-        ?>
+            foreach ($lists as $list) 
+            {
+                    
+                echo '<li><a href="profile/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
+                '<span>' . $products[$i] . '</span></a></li>';
+                
+                $i++;   
+            }
 
-    </ul>
+            ?>
 
-    
-    <?php endif;?>
+        </ul>
+
+        
+        <?php endif;?>
+
+    </div>
 
 </div>
 
@@ -43,14 +64,8 @@
 
     $(document).ready(function(){
 
-    	$('#side-nav').find('.side-nav-header').removeClass('selected-header');
-        $('#side-nav').find('.side-nav-header:eq(1)').addClass('selected-header');
-
-        $('#side-nav').find('a').removeClass('selected');
-        $('#side-nav').find('a').removeClass('arrow-selected');
-        $('#side-nav').find('a:eq(4)').removeClass('arrow-default');
-        $('#side-nav').find('a:eq(4)').addClass('selected');
-        $('#side-nav').find('a:eq(4)').addClass('arrow-selected');  	
+        $('#profile-nav').find('a').removeClass('selected');
+        $('#profile-nav').find('a:eq(1)').addClass('selected');
   
     });
 
