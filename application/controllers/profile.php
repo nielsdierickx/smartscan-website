@@ -164,8 +164,7 @@ class Profile extends User_Controller {
 		$data['list_name'] = array('name' => 'list_name',
 				'id' => 'list_name',
 				'type' => 'text',
-				'placeholder' => 'Typ hier de naam van je lijstje',
-				'class' => 'round',
+				'placeholder' => 'Typ hier de naam van je lijstje'
 		);
 
 		$data['profile_content'] = $this->load->view('profile/profile-newlist', $data, true);

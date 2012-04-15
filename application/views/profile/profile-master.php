@@ -17,7 +17,7 @@
         
 </div>
 
-<div id="main" role="main">
+<div id="main-profile" role="main">
 
     <?php echo $profile_content; ?>
 

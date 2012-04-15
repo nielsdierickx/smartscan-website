@@ -1,20 +1,17 @@
 <div class="newlist-left-column">
     
     <div id="newlist-header">
+    
+    	<p><span>40</span>Items<p>
 
-	    <!-- <div id="newlist-name">
-	        
-		        <?php
-		            echo form_label('Naam', 'list_name');
-		            echo form_input($list_name);
-		        ?>
+    	<p id="shopping-basket-price">€58,50</p>
 
-		</div> -->
+    	<?php
+       		//echo form_label('Naam', 'list_name');
+      		echo form_input($list_name);
+   		?>
 
-    <div id="shopping-basket">
-    	<a href=""><span>40</span>Winkelmandje</a>
-    	<!-- <p id="shopping-basket-price"><a href="">Totaal: €58,50</a></p> -->
-	</div>
+    	<a href="#" class="button-accent">Bewaar lijstje</a>
 
 	</div>
 
@@ -23,8 +20,6 @@
 <div class="newlist-right-column">
 
 	<div class="profile-content-list">
-    
-    
 
 	<input type="search" class="search round" placeholder="Zoeken...">
 
@@ -45,7 +40,7 @@
             		case 1:
             			echo '	<li class="category-left"><a href="">
 	            					<figure>
-	            						<img src="' . $category->photo . '" alt="' . $category->name . '">
+	            						<img src="' . $category->photo . '" alt="' . $category->name . '" class="round">
 										<figcaption>
 											<p>' . $category->name .'</p>			
 										</figcaption>
@@ -63,7 +58,7 @@
 									</figure>
 								</a></li>';
             			break;
-            			
+
             		case 3:
             			echo '	<li class="category-right"><a href="">
 	            					<figure>
