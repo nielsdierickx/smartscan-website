@@ -6,17 +6,16 @@ class Home extends CI_Controller {
 	{
 		if($this->ion_auth->logged_in())
 		{
-			$user = $this->ion_auth->user()->row();
-			$data['email'] = $user->email;
-			$this->load->view('header_loggedin', $data);	
+			$data['user'] = $this->ion_auth->user()->row();
+			$this->load->view('includes/header-loggedin', $data);	
 		}
 		else
 		{
-			$this->load->view('header');
+			$this->load->view('includes/header');
 		}
 			
 		$this->load->view('home/landing-page');
-		$this->load->view('footer');	
+		$this->load->view('includes/footer');	
 	}
 	
 }

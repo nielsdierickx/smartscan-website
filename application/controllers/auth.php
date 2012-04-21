@@ -108,9 +108,9 @@ class Auth extends CI_Controller {
 				'class' => 'button-accent',
 			);
 			
-			$this->load->view('header');
+			$this->load->view('includes/header');
 			$this->load->view('auth/login', $this->data);
-			$this->load->view('footer');
+			$this->load->view('includes/footer');
 		}
 	}
 
@@ -500,9 +500,9 @@ class Auth extends CI_Controller {
 				'class' => 'button-accent',
 			);
 
-			$this->load->view('header');
+			$this->load->view('includes/header');
 			$this->load->view('auth/register', $this->data);
-			$this->load->view('footer');
+			$this->load->view('includes/footer');
 		}
 	}
 

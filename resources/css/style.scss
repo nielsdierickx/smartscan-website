@@ -102,7 +102,7 @@ td { vertical-align: top; }
 }
 
 div#container {
-  background: $color-back-light url('../img/vegetables-bg.png') center;
+  background: $color-back-light url('../img/vegetables-bg.png') center -250px;
   border-bottom: 2px solid $color-back;
 }
 
@@ -427,16 +427,15 @@ div.content_title_wrapper {
 
 div.content_title_wrapper img {
   float: left;
-  margin: 30px 30px 0px 5px;
+  margin: 43px 30px 0px 0px;
 }
 
 div.content_title_wrapper h1 {
   float: left;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   color: #555555;
-  // margin-left: 10px;
   text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
 }
 
@@ -627,6 +626,12 @@ input[type=search] {
   margin-right: 30px;
 }
 
+.profile-content a {
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 div#profile-info {
   float: left;
   width: 100%;
@@ -742,6 +747,7 @@ nav#profile-nav .selected {
 
 .lists-overview li {
   display: block;
+  position: relative;
   border-bottom: 1px solid $color-support-lightest;
   line-height: 24px;
 }
@@ -752,17 +758,12 @@ nav#profile-nav .selected {
 
 .lists-overview li a {
   display: block;
-  position: relative;
   padding: 10px 20px 10px 20px;
   background-image: url(../img/arrow-default.png);
   background-position: 97% center;
   background-repeat: no-repeat;
   color: #353535;
   background-color: #FFFFFF;
-}
-
-.lists-overview li a:hover {
-  background-color: $color-accent-lightest;
 }
 
 .lists-overview li a span {
@@ -773,6 +774,39 @@ nav#profile-nav .selected {
   text-align: center;
   color: #FFFFFF;
   border: 1px solid #353535;
+}
+
+.lists-overview span.delete {
+  display: none;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 2;
+}
+
+.lists-overview span.delete a{
+  display: block;
+  padding: 10px 20px 10px 20px;
+  background: none;
+}
+
+.lists-overview li a:hover {
+  background-color: $color-accent-lightest;
+  cursor: pointer;
+}
+
+.lists-overview li a:hover + span.delete {
+  display: block;
+  background-color: $color-accent-lightest;
+}
+
+.lists-overview span.delete:hover {
+  display: block;
+}
+
+.lists-overview span.delete:hover a {
+  background-color: #FFFFFF;
+  cursor: pointer;
 }
 
 .list-header {
@@ -925,7 +959,7 @@ div#newlist-header p {
 div#newlist-header a {
   float: left;
   margin-top: 30px;
-  width: 86%;
+  width: 166px;
   text-align: center;
 }
 
@@ -977,12 +1011,61 @@ figure:hover figcaption {
   left: 0;
 }
 
+p.breadcrumb {
+  margin-bottom: 30px;
+}
+
+p.empty {
+  color: #ed330f;
+}
+
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- Footer
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 footer {
   background-color: #e5e5e5;
+}
+
+
+div#dialog-confirm {
+  display: none;
+}
+
+div#dialog-confirm p {
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+div#dialog-buttons {
+  float: right;
+}
+
+div#dialog-buttons a {
+  margin-left: 20px;
+}
+
+#simplemodal-overlay {
+  //background: url('../img/content-bg.png');
+  background: #000000;
+}
+
+#simplemodal-container {
+  background-color: #FFFFFF;
+  border: 1px solid #cacaca;
+  padding: 30px;
+}
+
+#simplemodal-container a.modalCloseImg {
+  background:url('../img/icon-cancel.png') no-repeat; /* adjust url as required */
+  width: 16px;
+  height: 16px;
+  display: inline;
+  z-index: 3200;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  cursor: pointer;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------

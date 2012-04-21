@@ -15,8 +15,8 @@
     foreach ($lists as $list) 
     {
             
-        echo '<li><a href="profile/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
-        '<span>' . $products[$i] . '</span></a></li>';
+        echo '<li><a href="lists/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
+                '<span>' . $products[$i] . '</span></a><span class="delete"><a href=""><img src="resources/img/icon-delete.png" alt="delete"></a></span></li>';
         
         $i++;   
     }
