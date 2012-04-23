@@ -6,9 +6,9 @@
             <nav id="profile-nav">
             
                 <ul>
-                    <li><a href="transactions">Aankopen</a></li>
-                    <li><a href="lists">Lijstjes</a></li>
-                    <li><a href="profile">Profiel</a></li>
+                    <li><a href="transactions"><img src="resources/img/icon-transactions.png"/>Aankopen</a></li>
+                    <li><a href="lists"><img src="resources/img/icon-list.png"/>Lijstjes</a></li>
+                    <li><a href="profile"><img src="resources/img/icon-user.png"/>Profiel</a></li>
                 </ul>
 
             </nav>

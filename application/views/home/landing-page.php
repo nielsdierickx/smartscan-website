@@ -26,7 +26,7 @@
 		
 		<div class="landing-content-box-left">
 
-			<h1><img src="resources/img/ic_list.png" alt="Plannen icoon">Plannen</h1>
+			<h1><img src="resources/img/ic_graph.png" alt="Plannen icoon">Plannen</h1>
 
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor ac neque malesuada consectetur. Pellentesque et molestie sapien. Maecenas accumsan malesuada pellentesque. Aliquam ut viverra metus. Suspendisse vel nunc et lorem faucibus dapibus.</p>
 

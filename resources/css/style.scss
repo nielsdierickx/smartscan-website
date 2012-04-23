@@ -72,7 +72,7 @@ fieldset { border: 0; margin: 0; padding: 0; }
 label { cursor: pointer; }
 legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
 button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
-button, input { line-height: normal; }
+button, input { line-height: normal; outline-color: $color; }
 button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
 button[disabled], input[disabled] { cursor: default; }
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
@@ -103,13 +103,14 @@ td { vertical-align: top; }
 
 div#container {
   background: $color-back-light url('../img/vegetables-bg.png') center -250px;
-  border-bottom: 2px solid $color-back;
+  border-bottom: 1px solid #1E1E1E;
 }
 
 div#main {
   margin: 0 auto;
   padding: 30px 20px;
   max-width: 960px;
+  // min-height: 600px;
   overflow: hidden;
 }
 
@@ -137,7 +138,7 @@ a:link, a:visited, a:active, a:hover { text-decoration: none; }
 
 p { margin: 0;}
 
-body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; }
+body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; background: #353535 url('../img/right_strip_pattern.png') repeat; }
 
 .droid-sans { font-family: 'Droid Sans', sans-serif;}
 .bree-serif { font-family: 'Bree Serif', serif;}
@@ -415,7 +416,6 @@ div#welcome h2 {
 div.content_title {
   height: 90px;
   border-bottom: 2px solid $color-back;
-  overflow: hidden;
   background: $color-back-light url('../img/right_strip_pattern.png') repeat;
 }
 
@@ -423,6 +423,7 @@ div.content_title_wrapper {
   margin: 0 auto;
   line-height: 100px;
   max-width: 960px;
+  height: 100%;
 }
 
 div.content_title_wrapper img {
@@ -437,6 +438,7 @@ div.content_title_wrapper h1 {
   font-size: 18px;
   color: #555555;
   text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
+  height: 100%;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -511,7 +513,7 @@ form p {
   position: absolute;
   top: 6px;
   right: 10px;
-  left: 10px;
+  left: 11px;
   color: #999;
   margin: 0;
   overflow: hidden;
@@ -712,7 +714,9 @@ nav#side-nav .nav-border {
 nav#profile-nav ul li {
   float: right;
   background: rgba(233, 224, 219, 0.60);
-  height: 100%;
+  height: 86px;
+  position: relative;
+  margin-top: 4px;
 }
 
 nav#profile-nav a {
@@ -723,6 +727,17 @@ nav#profile-nav a {
   font-size: 14px;
   color: #555555;
   text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
+  position: relative;
+  height: 72px;
+}
+
+nav#profile-nav img {
+  position: absolute;
+  top: -20px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 nav#profile-nav a:hover {
@@ -731,6 +746,22 @@ nav#profile-nav a:hover {
 
 nav#profile-nav .selected {
   background: rgba(238, 118, 1, 0.60);
+}
+
+nav#profile-nav ul li a.selected:after {
+  background: url('../img/selected-arrow.png');
+  background-repeat:no-repeat;
+  background-position:center;
+  content:"";
+  position:absolute;
+  bottom: -8px;
+  width:15px;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  height:8px;
+  margin:0 auto;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -1024,8 +1055,47 @@ p.empty {
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 footer {
-  background-color: #e5e5e5;
+  height: 100px;
 }
+
+div#footer-inner {
+  margin: 0 auto;
+  max-width: 960px;
+  padding-top: 30px;
+  font-family: 'Bree Serif', serif;
+  font-size: 11px;
+  color: #F0F0ED;
+}
+
+div#footer-inner ul li {
+  list-style: none;
+  float: left;
+  padding: 0 30px;
+  width: 270px;
+}
+
+div#footer-inner li.last {
+  float: right;
+  padding: 0 0 0 0px;
+  width: auto;
+}
+
+div#footer-inner img {
+  float: left;
+  padding-right: 30px;
+}
+
+div#footer-inner p {
+  float: left;
+  width: 220px;
+}
+
+div#footer-inner a {
+  //color: #D74F2C;
+  color: $color;
+}
+
+
 
 
 div#dialog-confirm {
