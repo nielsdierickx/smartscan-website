@@ -161,7 +161,7 @@ class Lists extends User_Controller {
 
 		$this->lists_model->delete_list($listid);
 
-		$this->index();
+		redirect('/lists', 'refresh');
 	}
 }
 

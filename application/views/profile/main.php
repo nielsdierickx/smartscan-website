@@ -8,7 +8,7 @@
             echo "naam: " . $user->first_name . " " . $user->last_name . "<br/>";
         ?>
 
-        <a class="button-accent" href="profile/edit">Wijzig profiel</a>
+        <a class="button-accent edit-profile" href="profile/edit">Wijzig profiel</a>
 
 </div>
 

@@ -1,55 +1,54 @@
-<div class="newlist-left-column">
+<div class="newlist-top">
     
-    <div id="newlist-header">
+	<input type="search" class="search round" placeholder="Zoeken...">
+
+	<div id="newlist-top-basket">
     
     	<p><span>40</span>Items<p>
 
     	<p id="shopping-basket-price">€58,50</p>
 
-    	<?php
-       		//echo form_label('Naam', 'list_name');
-      		echo form_input($list_name);
-   		?>
-
-    	<a href="#" class="button-accent">Bewaar lijstje</a>
-
 	</div>
 
 </div>
 
-<div class="newlist-right-column">
+<div class="newlist-bottom">
+	
+	<p class="breadcrumb"><a href="lists/newlist">Alle producten</a><img class="breadcrumb-bullet" src="resources/img/list-bullet.png" alt="icon"><?php echo $category->name; ?></p>
 
-	<div class="profile-content-list">
+	<?php if ($products): ?>
 
-	<input type="search" class="search round" placeholder="Zoeken...">
+	<ul class="products-overview">
+	    <?php foreach ($products as $product):?>
 
-	<div id="list-categories">
-		
-		<p class="breadcrumb"><a href="lists/newlist">Alle producten</a> &nbsp; > &nbsp; <?php echo $category->name; ?></p>
+	        <?php 
 
-		<?php if ($products): ?>
+	        	echo '<li><img src="' .$product->photo . '" alt="product-photo" /><p>'
+	        	. $product->name . '</p><span>' . $product->price . ' €</span>';
 
-		<ul class="lists-overview">
-		    <?php foreach ($products as $product):?>
+	        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
 
-		        <?php echo '<li><a href="">' . $product->name . '</a></li>'; ?>
+	        	echo '	<span class="addSomeProd">
+						    <input type="text" value="1" class="item_quantity">
+						    <span class="oneMore item_plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
+						    <span class="oneLess item_minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
+						</span>
 
-		    <?php endforeach;?>
-
-		</ul>
-
-		<?php else: ?>
-		
-		<p class="empty">Er zijn nog geen producten toegevoegd aan deze categorie</p>
-
-		<?php endif;?>
+	        			<a href="" class="button-accent">+</a></li>'; 
+	        ?>
 
 
+	    <?php endforeach;?>
 
-	</div>
+	</ul>
+
+	<?php else: ?>
+
+	<p class="products-empty">Er zijn nog geen producten toegevoegd aan deze categorie</p>
+
+	<?php endif;?>
 
 </div>
-
 
 
 

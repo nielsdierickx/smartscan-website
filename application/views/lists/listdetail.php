@@ -1,26 +1,43 @@
-<p class="list-header"><?php echo strtolower($listname) ?><a href="lists">Alle lijstjes</a></p>
+<div class="list-header">
+    <p><?php echo strtolower($listname) ?></p>
+    <a class="button" href="lists">Alle lijstjes</a>
+</div>
 
-<ul class="lists-overview">
-    <?php foreach ($products as $product):?>
+    <?php if ($products): ?>
 
-        <?php echo '<li><a href="">' . $product->name . '<span>1</span></a></li>'; ?>
+	<ul class="products-overview">
+	    <?php foreach ($products as $product):?>
 
-    <?php endforeach;?>
+	        <?php 
 
-</ul>
+	        	echo '<li><img src="' .$product->photo . '" alt="product-photo" /><p>'
+	        	. $product->name . '</p><span>' . $product->price . ' €</span>';
+
+	        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
+
+	        	echo '	<span class="product-amount">' . $product->amount . '</span>
+	        			<span class="product-total-price">' . $product->amount * $product->price .' €</span>
+
+	        			</li>'; 
+	        ?>
+
+
+	    <?php endforeach;?>
+
+	</ul>
+
+	<?php else: ?>
+
+	<p class="products-empty">Er zijn nog geen producten toegevoegd aan deze categorie</p>
+
+	<?php endif;?>
 
 <script>
 
     $(document).ready(function(){
 
-    	$('#side-nav').find('.side-nav-header').removeClass('selected-header');
-        $('#side-nav').find('.side-nav-header:eq(1)').addClass('selected-header');
-
-        $('#side-nav').find('a').removeClass('selected');
-        $('#side-nav').find('a').removeClass('arrow-selected');
-        $('#side-nav').find('a:eq(4)').removeClass('arrow-default');
-        $('#side-nav').find('a:eq(4)').addClass('selected');
-        $('#side-nav').find('a:eq(4)').addClass('arrow-selected');  	
+        $('#profile-nav').find('a').removeClass('selected');
+        $('#profile-nav').find('a:eq(1)').addClass('selected');
   
     });
 

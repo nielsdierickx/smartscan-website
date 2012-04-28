@@ -1,30 +1,21 @@
-<div class="newlist-left-column">
+<div class="newlist-top">
     
-    <div id="newlist-header">
-    
-    	<p><span>40</span>Items<p>
+	<input type="search" class="search round" placeholder="Zoeken...">
+
+	<div id="newlist-top-basket">
 
     	<p id="shopping-basket-price">€58,50</p>
-
-    	<?php
-       		//echo form_label('Naam', 'list_name');
-      		echo form_input($list_name);
-   		?>
-
-    	<a href="#" class="button-accent">Bewaar lijstje</a>
+    	<p><span>40</span>Items<p>
 
 	</div>
 
 </div>
 
-<div class="newlist-right-column">
+<div class="newlist-bottom">
 
-	<div class="profile-content-list">
+	<div class="newlist-left-column">
 
-	<input type="search" class="search round" placeholder="Zoeken...">
-
-	<div id="list-categories">
-		
+			
 		<ul class="categories-overview">
 
 			<?php
@@ -81,10 +72,18 @@
 
 	</div>
 
+	<div class="newlist-right-column">
+
+		<select>
+	        <option value="sorteer">Sorteer</option>
+	        <option value="naam">Naam</option>
+	        <option value="datum">Datum toegevoegd</option>
+	        <option value="items">Aantal items</option>
+    	</select>
+
+	</div>
+
 </div>
-
-
-
 
 <script>
 

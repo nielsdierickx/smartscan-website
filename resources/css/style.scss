@@ -24,6 +24,8 @@ $color-back-light: lighten($color-back, 10%);
 $color-back-dark: darken($color-back, 10%);
 $color-back-darkest: darken($color-back, 30%);
 
+$color-text-white: #e5e5e5;
+
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- HTML5 Boilerplate
@@ -88,41 +90,6 @@ td { vertical-align: top; }
 
 .chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
 
-
-// -----------------------------------------------------------------------------------------------------------------------------------
-// --- General
-// -----------------------------------------------------------------------------------------------------------------------------------
-
-@mixin round {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-
-div#container {
-  background: $color-back-light url('../img/vegetables-bg.png') center -250px;
-  border-bottom: 1px solid #1E1E1E;
-}
-
-div#main {
-  margin: 0 auto;
-  padding: 30px 20px;
-  max-width: 960px;
-  // min-height: 600px;
-  overflow: hidden;
-}
-
-div#main-profile {
-  margin: 0 auto;
-  border-left: 1px solid $color-back;
-  padding: 30px 30px;
-  max-width: 900px;
-  overflow: hidden;
-  background: url('../img/content-bg.png');
-}
-
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- Typography
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -144,6 +111,91 @@ body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; background: #3535
 .bree-serif { font-family: 'Bree Serif', serif;}
 
 // -----------------------------------------------------------------------------------------------------------------------------------
+// --- General
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+@mixin round($radius: 5px) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+div#container {
+  background: $color-back-light url('../img/vegetables-bg.png') center -250px;
+  border-bottom: 1px solid #1E1E1E;
+}
+
+div#main {
+  margin: 0 auto;
+  padding: 30px 20px;
+  max-width: 960px;
+  overflow: hidden;
+}
+
+div#main-profile {
+  margin: 0 auto;
+  border-left: 1px solid $color-back;
+  padding: 30px 30px 200px 30px;
+  max-width: 900px;
+  overflow: hidden;
+  background: url('../img/content-bg.png');
+}
+
+.column-left {
+  float: left;
+  background: url('../img/content-bg.png');
+  overflow: hidden;
+  width: 598px;
+  padding: 30px;
+  border: 1px solid $color-back-dark;
+}
+
+.column-right {
+  float: right;
+  width: 208px;
+  margin-left: 30px;
+  background: url('../img/content-bg.png');
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid $color-back-dark;
+}
+
+.column-right-title {
+  margin-bottom: 20px;
+}
+
+.profile-left-column {
+  width: 120px;
+  margin-right: 30px;
+  text-align: left;
+  float: left;
+}
+
+.profile-right-column {
+  float: right;
+  overflow: hidden;
+  width: 750px;
+}
+
+input[type=text], input[type=password] {
+  display: block;
+  width: 300px;
+  height: 30px;
+  font-family: 'Droid Sans', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #444;
+  border: 1px solid #999;
+  -moz-box-shadow: 0 1px 3px #ddd inset;
+  -webkit-box-shadow: 0 1px 3px #ddd inset;
+  padding-left: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+// -----------------------------------------------------------------------------------------------------------------------------------
 // --- Buttons
 // -----------------------------------------------------------------------------------------------------------------------------------
 
@@ -151,7 +203,7 @@ body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; background: #3535
   @include round;
   font-weight: bold;
   color: white !important;
-  line-height: 1 !important;
+  line-height: 100%;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
   font-size: 14px;
@@ -252,96 +304,83 @@ div#header-nav-inner {
   padding: 0 20px;
 }
 
-div#logo h1 {
-  float: left;
-  height: 45px;
-  font-size: 13px !important;
+div#logo {
+  
+  h1 {
+    float: left;
+    height: 45px;
+    font-size: 13px !important;
+  }
+
+  a {
+    font-weight: bold;
+    color: $color-text-white;
+    text-decoration: none;
+    line-height: 45px;
+    display: block;
+  }
+
+  span {
+    color: $color;
+  }
 }
 
-div#logo h1 a{
-  font: bold 13px 'Droid Sans' sans-serif;
-  color: #e5e5e5;
-  text-decoration: none;
-  line-height: 45px;
-  display: block;
-}
+nav#navigation-main {
 
-div#logo h1 a span {
-  color: $color;
-}
+  ul {
+    float: right;
+    height: 45px;
+    font-size: 12px;
+  }
 
-nav#navigation-main, nav#navigation-main ul {
-  float: right;
-  height: 45px;
-  font-size: 12px;
-}
+  li {
+    float: right;
+    margin-left: 40px;
+  }
 
-nav#navigation-main li {
-  float: right;
-  margin-left: 40px;
-}
+  a {
+    font-weight: 700;
+    color: #F0F0ED;
+    text-decoration: none;
+    line-height: 45px;
+    display: block;
 
-nav#navigation-main li a img {
-  padding-right: 10px;
-  margin-top: -3px;
-}
-
-nav#navigation-main ul li a {
-  font-weight: 700;
-  color: #F0F0ED;
-  text-decoration: none;
-  line-height: 45px;
-  display: block;
-}
-
-nav#navigation-main ul li a:hover {
-  color: $color-light;
+    &:hover {
+      color: $color-light;
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
-// --- Content
+// --- Content Header
 // -----------------------------------------------------------------------------------------------------------------------------------
 
-// -----------------------------------------------------------------------------------------------------------------------------------
-// --- Content General
-// -----------------------------------------------------------------------------------------------------------------------------------
-
-.column-left {
-  float: left;
-  background: url('../img/content-bg.png');
-  overflow: hidden;
-  width: 598px;
-  padding: 30px;
-  border: 1px solid $color-back-dark;
+div.content_title {
+  height: 90px;
+  border-bottom: 2px solid $color-back;
+  background: $color-back-light url('../img/right_strip_pattern.png') repeat;
 }
 
-.column-right {
-  float: right;
-  width: 208px;
-  margin-left: 30px;
-  background: url('../img/content-bg.png');
-  overflow: hidden;
-  padding: 30px;
-  border: 1px solid $color-back-dark;
-}
+div.content_title_wrapper {
+  margin: 0 auto;
+  line-height: 100px;
+  max-width: 960px;
+  height: 100%;
 
-.profile-left-column {
-  //width: 268px;
-  width: 120px;
-  margin-right: 30px;
-  text-align: left;
-  float: left;
-}
+  img {
+    float: left;
+    margin: 43px 30px 0px 0px;
+  }
 
-.profile-right-column {
-  float: right;
-  overflow: hidden;
-  //width: 660px;
-  width: 750px;
-}
-
-.column-right-title {
-  margin-bottom: 20px;
+  h1 {
+    float: left;
+    font-family: 'Bree Serif', serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #555555;
+    text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
+    height: 100%;
+  }
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -364,138 +403,76 @@ div#welcome {
   margin: 0 auto;
   width: 960px;
   text-align: center;
-}
 
-div#welcome-image img {
-  margin-top: 20px;
-}
+  div#welcome-image img {
+    margin-top: 20px;
+  }
 
-div#welcome-text {
-  width: 918px;
-  background-color: $color-back-light;
-  padding: 20px;
-  border: 1px solid $color-back;
-  overflow: hidden;
-  margin-top: -20px;
-}
+  div#welcome-text {
+    width: 918px;
+    background-color: $color-back-light;
+    padding: 20px;
+    border: 1px solid $color-back;
+    overflow: hidden;
+    margin-top: -20px;
 
-div#welcome-text a {
-  float: right;
-}
+    a {
+      float: right;
+    }
 
-div#welcome-text p {
-  float: left;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 18px;
-  margin-top: 20px;
-}
-
-div#welcome h1, h2{
-  float: left;
-  color: #e5e5e5;
-  font-family: 'Droid Sans' sans-serif;
-}
-
-div#welcome h1 {
-  font-size: 36px;
-  margin: 50px;
-}
-
-div#welcome h2 {
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 18px;
-  margin: 20px 50px;
-}
-
-// -----------------------------------------------------------------------------------------------------------------------------------
-// --- Content Header
-// -----------------------------------------------------------------------------------------------------------------------------------
-
-div.content_title {
-  height: 90px;
-  border-bottom: 2px solid $color-back;
-  background: $color-back-light url('../img/right_strip_pattern.png') repeat;
-}
-
-div.content_title_wrapper {
-  margin: 0 auto;
-  line-height: 100px;
-  max-width: 960px;
-  height: 100%;
-}
-
-div.content_title_wrapper img {
-  float: left;
-  margin: 43px 30px 0px 0px;
-}
-
-div.content_title_wrapper h1 {
-  float: left;
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #555555;
-  text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
-  height: 100%;
+    p {
+      float: left;
+      font-family: 'Bree Serif', serif;
+      font-weight: 400;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  }
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 // --- Landing Page Content
 // -----------------------------------------------------------------------------------------------------------------------------------
 
-div#landing-content div {
-  float: left;
-  width: 258px;
-  padding: 20px;
-  background-color: #FFFFFF;
-  border: 1px solid $color-back-dark;
-}
+div#landing-content {
 
-div.landing-content-box-left {
-  margin-right: 15px;
-}
+  h1 {
+    font-family: 'Bree Serif', serif;
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 30px;
 
-div.landing-content-box-middle {
-  margin-left: 15px;
-  margin-right: 15px;
-}
+    img {
+      margin-right: 30px;
+    }
+  }
 
-div.landing-content-box-right {
-  margin-left: 15px;
-}
+  div {
+    float: left;
+    width: 258px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid $color-back-dark;
+  }
 
-div#landing-content h1 {
-  font-family: 'Bree Serif', serif;
-  font-weight: 400;
-  font-size: 24px;
-  margin-bottom: 30px;
-}
+  div.landing-content-box-left {
+    margin-right: 15px;
+  }
 
-div#landing-content h1 img {
-  margin-right: 30px;
+  div.landing-content-box-middle {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  div.landing-content-box-right {
+    margin-left: 15px;
+  }
+
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
-// --- Forms
+// --- Login / Register
 // -----------------------------------------------------------------------------------------------------------------------------------
-
-input[type=text], input[type=password] {
-  display: block;
-  width: 300px;
-  height: 30px;
-  font-family: 'Droid Sans', sans-serif;
-  font-weight: 400;
-  font-size: 13px;
-  color: #444;
-  border: 1px solid #999;
-  -moz-box-shadow: 0 1px 3px #ddd inset;
-  -webkit-box-shadow: 0 1px 3px #ddd inset;
-  padding-left: 10px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-}
 
 form p {
   clear: both;
@@ -506,35 +483,35 @@ form p {
 .form-item {
   position: relative;
   margin-bottom: 30px;
-}
 
-.form-item label {
-  display: block;
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  left: 11px;
-  color: #999;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
+  label {
+    display: block;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    left: 11px;
+    color: #999;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 .form-item-profile {
   padding-bottom: 60px;
-}
 
-.form-item-profile label {
-  float: left;
-  text-align: right;
-  padding-right: 30px;
-  height: 30px;
-  width: 70px;
-  line-height: 30px;
-}
+  label {
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    height: 30px;
+    width: 70px;
+    line-height: 30px;
+  }
 
-.form-item-profile input {
-  float: left;
+  input {
+    float: left;
+  }
 }
 
 .form-footer {
@@ -580,6 +557,19 @@ div#infoMessage {
 
 .form-info {
   margin-bottom: 20px;
+}
+
+.profile-content .button-accent {
+  float: left;
+}
+
+.edit-cancel {
+  float: left !important;
+  margin-left: 30px;
+}
+
+.edit-profile {
+  float: right !important;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -768,6 +758,15 @@ nav#profile-nav ul li a.selected:after {
 // --- Profile Lists
 // -----------------------------------------------------------------------------------------------------------------------------------
 
+.newlist-button {
+  float: right;
+  height: 22px;
+  width: 22px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 100%;
+}
+
 .lists-overview {
   clear: both;
   list-style: none;
@@ -840,24 +839,24 @@ nav#profile-nav ul li a.selected:after {
   cursor: pointer;
 }
 
-.list-header {
-  padding: 12px 0px 12px 0px;
+div.list-header {
+  padding: 0px 0px 50px 0px;
   margin-bottom: 30px;
-  font-weight: bold;
+  border-bottom: 1px solid $color-support-lightest;
+}
+
+.list-header p {
+  float: left;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
+  font-weight: bold;
   font-size: 16px;
+  line-height: 40px;
   color: #555555;
-  border-bottom: 1px solid $color-support-lightest;
 }
 
 .list-header a {
   float: right;
-  font-family: 'Droid Sans', sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  color: $color;
-  margin-right: 20px;
 }
 
 .feedback {
@@ -874,29 +873,35 @@ nav#profile-nav ul li a.selected:after {
 // --- Profile New List
 // -----------------------------------------------------------------------------------------------------------------------------------
 
-.newlist-left-column {
-  margin-right: 30px;
-  text-align: left;
+div.newlist-top {
+  width: 100%;
+  margin-bottom: 30px;
+
+  .search {
+    float: left;
+    width: 632px;
+    border: 1px solid $color-support-lightest;
+  }
+}
+
+div.newlist-bottom {
+  width: 100%;
+}
+
+div.newlist-left-column {
   float: left;
-  width: 240px;
+  width: 632px;
 }
 
-.newlist-right-column {
-  float: right;
-  overflow: hidden;
-  width: 630px;
-}
+div.newlist-right-column {
+  float: left;
+  width: 236px;
+  margin-left: 30px;
 
-.newlist-right-column .search {
-  width: 630px;
-}
-
-.newlist {
-  float: right;
-  height: 22px;
-  width: 22px;
-  font-size: 28px;
-  text-align: center;
+  select {
+    width: 100%;
+    margin-top: 20px;
+  } 
 }
 
 div#list-categories {
@@ -906,148 +911,264 @@ div#list-categories {
   margin: 0 auto;
 }
 
-.categories-overview {
+ul.categories-overview {
   list-style: none;
-  width: 100%;  
-}
-
-.categories-overview li{
-  float: left;
-  height: 150px;
-  width: 186px;
-  background-color: #FFFFFF;
-  margin-bottom: 30px;
-  border: 2px solid $color-support-lightest;
-  overflow: hidden;
-}
-
-.categories-overview .category-left {
-  margin-right: 15px;
-}
-
-.categories-overview .category-middle {
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-.categories-overview .category-right {
-  margin-left: 15px;
-}
-
-.categories-overview li img {
-  position: relative;
-  height: 150px;
-}
-
-.categories-overview li a {
-  display: block;
   width: 100%;
-  height: 100%;
+  margin-top: 20px; 
+
+  li {
+    float: left;
+    height: 150px;
+    width: 186px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    border: 2px solid $color-support-lightest;
+    overflow: hidden;
+
+    &:hover {
+      border: 2px solid $color;
+    }
+
+    figure {
+      display: block;
+      position: relative;
+      float:left;
+      overflow: hidden;
+
+      &:hover figcaption p {
+        color: $color;
+      }
+
+      img {
+        position: relative;
+        height: 150px;
+      }
+    }
+
+    figcaption {
+      position: absolute;
+      background: rgba(0,0,0,0.75);
+      padding: 10px 20px; 
+      width: 100%; 
+      color: $color-text-white;
+      bottom: 0;
+      left: 0;
+
+      p {
+        color: #FFFFFF;
+        font-weight: bold;
+      }
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        background-color: $color-accent-lightest;
+      }
+    }
+  }
+
+  .category-left {
+      margin-right: 15px;
+    }
+
+    .category-middle {
+      margin-right: 15px;
+      margin-left: 15px;
+    }
+
+    .category-right {
+      margin-left: 15px;
+    } 
 }
 
-.categories-overview li a:hover {
-  background-color: $color-accent-lightest;
-}
-
-div#newlist-header {
+div#newlist-top-basket {
   overflow: hidden;
-  height: 188px;
+  float: left;
   background-color: #FFFFFF;
-  padding: 20px;
+  padding: 20px 30px;
   border: 1px solid #CACACA;
-}
+  width: 176px;
+  height: 23px;
+  margin-left: 30px;
 
-div#newlist-header input {
-  float: left;
-  width: 100%;
-  margin-top: 30px;
-  outline-color: $color;
-}
+  p {
+    float: right;
+    line-height: 25px;
+  }
 
-p#shopping-basket-price {
-  float: right !important;
-  color: #353535;
-}
+  p#shopping-basket-price {
+    float: left !important;
+    color: #353535;
+  }
 
-div#newlist-header span {
-  float: left;
-  margin-right: 20px;
-  display: inline-block;
-  height: 25px;
-  width: 30px;
-  line-height: 25px;
-  background-color: $color-accent;
-  text-align: center;
-  color: #FFFFFF;
-  border: 1px solid #353535;
-}
+  a {
+    float: left;
+    margin-top: 30px;
+    width: 166px;
+    text-align: center;
+  }
 
-div#newlist-header p {
-  float: left;
-  line-height: 25px;
-}
-
-div#newlist-header a {
-  float: left;
-  margin-top: 30px;
-  width: 166px;
-  text-align: center;
-}
-
-.list-submit {
-  margin-top: 20px;
-}
-
-.register-list {
-  list-style: none;
-}
-
-.register-list li {
-  background: url(../img/list-bullet.png) left center no-repeat;
-  padding-left: 20px;
-}
-
-figure {
-  display: block;
-  position: relative;
-  float:left;
-  overflow: hidden;
-}
-
-figcaption {
-  position: absolute;
-  background: rgba(0,0,0,0.75);
-  padding: 10px 20px; 
-  width: 100%; 
-  opacity: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transition: all 0.6s ease;
-  -moz-transition:    all 0.6s ease;
-  -o-transition:      all 0.6s ease;
-}
-
-figcaption p {
-  color: $color;
-  font-weight: bold;
-}
-
-.categories-overview li:hover
-{
-  border: 2px solid $color;
-}
-
-figure:hover figcaption {
-  opacity: 1;
-  left: 0;
+  span {
+    float: right;
+    margin-left: 20px;
+    display: inline-block;
+    height: 25px;
+    width: 30px;
+    line-height: 25px;
+    background-color: $color-accent;
+    text-align: center;
+    color: #FFFFFF;
+    border: 1px solid #353535;
+  }
 }
 
 p.breadcrumb {
+  clear: both;
   margin-bottom: 30px;
+
+  a {
+    font-weight: bold;
+  }
 }
 
-p.empty {
+img.breadcrumb-bullet {
+  padding: 0px 10px;
+  margin-top: -2px;
+}
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+// --- Profile New List Products
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+.products-overview {
+  clear: both;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid $color-support-lightest;
+
+  li {
+    display: block;
+    position: relative;
+    border-bottom: 1px solid $color-support-lightest;
+    line-height: 24px;
+    padding: 10px;
+    background-color: #FFFFFF;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    img {
+      width: 100px;
+      margin: 0px 60px 0px 20px;
+    }
+
+    p {
+      display: inline-block;
+      vertical-align: middle;
+      width: 250px;
+    }
+
+    span {
+      font-size: 20px;
+      font-weight: bold;
+      vertical-align: middle;
+    }
+
+    span.product-price-amount {
+      font-size: 11px;
+      font-weight: normal;
+      margin-left: 20px;
+    }
+
+    span.product-amount {
+      float: right;
+      font-size: 16px;
+      margin-top: 10px;
+      margin-right: 45px;
+      display: inline-block;
+      height: 40px;
+      width: 40px;
+      line-height: 25px;
+      background-color: $color-accent;
+      text-align: center;
+      color: #FFFFFF;
+      border: 1px solid #353535;
+      line-height: 40px;
+    }
+
+    span.product-total-price {
+      position: absolute;
+      right: 160px;
+      top: 28px;
+    }
+
+    .button-accent {
+      position: absolute;
+      right: 30px;
+      top: 20px;
+      z-index: 2;
+      width: 20px;
+      font-size: 28px;
+      text-align: center;
+      height: 20px;
+    }
+  }
+}
+
+p.products-empty {
   color: #ed330f;
+}
+
+.addSomeProd {
+  position: absolute;
+  top: 0px;
+  right: 150px;
+  width: 54px;
+  height: 27px;
+  margin-top: 25px;
+
+  input {
+    border: 1px solid $color-support-lightest;
+    color: black;
+    height: 33px;
+    float: left;
+    width: 35px;
+    padding: 5px 2px;
+    text-align: center;
+  }
+
+  .oneMore, .oneLess {
+    border: 1px solid $color-support-lightest;
+    float: right;
+    width: 14px;
+    height: 15px;
+    background: $color-accent;
+
+    a {
+      color: $color-text-white;
+      font-size: 12px;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      height: 100%;
+      line-height: 100%;
+      text-align: center;
+
+      &:hover {
+        background-color: $color-accent-light;
+      }
+    }
+  }
+
+  .oneLess {
+    border-top: none;
+  }
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
@@ -1123,7 +1244,7 @@ div#dialog-buttons a {
 #simplemodal-container {
   background-color: #FFFFFF;
   border: 1px solid #cacaca;
-  padding: 30px;
+  padding: 30px 30px 20px 30px;
 }
 
 #simplemodal-container a.modalCloseImg {

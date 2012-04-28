@@ -16,7 +16,7 @@
         <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
     </form>
 
-    <a href="lists/newlist" class="button-accent newlist">+</a>
+    <a href="lists/newlist" class="button-accent newlist-button">+</a>
 
     <div id="lists-overview">
 
