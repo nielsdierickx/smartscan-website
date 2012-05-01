@@ -3,7 +3,7 @@
 
 $(document).ready(function(){
  
-    $("form input")
+    $(".inline-label")
         .bind("focus.labelFx", function(){
             $(this).prev().hide();
         })

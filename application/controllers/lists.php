@@ -8,6 +8,8 @@ class Lists extends User_Controller {
 		// User wordt naar login page geredirect als hij niet is ingelogd
 		// In __construct functie zodat het geldig is op elke functie van deze klasse
 		parent::__construct();
+
+		$this->load->library('form_validation');
 	}
 
 	public function index()
@@ -54,7 +56,7 @@ class Lists extends User_Controller {
 				}
 				else 
 				{
-					if(!$lists = $this->lists_model->get_all_by_id($this->user->id))
+					if(!$lists = $this->lists_model->get_lists_user($this->user->id))
 					{
 						throw new Exception('Je hebt nog geen lijstjes');
 					}
@@ -75,7 +77,7 @@ class Lists extends User_Controller {
 			}
 
 			$data['content'] = $this->load->view('lists/overview', $data, true);
-			$data['title'] = "Overzicht lijstjes";
+			$data['title'] = "Lijstjes";
 
 			$this->load->view('includes/header-loggedin');
 			$this->load->view('includes/master', $data);
@@ -83,17 +85,15 @@ class Lists extends User_Controller {
 		}
 	}
 
-	public function listDetail($listname)
+	public function listDetail($id)
 	{
 		$this->load->model('lists_model');
 
-		$listname = strtoupper(str_replace("-", " ", $listname));
+		$list = $this->lists_model->get_list_by_id($id);
 
-		$listid = $this->lists_model->get_list_id($listname, $this->user->id);
-
-		$data['products'] = $this->lists_model->get_products($listid);
-		$data['listname'] = $listname;
-		$data['title'] = "Detail " . $listname;
+		$data['products'] = $this->lists_model->get_products($id);
+		$data['listname'] = $list->name;
+		$data['title'] = "Detail lijstje";
 
 		$data['content'] = $this->load->view('lists/listdetail', $data, true);
 
@@ -112,6 +112,50 @@ class Lists extends User_Controller {
 	}
 
 	public function newlist()
+	{
+		$this->form_validation->set_rules('list_name', 'list_name', 'required');
+		$this->form_validation->set_message('required', 'Oops, iets vergeten in te vullen');
+
+		if ($this->form_validation->run() == true)
+		{
+			$this->load->model('lists_model');
+
+			$list = array(
+					'name' => $this->input->post('list_name'),
+					'date_created' => date('Y-m-d h:m:s'),
+					'user_id' => $this->user->id
+				);
+
+			$this->lists_model->insert($list);
+			redirect('/lists/listdetail/' . $this->db->insert_id(), 'refresh');
+
+		}
+		else
+		{
+			$this->data['message'] = $this->session->flashdata('message');
+
+			$data['list_name'] = array('name' => 'list_name',
+					'id' => 'list_name',
+					'type' => 'text',
+					'placeholder' => 'Naam lijstje',
+					'class' => 'round',
+			);
+
+			$data['submit'] = array('name' => 'submit',
+					'value' => 'Lijstje bewaren',
+					'class' => 'button-accent',
+				);
+
+			$data['content'] = $this->load->view('lists/new', $data, true);
+			$data['title'] =  "Nieuw lijstje toevoegen";
+
+			$this->load->view('includes/header-loggedin');
+			$this->load->view('includes/master', $data);
+			$this->load->view('includes/footer');
+		}
+	}
+
+	public function newlist1()
 	{
 		$this->load->model('lists_model');
 
@@ -162,6 +206,15 @@ class Lists extends User_Controller {
 		$this->lists_model->delete_list($listid);
 
 		redirect('/lists', 'refresh');
+	}
+
+	public function removeproduct($id)
+	{
+		$this->load->model('lists_model');
+
+		$this->lists_model->delete_product($id);
+
+		redirect('/lists/listdetail/'. $id, 'refresh');
 	}
 }
 

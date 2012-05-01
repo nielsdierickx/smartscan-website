@@ -497,23 +497,6 @@ form p {
   }
 }
 
-.form-item-profile {
-  padding-bottom: 60px;
-
-  label {
-    float: left;
-    text-align: right;
-    padding-right: 30px;
-    height: 30px;
-    width: 70px;
-    line-height: 30px;
-  }
-
-  input {
-    float: left;
-  }
-}
-
 .form-footer {
   width: 100%;
   border-top: 1px solid #CACACA;
@@ -582,7 +565,7 @@ input[type=search] {
   font-weight: 400;
   font-size: 13px;
   color: #444;
-  border: 1px solid #999;
+  border: 1px solid $color-support-lightest;
   -moz-box-shadow: 0 1px 3px #ddd inset;
   -webkit-box-shadow: 0 1px 3px #ddd inset;
   -moz-box-sizing: border-box;
@@ -705,13 +688,14 @@ nav#profile-nav ul li {
   float: right;
   background: rgba(233, 224, 219, 0.60);
   height: 86px;
+  width: 120px;
   position: relative;
   margin-top: 4px;
 }
 
 nav#profile-nav a {
   display: block;
-  padding: 15px 40px 0px 40px;
+  padding: 15px 0px 0px 0px;
   font-family: 'Bree Serif', serif;
   font-weight: 400;
   font-size: 14px;
@@ -719,6 +703,7 @@ nav#profile-nav a {
   text-shadow: rgba(255, 255, 255, 0.3) 0px -1px 0px;
   position: relative;
   height: 72px;
+  text-align: center;
 }
 
 nav#profile-nav img {
@@ -857,6 +842,7 @@ div.list-header {
 
 .list-header a {
   float: right;
+  margin-left: 30px;
 }
 
 .feedback {
@@ -902,6 +888,23 @@ div.newlist-right-column {
     width: 100%;
     margin-top: 20px;
   } 
+}
+
+.form-item-newlist {
+  padding-bottom: 30px;
+
+  label {
+    float: left;
+    text-align: right;
+    padding-right: 30px;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+  }
+
+  input {
+    float: left;
+  }
 }
 
 div#list-categories {
@@ -1075,7 +1078,7 @@ img.breadcrumb-bullet {
     }
 
     span {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: bold;
       vertical-align: middle;
     }
@@ -1087,25 +1090,90 @@ img.breadcrumb-bullet {
     }
 
     span.product-amount {
-      float: right;
-      font-size: 16px;
-      margin-top: 10px;
-      margin-right: 45px;
-      display: inline-block;
-      height: 40px;
-      width: 40px;
-      line-height: 25px;
-      background-color: $color-accent;
-      text-align: center;
-      color: #FFFFFF;
-      border: 1px solid #353535;
-      line-height: 40px;
+      position: absolute;
+      top: 25px;
+      right: 120px;
+      width: 54px;
+      height: 27px;
+
+      input {
+        border: 1px solid $color-support-lightest;
+        color: black;
+        height: 33px;
+        float: left;
+        width: 35px;
+        padding: 5px 2px;
+        text-align: center;
+      }
+
+      .product-plus, .product-minus {
+        border: 1px solid $color-support-lightest;
+        float: right;
+        width: 14px;
+        height: 15px;
+        background: $color-accent;
+
+        a {
+          color: $color-text-white;
+          font-size: 12px;
+          font-weight: bold;
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 100%;
+          text-align: center;
+
+          &:hover {
+            background-color: $color-accent-light;
+          }
+        }
+      }
+    }
+
+    span.delete {
+      //display: none;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      z-index: 2;
+
+      a {
+        display: block;
+        background: none;
+        padding: 30px;
+      }
+
+      img {
+        width: 16px;
+        margin: 0px;
+      }
+    }
+
+    .lists-overview li a:hover {
+      background-color: $color-accent-lightest;
+      cursor: pointer;
+    }
+
+    .lists-overview li a:hover + span.delete {
+      display: block;
+      background-color: $color-accent-lightest;
+    }
+
+    .lists-overview span.delete:hover {
+      display: block;
+    }
+
+    .lists-overview span.delete:hover a {
+      background-color: #FFFFFF;
+      cursor: pointer;
     }
 
     span.product-total-price {
       position: absolute;
-      right: 160px;
+      display: none;
+      right: 60px;
       top: 28px;
+      font-size: 14px;
     }
 
     .button-accent {
@@ -1123,6 +1191,17 @@ img.breadcrumb-bullet {
 
 p.products-empty {
   color: #ed330f;
+}
+
+p.products-total-price {
+  float: right;
+  margin: 20px 30px 0px 0px;
+
+  span {
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 14px;
+  }
 }
 
 .addSomeProd {

@@ -8,10 +8,17 @@ class Lists_model extends CI_Model {
         $this->load->database();
     }
     
-    function get_all_by_id($id)
+    function get_lists_user($id)
     {
         $query = $this->db->get_where('lists', array('user_id' => $id));
         return $query->result();
+    }
+
+    function get_list_by_id($id)
+    {
+        $this->db->select('*')->from('lists')->where('id', $id)->limit(1);
+        $query = $this->db->get();
+        return $query->row(); 
     }
 
     function get_all_by_name($name, $userid)
@@ -35,7 +42,7 @@ class Lists_model extends CI_Model {
 
     function get_products($listid)
     {
-        $this->db->select('*')->from('list_details')->where('list_id', $listid)->join('products', 'products.id = list_details.product_id');
+        $this->db->select('list_details.id as listdetailid, list_details.list_id, list_details.amount, products.*')->from('list_details')->where('list_id', $listid)->join('products', 'products.id = list_details.product_id');
         $query = $this->db->get();
         return $query->result(); 
     }
@@ -64,6 +71,16 @@ class Lists_model extends CI_Model {
     function delete_list($listid)
     {
         $this->db->delete('lists', array('id' => $listid)); 
+    }
+
+    function delete_product($id)
+    {
+        $this->db->delete('list_details', array('id' => $id)); 
+    }
+
+    function insert($list)
+    {
+        $this->db->insert('lists', $list);
     }
 
 }

@@ -14,7 +14,7 @@
 
 <div class="newlist-bottom">
 	
-	<p class="breadcrumb"><a href="lists/newlist">Alle producten</a><img class="breadcrumb-bullet" src="resources/img/list-bullet.png" alt="icon"><?php echo $category->name; ?></p>
+	<p class="breadcrumb"><a href="products">Alle producten</a><img class="breadcrumb-bullet" src="resources/img/list-bullet.png" alt="icon"><?php echo $category->name; ?></p>
 
 	<?php if ($products): ?>
 
@@ -57,7 +57,7 @@
     $(document).ready(function(){
 
     	$('#profile-nav').find('a').removeClass('selected');
-        $('#profile-nav').find('a:eq(1)').addClass('selected');
+        $('#profile-nav').find('a:eq(2)').addClass('selected');
   
     });
 

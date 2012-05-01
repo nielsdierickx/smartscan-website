@@ -39,7 +39,7 @@
             foreach ($lists as $list) 
             {
                     
-                echo '<li><a href="lists/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
+                echo '<li><a href="lists/listdetail/' . $list->id . '">' . $list->name . 
                 '<span class="productcount">' . $products[$i] . '</span></a><span class="delete"><a href="'.$list->name.'"><img src="resources/img/icon-delete.png" alt="delete"></a></span></li>';
                 
                 $i++;   
@@ -96,10 +96,6 @@
 
             $("#dialog-confirm").modal({overlayClose:true});
             $("#dialog-confirm").show(); 
-        });
-
-        $(".delete a").hover(function(){
-            $(this).parent().parent().css('background-color', 'red');
         });
     });
 

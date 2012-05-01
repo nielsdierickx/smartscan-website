@@ -23,7 +23,7 @@
     $(document).ready(function(){
 
         $('#profile-nav').find('a').removeClass('selected');
-        $('#profile-nav').find('a:eq(2)').addClass('selected');
+        $('#profile-nav').find('a:eq(3)').addClass('selected');
   
     });
 

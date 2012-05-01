@@ -84,13 +84,13 @@ class Auth extends CI_Controller {
 				'id' => 'identity',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('identity'),
-				'class' => 'round',
+				'class' => 'inline-label',
 			);
 
 			$this->data['password'] = array('name' => 'password',
 				'id' => 'password',
 				'type' => 'password',
-				'class' => 'round',
+				'class' => 'inline-label',
 			);
 
 			$this->data['remember_checkbox'] = array('name' => 'remember',
@@ -463,6 +463,7 @@ class Auth extends CI_Controller {
 				'id' => 'email',
 				'type' => 'text',
 				'value' => $this->form_validation->set_value('email'),
+				'class' => 'inline-label',
 			);
 			$this->data['company'] = array('name' => 'company',
 				'id' => 'company',
@@ -488,11 +489,13 @@ class Auth extends CI_Controller {
 				'id' => 'password',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password'),
+				'class' => 'inline-label',
 			);
 			$this->data['password_confirm'] = array('name' => 'password_confirm',
 				'id' => 'password_confirm',
 				'type' => 'password',
 				'value' => $this->form_validation->set_value('password_confirm'),
+				'class' => 'inline-label',
 			);
 
 			$this->data['submit'] = array('name' => 'submit',
