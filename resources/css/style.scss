@@ -758,70 +758,70 @@ nav#profile-nav ul li a.selected:after {
   margin: 0;
   padding: 0;
   border: 1px solid $color-support-lightest;
-}
 
-.lists-overview li {
-  display: block;
-  position: relative;
-  border-bottom: 1px solid $color-support-lightest;
-  line-height: 24px;
-}
+  li {
+    display: block;
+    position: relative;
+    border-bottom: 1px solid $color-support-lightest;
+    line-height: 24px;
 
-.lists-overview li:last-child {
-  border-bottom: none;
-}
+    &:last-child {
+      border-bottom: none;
+    }
 
-.lists-overview li a {
-  display: block;
-  padding: 10px 20px 10px 20px;
-  background-image: url(../img/arrow-default.png);
-  background-position: 97% center;
-  background-repeat: no-repeat;
-  color: #353535;
-  background-color: #FFFFFF;
-}
+    a {
+      display: block;
+      padding: 10px 20px 10px 20px;
+      background-image: url(../img/arrow-default.png);
+      background-position: 97% center;
+      background-repeat: no-repeat;
+      color: #353535;
+      background-color: #FFFFFF;
 
-.lists-overview li a span {
-  position: absolute;
-  right: 60px;
-  width: 30px;
-  background-color: $color-accent;
-  text-align: center;
-  color: #FFFFFF;
-  border: 1px solid #353535;
-}
+      &:hover {
+        background-color: $color-accent-lightest;
+        cursor: pointer;
 
-.lists-overview span.delete {
-  display: none;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  z-index: 2;
-}
+        & + form span.delete {
+          display: block;
+          background-color: $color-accent-lightest;
+        }
+      }
 
-.lists-overview span.delete a{
-  display: block;
-  padding: 10px 20px 10px 20px;
-  background: none;
-}
+      span {
+        position: absolute;
+        right: 60px;
+        width: 30px;
+        background-color: $color-accent;
+        text-align: center;
+        color: #FFFFFF;
+        border: 1px solid #353535;
+      }
+    }
+  }
 
-.lists-overview li a:hover {
-  background-color: $color-accent-lightest;
-  cursor: pointer;
-}
+  span.delete {
+    display: none;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 2;
 
-.lists-overview li a:hover + span.delete {
-  display: block;
-  background-color: $color-accent-lightest;
-}
+    &:hover {
+      display: block;
 
-.lists-overview span.delete:hover {
-  display: block;
-}
+      & a {
+        background-color: none;
+        cursor: pointer; 
+      }
+    }
 
-.lists-overview span.delete:hover a {
-  background-color: #FFFFFF;
-  cursor: pointer;
+    .delete-button{
+      background: url('../img/icon-delete.png') no-repeat center center;
+      border: none;
+      padding: 15px 25px;
+    }
+  }
 }
 
 div.list-header {
@@ -1044,7 +1044,7 @@ img.breadcrumb-bullet {
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------
-// --- Profile New List Products
+// --- List Detail
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 .products-overview {
@@ -1137,10 +1137,10 @@ img.breadcrumb-bullet {
       top: 0px;
       z-index: 2;
 
-      a {
-        display: block;
-        background: none;
-        padding: 30px;
+      .delete-button {
+        background: url('../img/icon-delete.png') no-repeat center 55%;
+        border: none;
+        padding: 32px 40px;
       }
 
       img {
@@ -1300,23 +1300,26 @@ div#footer-inner a {
 
 div#dialog-confirm {
   display: none;
-}
 
-div#dialog-confirm p {
-  margin-bottom: 50px;
-  font-weight: bold;
+  p {
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #cacaca;
+  }
 }
 
 div#dialog-buttons {
   float: right;
+
+  a, .button-accent {
+    margin-left: 20px;
+    outline: none;
+  }
 }
 
-div#dialog-buttons a {
-  margin-left: 20px;
-}
 
 #simplemodal-overlay {
-  //background: url('../img/content-bg.png');
   background: #000000;
 }
 
@@ -1328,8 +1331,8 @@ div#dialog-buttons a {
 
 #simplemodal-container a.modalCloseImg {
   background:url('../img/icon-cancel.png') no-repeat; /* adjust url as required */
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   display: inline;
   z-index: 3200;
   position: absolute;

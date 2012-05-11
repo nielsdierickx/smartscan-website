@@ -4,8 +4,14 @@
 
 	<div id="newlist-top-basket">
 
-    	<p id="shopping-basket-price">€58,50</p>
-    	<p><span>40</span>Items<p>
+		<?php if (isset($list)): ?>
+
+			<?php echo $list->name; ?>
+
+		<?php endif; ?>
+
+    	<!-- <p id="shopping-basket-price">€58,50</p>
+    	<p><span>40</span>Items<p> -->
 
 	</div>
 
@@ -29,35 +35,53 @@
             	switch($i)
             	{
             		case 1:
-            			echo '	<li class="category-left"><a href="lists/category/' . $category->id . '">
-	            					<figure>
-	            						<img src="' . $category->photo . '" alt="' . $category->name . '" class="round">
-										<figcaption>
-											<p>' . $category->name .'</p>			
-										</figcaption>
-									</figure>
+            			echo 	'<li class="category-left"><a href="products/category/' . $category->id . ''; 
+	            				
+	            				if (isset($list)) { echo "/" . $list->id; }
+
+						echo '">';
+
+
+	            		echo	'<figure>
+	            					<img src="' . $category->photo . '" alt="' . $category->name . '" class="round">
+									<figcaption>
+										<p>' . $category->name .'</p>			
+									</figcaption>
+								</figure>
 								</a></li>';
             			break;
 
             		case 2:
-            			echo '	<li class="category-middle"><a href="lists/category/' . $category->id . '">
-	            					<figure>
-	            						<img src="' . $category->photo . '" alt="' . $category->name . '">
-										<figcaption>
-											<p>' . $category->name .'</p>			
-										</figcaption>
-									</figure>
+            			echo 	'<li class="category-middle"><a href="products/category/' . $category->id . ''; 
+	            				
+	            				if (isset($list)) { echo "/" . $list->id; }
+
+						echo '">';
+
+
+	            		echo	'<figure>
+	            					<img src="' . $category->photo . '" alt="' . $category->name . '" class="round">
+									<figcaption>
+										<p>' . $category->name .'</p>			
+									</figcaption>
+								</figure>
 								</a></li>';
             			break;
 
             		case 3:
-            			echo '	<li class="category-right"><a href="lists/category/' . $category->id . '">
-	            					<figure>
-	            						<img src="' . $category->photo . '" alt="' . $category->name . '">
-										<figcaption>
-											<p>' . $category->name .'</p>			
-										</figcaption>
-									</figure>
+            			echo 	'<li class="category-right"><a href="products/category/' . $category->id . ''; 
+	            				
+	            				if (isset($list)) { echo "/" . $list->id; }
+
+						echo '">';
+
+
+	            		echo	'<figure>
+	            					<img src="' . $category->photo . '" alt="' . $category->name . '" class="round">
+									<figcaption>
+										<p>' . $category->name .'</p>			
+									</figcaption>
+								</figure>
 								</a></li>';
             			break;
             	}

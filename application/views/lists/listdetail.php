@@ -1,57 +1,85 @@
 <div class="list-header">
-    <p><?php echo $listname ?></p>
+
+    <p><?php echo $list->name ?></p>
     <a class="button" href="lists">Alle lijstjes</a>
-    <a class="button-accent" href="products">Product toevoegen</a>
+    <?php echo '<a class="button-accent" href="products/index/' . $list->id . '">Product toevoegen</a>'; ?>
+
 </div>
 
-    <?php if ($products): ?>
 
-	<ul class="products-overview">
+<?php if ($products): ?>
 
-		<?php $total = 0;?>
+<ul class="products-overview">
 
-	    <?php foreach ($products as $product):?>
+	<?php $total = 0;?>
 
-	        <?php 
+    <?php foreach ($products as $product):?>
 
-	        	echo '<li><img src="' .$product->photo . '" alt="product-photo" /><p>'
-	        	. $product->name . '</p><span>' . $product->price . ' €</span>';
+    	<li>
 
-	        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
+        <?php 
 
-	        	echo '	<span class="product-total-price">' . $product->amount * $product->price .' €</span>
-	        			<span class="product-amount">
-						    <input type="text" value="' . $product->amount .'" class="item_quantity">
-						    <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
-						    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
-						</span>
+        	echo '<img src="' .$product->photo . '" alt="product-photo" /><p>' . $product->name . '</p><span>' . $product->price . ' €</span>';
 
-	        			<span class="delete"><a href="lists/removeproduct/' . $product->listdetailid . '"><img src="resources/img/icon-delete.png" alt="delete"></a></span>
+        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
 
-	        			</li>';
+        	echo '<span class="product-total-price">' . $product->amount * $product->price .' €</span>';
 
-	        	$total += $product->amount * $product->price; 
-	        ?>
+     	?>
 
+     	<?php echo form_open();?>
 
-	    <?php endforeach;?>
+     		<span class="product-amount">
 
-	</ul>
+			    <?php echo '<input type="text" value="' . $product->amount . '">'; ?>
+			    
+			    <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
+			    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
 
-	<?php echo '<p class="products-total-price">Totaal: <span>' . $total . ' €</span></p>'; ?>
+			</span>
 
-	<?php else: ?>
+			<span class="delete">
 
-	<p class="products-empty">Er zijn nog geen producten toegevoegd aan dit lijstje</p>
+				<?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $product->listdetailid . '">'; ?>
+        		<?php echo '<input type="submit" id="delete-button-' . $product->listdetailid . '" name="' . $product->name . '" class="delete-button" value="">'; ?>
 
-	<?php endif;?>
+        	</span>
 
-	<div id="dialog-confirm">
-        <p>Weet u zeker dat u het product "<span id="listname"></span>" wilt verwijderen?</p>
+     	<?php echo form_close();?>
+
+        </li>		
+
+        <?php $total += $product->amount * $product->price; ?>
+
+    <?php endforeach;?>
+
+</ul>
+
+<?php echo '<p class="products-total-price">Totaal: <span>' . $total . ' €</span></p>'; ?>
+
+<?php else: ?>
+
+<p class="products-empty">Er zijn nog geen producten toegevoegd aan dit lijstje</p>
+
+<?php endif;?>
+
+<div id="dialog-confirm">
+
+        <p>Weet u zeker dat u het product "<span id="productname"></span>" wilt verwijderen?</p>
 
         <div id="dialog-buttons">
-            <a id="removelist" href="" class="button-accent">Ja, verwijderen</a><a href="lists" class="button">Nee, behouden</a>
+
+            <?php echo form_open();?>
+
+                <input type="hidden" id="delete-id" name="delete-id" value="">
+                <input type="submit" class="button-accent" value="Verwijderen">
+
+                <?php echo '<a href="lists/listdetail/' . $list->id . '" class="button">Behouden</a>'; ?>
+
+            <?php echo form_close();?>
+
         </div>
+        
     </div>
 
 <script>
@@ -61,17 +89,20 @@
         $('#profile-nav').find('a').removeClass('selected');
         $('#profile-nav').find('a:eq(1)').addClass('selected');
 
-        // $(".delete a").click(function(event){
-        //     event.preventDefault();
-        //     var value = $(this).attr("href");
+        $(".delete-button").click(function(){
+            
+            var delete_id = $(this).attr("id").match(/[\d]+$/);
+            var list_name = $(this).attr("name");
 
-        //     $("#dialog-confirm span").html(value);
-        //     $("#dialog-buttons a#removelist").attr("href", "lists/removeproduct/"+value);
+            $("#dialog-confirm span#productname").html(list_name);
+            $("#dialog-buttons #delete-id").attr("value", delete_id);
 
-        //     $("#dialog-confirm").modal({overlayClose:true});
-        //     $("#dialog-confirm").show(); 
-        // });
-  
+            $("#dialog-confirm").modal({overlayClose:true});
+            $("#dialog-confirm").show(); 
+
+            return(false);
+            
+        });
     });
 
 </script>

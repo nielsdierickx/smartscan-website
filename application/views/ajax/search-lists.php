@@ -8,22 +8,32 @@
 
 <ul class="lists-overview">
 
-    <?php
-    
-    $i=0;
+    <?php $i=0; ?>
 
-    foreach ($lists as $list) 
-    {
-            
-        echo '<li><a href="lists/listdetail/' . str_replace(" ", "-", strtolower($list->name)) . '">' . $list->name . 
-                '<span>' . $products[$i] . '</span></a><span class="delete"><a href=""><img src="resources/img/icon-delete.png" alt="delete"></a></span></li>';
+    <?php foreach ($lists as $list): ?> 
         
-        $i++;   
-    }
+        <li>
 
-    ?>
+        <?php echo '<a href="lists/listdetail/' . $list->id . '">' . $list->name . '<span class="productcount">' . $products[$i] . '</span></a>'; ?>
+
+
+        <?php echo form_open();?>
+
+        <span class="delete">
+
+            <?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $list->id . '">'; ?>
+            <?php echo '<input type="submit" id="delete-button" name="delete-button" class="delete-button" value="">'; ?>
+
+        </span>
+
+        <?php echo form_close();?>
+
+        </li>    
+        
+        <?php $i++; ?>
+
+    <?php endforeach;?>
 
 </ul>
-
 
 <?php endif;?>

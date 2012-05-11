@@ -23,9 +23,6 @@ class Profile extends User_Controller {
 
 	public function edit()
 	{
-
-		// $data['voornaam'] =  $this->user->first_name;
-
 		$data['first_name'] = array('name' => 'first_name',
 				'id' => 'first_name',
 				'type' => 'text',
@@ -50,17 +47,7 @@ class Profile extends User_Controller {
 
 		$this->load->view('includes/header-loggedin');
 		$this->load->view('includes/master', $data);
-		$this->load->view('includes/footer');
-		
-	}
-
-	public function transactions()
-	{
-		$data['profile_content'] = $this->load->view('profile/profile-transactions', '', true);
-
-		$this->load->view('header_loggedin');
-		$this->load->view('profile/profile-master', $data);
-		$this->load->view('footer');
+		$this->load->view('includes/footer');	
 	}
 
 }

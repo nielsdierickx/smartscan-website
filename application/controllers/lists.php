@@ -14,68 +14,51 @@ class Lists extends User_Controller {
 
 	public function index()
 	{
-		$this->load->model('lists_model');
-
-		if($this->input->is_ajax_request())
+		try 
 		{
-			try 
+			$this->load->model('lists_model');
+
+			if($delete_list = $this->input->post('delete-id'))
 			{
-				$search = $this->input->post('search-lists');
-				
+				$this->_removelist($delete_list);
+			}
+
+			if($search = $this->input->post('search-lists'))
+			{
 				if(!$lists = $this->lists_model->get_all_by_name($search, $this->user->id))
 				{
 					throw new Exception('Geen lijstjes gevonden voor "' . $this->input->post('search-lists') . '".' . '<br/>
-						<a href="lists"><strong>Probeer een andere zoekterm.</strong></a>');
+					<a href="lists"><strong>Probeer een andere zoekterm.</strong></a>');
 				}
-
-				foreach ($lists as $list) 
-				{
-					$products[] = $this->lists_model->get_product_count($list->id);
-			 	}
-
-				$data['products'] = $products;
-				$data['lists'] = $lists;
 			}
-			catch (Exception $e)
+			else 
 			{
-				$data['feedback'] = $e->getMessage();
+				if(!$lists = $this->lists_model->get_lists_user($this->user->id))
+				{
+					throw new Exception('Je hebt nog geen lijstjes');
+				}
 			}
 
+			foreach ($lists as $list) 
+			{
+				$products[] = $this->lists_model->get_product_count($list->id);
+		 	}		
+			
+			$data['products'] = $products;
+			$data['lists'] = $lists;
+
+		}
+		catch (Exception $e)
+		{
+			$data['feedback'] = $e->getMessage();
+		}
+
+		if($this->input->is_ajax_request())
+		{
 			echo $this->load->view('ajax/search-lists', $data, true);
 		}
-		else
+		else 
 		{
-			try 
-			{
-				if($search = $this->input->post('search-lists'))
-				{
-					if(!$lists = $this->lists_model->get_all_by_name($search, $this->user->id))
-					{
-						throw new Exception('Geen lijstjes gevonden');
-					}
-				}
-				else 
-				{
-					if(!$lists = $this->lists_model->get_lists_user($this->user->id))
-					{
-						throw new Exception('Je hebt nog geen lijstjes');
-					}
-				}
-
-				foreach ($lists as $list) 
-				{
-					$products[] = $this->lists_model->get_product_count($list->id);
-			 	}		
-				
-				$data['products'] = $products;
-				$data['lists'] = $lists;
-
-			}
-			catch (Exception $e)
-			{
-				$data['feedback'] = $e->getMessage();
-			}
-
 			$data['content'] = $this->load->view('lists/overview', $data, true);
 			$data['title'] = "Lijstjes";
 
@@ -85,30 +68,26 @@ class Lists extends User_Controller {
 		}
 	}
 
-	public function listDetail($id)
+	public function listdetail($id)
 	{
+		if($delete_item = $this->input->post('delete-id'))
+		{
+			$this->_removeproduct($delete_item);
+		}
+		
 		$this->load->model('lists_model');
 
-		$list = $this->lists_model->get_list_by_id($id);
-
+		$data['list'] = $this->lists_model->get_list_by_id($id);
 		$data['products'] = $this->lists_model->get_products($id);
-		$data['listname'] = $list->name;
-		$data['title'] = "Detail lijstje";
 
 		$data['content'] = $this->load->view('lists/listdetail', $data, true);
+		$data['title'] = "Detail lijstje";
 
 		$this->load->view('includes/header-loggedin');
 		$this->load->view('includes/master', $data);
 		$this->load->view('includes/footer');
-	}
-
-	public function productDetail($listname, $product)
-	{
-		$data['content'] = $this->load->view('profile/productdetail', '', true);
-
-		$this->load->view('includes/header-loggedin');
-		$this->load->view('includes/master', $data);
-		$this->load->view('includes/footer');
+		
+		
 	}
 
 	public function newlist()
@@ -155,66 +134,16 @@ class Lists extends User_Controller {
 		}
 	}
 
-	public function newlist1()
+	private function _removelist($id)
 	{
 		$this->load->model('lists_model');
-
-		$data['categories'] = $this->lists_model->get_categories();
-
-		$data['list_name'] = array('name' => 'list_name',
-				'id' => 'list_name',
-				'type' => 'text',
-				'placeholder' => 'Naam van je lijstje'
-		);
-
-		$data['content'] = $this->load->view('lists/newlist', $data, true);
-		$data['title'] = "Nieuw lijstje toevoegen";
-
-		$this->load->view('includes/header-loggedin');
-		$this->load->view('includes/master', $data);
-		$this->load->view('includes/footer');
+		$this->lists_model->delete_list($id);
 	}
 
-	public function category($id)
+	private function _removeproduct($id)
 	{
 		$this->load->model('lists_model');
-
-		$data['products'] = $this->lists_model->get_products_by_category($id);
-		$data['category'] = $this->lists_model->get_category_by_id($id);
-
-		$data['list_name'] = array('name' => 'list_name',
-				'id' => 'list_name',
-				'type' => 'text',
-				'placeholder' => 'Naam van je lijstje'
-		);
-
-		$data['content'] = $this->load->view('lists/categorydetail', $data, true);
-		$data['title'] = "Nieuw lijstje toevoegen";
-
-		$this->load->view('includes/header-loggedin');
-		$this->load->view('includes/master', $data);
-		$this->load->view('includes/footer');
-	}
-
-	public function removelist($listname)
-	{
-		$this->load->model('lists_model');
-
-		$listname = (str_replace("%20", " ", $listname));
-		$listid = $this->lists_model->get_list_id($listname, $this->user->id);
-
-		$this->lists_model->delete_list($listid);
-
-		redirect('/lists', 'refresh');
-	}
-
-	public function removeproduct($id)
-	{
-		$this->load->model('lists_model');
-
 		$this->lists_model->delete_product($id);
-
-		redirect('/lists/listdetail/'. $id, 'refresh');
 	}
 }
 
