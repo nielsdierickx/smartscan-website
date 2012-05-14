@@ -123,7 +123,7 @@ body { font: 13px 'Droid Sans', sans-serif; line-height: 20px; background: #3535
 }
 
 div#container {
-  background: $color-back-light url('../img/vegetables-bg.png') center -250px;
+  background: $color-back-light url('../img/vegetables-bg2.png') no-repeat center -250px;
   border-bottom: 1px solid #1E1E1E;
 }
 
@@ -137,6 +137,7 @@ div#main {
 div#main-profile {
   margin: 0 auto;
   border-left: 1px solid $color-back;
+  border-right: 1px solid $color-back;
   padding: 30px 30px 200px 30px;
   max-width: 900px;
   overflow: hidden;
@@ -865,7 +866,8 @@ div.newlist-top {
 
   .search {
     float: left;
-    width: 632px;
+    //width: 632px;
+    width: 508px;
     border: 1px solid $color-support-lightest;
   }
 }
@@ -915,14 +917,17 @@ div#list-categories {
 }
 
 ul.categories-overview {
+  clear: both;
   list-style: none;
   width: 100%;
   margin-top: 20px; 
 
   li {
     float: left;
+    position: relative;
     height: 150px;
-    width: 186px;
+    //width: 186px;
+    width: 276px;
     background-color: #FFFFFF;
     margin-bottom: 30px;
     border: 2px solid $color-support-lightest;
@@ -934,7 +939,6 @@ ul.categories-overview {
 
     figure {
       display: block;
-      position: relative;
       float:left;
       overflow: hidden;
 
@@ -943,8 +947,8 @@ ul.categories-overview {
       }
 
       img {
-        position: relative;
-        height: 150px;
+        //position: relative;
+        width: 100%;
       }
     }
 
@@ -988,31 +992,38 @@ ul.categories-overview {
     } 
 }
 
+a.basket-top:hover div#newlist-top-basket {
+    background-color: $color-lightest;
+}
+
 div#newlist-top-basket {
   overflow: hidden;
   float: left;
-  background-color: #FFFFFF;
-  padding: 20px 30px;
-  border: 1px solid #CACACA;
-  width: 176px;
-  height: 23px;
+  background-color: #F7F4F3;
+  border: 1px solid $color-support-lightest;
+  width: 300px;
+  height: 43px;
+  line-height: 45px;
+  padding: 0px 30px;
   margin-left: 30px;
+  -moz-box-shadow: 0 1px 3px #ddd inset;
+  -webkit-box-shadow: 0 1px 3px #ddd inset;
+  box-shadow: 0 1px 3px #ddd inset;
 
   p {
     float: right;
-    line-height: 25px;
+    color: #353535;
+  }
+
+  p#list-name {
+    float: left !important;
+    color: #353535;
+    font-weight: bold;
   }
 
   p#shopping-basket-price {
     float: left !important;
     color: #353535;
-  }
-
-  a {
-    float: left;
-    margin-top: 30px;
-    width: 166px;
-    text-align: center;
   }
 
   span {
@@ -1024,8 +1035,9 @@ div#newlist-top-basket {
     line-height: 25px;
     background-color: $color-accent;
     text-align: center;
+    margin-top: 8px;
     color: #FFFFFF;
-    border: 1px solid #353535;
+    border: 1px solid $color-accent-dark;
   }
 }
 
@@ -1107,14 +1119,14 @@ img.breadcrumb-bullet {
       }
 
       .product-plus, .product-minus {
-        border: 1px solid $color-support-lightest;
+        border: 1px solid $color-accent-dark;
         float: right;
         width: 14px;
         height: 15px;
         background: $color-accent;
 
         a {
-          color: $color-text-white;
+          color: #FFFFFF;
           font-size: 12px;
           font-weight: bold;
           display: block;
@@ -1127,6 +1139,23 @@ img.breadcrumb-bullet {
             background-color: $color-accent-light;
           }
         }
+
+        input[type=submit] {
+          color: #FFFFFF;
+          font-size: 12px;
+          font-weight: bold;
+          display: block;
+          width: 100%;
+          height: 100%;
+          line-height: 5px;
+          text-align: center;
+          border: none;
+          background: none;
+        }
+      }
+
+      .product-minus {
+          border-top: none;
       }
     }
 
@@ -1141,6 +1170,7 @@ img.breadcrumb-bullet {
         background: url('../img/icon-delete.png') no-repeat center 55%;
         border: none;
         padding: 32px 40px;
+        text-indent: -9999px;
       }
 
       img {
@@ -1179,12 +1209,12 @@ img.breadcrumb-bullet {
     .button-accent {
       position: absolute;
       right: 30px;
-      top: 20px;
+      top: 21px;
       z-index: 2;
-      width: 20px;
-      font-size: 28px;
+      width: 50px;
+      font-size: 24px;
       text-align: center;
-      height: 20px;
+      height: 40px;
     }
   }
 }
@@ -1201,52 +1231,6 @@ p.products-total-price {
     margin-left: 20px;
     font-weight: bold;
     font-size: 14px;
-  }
-}
-
-.addSomeProd {
-  position: absolute;
-  top: 0px;
-  right: 150px;
-  width: 54px;
-  height: 27px;
-  margin-top: 25px;
-
-  input {
-    border: 1px solid $color-support-lightest;
-    color: black;
-    height: 33px;
-    float: left;
-    width: 35px;
-    padding: 5px 2px;
-    text-align: center;
-  }
-
-  .oneMore, .oneLess {
-    border: 1px solid $color-support-lightest;
-    float: right;
-    width: 14px;
-    height: 15px;
-    background: $color-accent;
-
-    a {
-      color: $color-text-white;
-      font-size: 12px;
-      font-weight: bold;
-      display: block;
-      width: 100%;
-      height: 100%;
-      line-height: 100%;
-      text-align: center;
-
-      &:hover {
-        background-color: $color-accent-light;
-      }
-    }
-  }
-
-  .oneLess {
-    border-top: none;
   }
 }
 
@@ -1331,8 +1315,9 @@ div#dialog-buttons {
 
 #simplemodal-container a.modalCloseImg {
   background:url('../img/icon-cancel.png') no-repeat; /* adjust url as required */
-  width: 32px;
-  height: 32px;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
   display: inline;
   z-index: 3200;
   position: absolute;

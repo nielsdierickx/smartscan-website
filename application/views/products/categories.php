@@ -2,24 +2,26 @@
     
 	<input type="search" class="search round" placeholder="Zoeken...">
 
-	<div id="newlist-top-basket">
+	<?php if (isset($list)): ?>
 
-		<?php if (isset($list)): ?>
+   		<?php echo '<a class="basket-top" href="lists/listdetail/' . $list->id . '">'; ?>
+		
+		<div id="newlist-top-basket">
+		
+			<?php echo '<p id="list-name">' . $list->name . '</p>'; ?>
+    		<?php echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>'; ?>
 
-			<?php echo $list->name; ?>
+		</div>
 
-		<?php endif; ?>
+		</a>
 
-    	<!-- <p id="shopping-basket-price">€58,50</p>
-    	<p><span>40</span>Items<p> -->
-
-	</div>
+	<?php endif; ?>
 
 </div>
 
 <div class="newlist-bottom">
 
-	<div class="newlist-left-column">
+	<!-- <div class="newlist-left-column"> -->
 
 			
 		<ul class="categories-overview">
@@ -94,9 +96,9 @@
 
 		</ul>
 
-	</div>
+	<!-- </div> -->
 
-	<div class="newlist-right-column">
+	<!-- <div class="newlist-right-column"> -->
 
 		<!-- <select>
 	        <option value="sorteer">Sorteer</option>
@@ -105,7 +107,7 @@
 	        <option value="items">Aantal items</option>
     	</select> -->
 
-	</div>
+	<!-- </div> -->
 
 </div>
 

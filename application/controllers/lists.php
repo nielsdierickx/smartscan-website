@@ -10,6 +10,7 @@ class Lists extends User_Controller {
 		parent::__construct();
 
 		$this->load->library('form_validation');
+		$this->load->model('lists_model');
 	}
 
 	public function index()
@@ -70,12 +71,21 @@ class Lists extends User_Controller {
 
 	public function listdetail($id)
 	{
-		if($delete_item = $this->input->post('delete-id'))
+		if($action = $this->input->post('submit'))
 		{
-			$this->_removeproduct($delete_item);
+			switch($action)
+			{
+				case 'Verwijderen':
+					$this->lists_model->delete_product($this->input->post('delete-id'));
+			 		break;
+				case '+':
+			  		$this->lists_model->update_amount_plus($this->input->post('delete-id'));
+					break;
+				case '-':
+			  		$this->lists_model->update_amount_minus($this->input->post('delete-id'));
+					break;	
+			}
 		}
-		
-		$this->load->model('lists_model');
 
 		$data['list'] = $this->lists_model->get_list_by_id($id);
 		$data['products'] = $this->lists_model->get_products($id);
@@ -86,8 +96,6 @@ class Lists extends User_Controller {
 		$this->load->view('includes/header-loggedin');
 		$this->load->view('includes/master', $data);
 		$this->load->view('includes/footer');
-		
-		
 	}
 
 	public function newlist()
@@ -103,7 +111,7 @@ class Lists extends User_Controller {
 					'name' => $this->input->post('list_name'),
 					'date_created' => date('Y-m-d h:m:s'),
 					'user_id' => $this->user->id
-				);
+			);
 
 			$this->lists_model->insert($list);
 			redirect('/lists/listdetail/' . $this->db->insert_id(), 'refresh');
@@ -123,7 +131,7 @@ class Lists extends User_Controller {
 			$data['submit'] = array('name' => 'submit',
 					'value' => 'Lijstje bewaren',
 					'class' => 'button-accent',
-				);
+			);
 
 			$data['content'] = $this->load->view('lists/new', $data, true);
 			$data['title'] =  "Nieuw lijstje toevoegen";
@@ -138,12 +146,6 @@ class Lists extends User_Controller {
 	{
 		$this->load->model('lists_model');
 		$this->lists_model->delete_list($id);
-	}
-
-	private function _removeproduct($id)
-	{
-		$this->load->model('lists_model');
-		$this->lists_model->delete_product($id);
 	}
 }
 

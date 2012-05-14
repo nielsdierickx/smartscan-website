@@ -18,6 +18,17 @@ class Products extends User_Controller {
 		if($listid != null)
 		{
 			$data['list'] = $this->lists_model->get_list_by_id($listid);
+			$data['productcount'] = $this->lists_model->get_product_count($listid);
+
+			$products = $this->lists_model->get_products($listid);
+
+			$total = 0;
+			foreach ($products as $product)
+			{
+				$total += $product->amount * $product->price;
+			}
+			$data['totalprice'] = $total;
+
 		}
 
 		$data['categories'] = $this->products_model->get_categories();
@@ -35,6 +46,28 @@ class Products extends User_Controller {
 		if($listid != null)
 		{
 			$data['list'] = $this->lists_model->get_list_by_id($listid);
+			$data['productcount'] = $this->lists_model->get_product_count($listid);
+
+			$products = $this->lists_model->get_products($listid);
+
+			$total = 0;
+			foreach ($products as $product)
+			{
+				$total += $product->amount * $product->price;
+			}
+			$data['totalprice'] = $total;
+
+			if($this->input->post('add-id'))
+			{
+				$product = array(
+						'product_id' => $this->input->post('add-id'),
+						'amount' => $this->input->post('add-amount'),
+						'list_id' => $this->input->post('add-list-id')
+				);
+				
+				$this->lists_model->add_product($product);
+				redirect('/lists/listdetail/' . $listid, 'refresh');
+			}
 		}
 
 		$data['products'] = $this->products_model->get_products_by_category($id);

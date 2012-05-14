@@ -33,15 +33,18 @@
 
 			    <?php echo '<input type="text" value="' . $product->amount . '">'; ?>
 			    
-			    <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
-			    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
+                <span class="product-plus"><?php echo '<input type="submit" name="submit" value="+">'; ?></span>
+                <span class="product-minus"><?php echo '<input type="submit" name="submit" value="-">'; ?></span>
+
+			    <!-- <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
+			    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span> -->
 
 			</span>
 
 			<span class="delete">
 
 				<?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $product->listdetailid . '">'; ?>
-        		<?php echo '<input type="submit" id="delete-button-' . $product->listdetailid . '" name="' . $product->name . '" class="delete-button" value="">'; ?>
+        		<?php echo '<input type="submit" id="delete-button-' . $product->listdetailid . '" name="submit" class="delete-button" value="Verwijderen">'; ?>
 
         	</span>
 
@@ -65,14 +68,14 @@
 
 <div id="dialog-confirm">
 
-        <p>Weet u zeker dat u het product "<span id="productname"></span>" wilt verwijderen?</p>
+        <p>Weet u zeker dat u het product <!-- "<span id="productname"></span>" --> wilt verwijderen?</p>
 
         <div id="dialog-buttons">
 
             <?php echo form_open();?>
 
                 <input type="hidden" id="delete-id" name="delete-id" value="">
-                <input type="submit" class="button-accent" value="Verwijderen">
+                <input type="submit" name="submit" class="button-accent" value="Verwijderen">
 
                 <?php echo '<a href="lists/listdetail/' . $list->id . '" class="button">Behouden</a>'; ?>
 

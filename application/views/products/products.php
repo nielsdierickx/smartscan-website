@@ -1,19 +1,21 @@
 <div class="newlist-top">
     
 	<input type="search" class="search round" placeholder="Zoeken...">
-
-	<div id="newlist-top-basket">
     
-    	<?php if (isset($list)): ?>
+   	<?php if (isset($list)): ?>
 
-			<?php echo $list->name; ?>
+   		<?php echo '<a class="basket-top" href="lists/listdetail/' . $list->id . '">'; ?>
+		
+		<div id="newlist-top-basket">
+		
+			<?php echo '<p id="list-name">' . $list->name . '</p>'; ?>
+    		<?php echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>'; ?>
 
-		<?php endif; ?>
-    	
-    	<!-- <p><span>40</span>Items<p>
-    	<p id="shopping-basket-price">€58,50</p> -->
+		</div>
 
-	</div>
+		</a>
+
+	<?php endif; ?>
 
 </div>
 
@@ -34,22 +36,38 @@
 	<ul class="products-overview">
 	    <?php foreach ($products as $product):?>
 
+	    	<li>
+
 	        <?php 
 
-	        	echo '<li><img src="' .$product->photo . '" alt="product-photo" /><p>'
+	        	echo '<img src="' .$product->photo . '" alt="product-photo" /><p>'
 	        	. $product->name . '</p><span>' . $product->price . ' €</span>';
 
-	        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
+	        	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; } 
 
-	        	echo '	<span class="addSomeProd">
-						    <input type="text" value="1" class="item_quantity">
-						    <span class="oneMore item_plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
-						    <span class="oneLess item_minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
-						</span>
-
-	        			<a href="" class="button-accent">+</a></li>'; 
 	        ?>
 
+	        <?php echo form_open();?>
+
+	        	<span class="product-amount">
+				
+				    <?php echo '<input type="text" id="add-amount" name="add-amount" value="1">'; ?>
+				    <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
+				    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span>
+				
+				</span>
+
+                <span class="product-add">
+
+                	<?php if (isset($list)) { echo '<input type="hidden" id="add-list-id" name="add-list-id" value="' . $list->id . '">'; } ?>
+                    <?php echo '<input type="hidden" id="add-id" name="add-id" value="' . $product->id . '">'; ?>
+                    <?php echo '<input type="submit" id="add-button-'. $product->id .'" name="' . $product->name .'" class="button-accent" value="+">'; ?>
+
+                </span>
+
+           	<?php echo form_close();?>
+
+           	</li>
 
 	    <?php endforeach;?>
 
