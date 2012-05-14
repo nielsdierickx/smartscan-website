@@ -1216,6 +1216,21 @@ img.breadcrumb-bullet {
       text-align: center;
       height: 40px;
     }
+
+    .button-disabled {
+      @include button;
+      //@include button-bg-accent;
+      padding: 10px 15px;
+      border: 1px solid #cacaca;
+      position: absolute;
+      right: 30px;
+      top: 21px;
+      z-index: 2;
+      width: 50px;
+      font-size: 24px;
+      text-align: center;
+      height: 40px;
+    }
   }
 }
 

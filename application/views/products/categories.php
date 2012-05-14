@@ -2,20 +2,31 @@
     
 	<input type="search" class="search round" placeholder="Zoeken...">
 
-	<?php if (isset($list)): ?>
+	<?php 
 
-   		<?php echo '<a class="basket-top" href="lists/listdetail/' . $list->id . '">'; ?>
+   		if (isset($list))
+   		{
+   			echo '<a class="basket-top" href="lists/listdetail/' . $list->id . '">';
+   			echo '<div id="newlist-top-basket">';
 		
-		<div id="newlist-top-basket">
+				echo '<p id="list-name">' . $list->name . '</p>';
+    			echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>';
+
+			echo '</div>';
+			echo '</a>';
+   		}
+   		else
+   		{
+   			echo '<a class="basket-top" href="lists">';
+   			echo '<div id="newlist-top-basket">';
 		
-			<?php echo '<p id="list-name">' . $list->name . '</p>'; ?>
-    		<?php echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>'; ?>
+				echo '<p id="list-name">Geen lijstje geselecteerd</p>';
 
-		</div>
-
-		</a>
-
-	<?php endif; ?>
+			echo '</div>';
+			echo '</a>';
+   		}
+	
+	?>
 
 </div>
 

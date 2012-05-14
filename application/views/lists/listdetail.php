@@ -34,17 +34,14 @@
 			    <?php echo '<input type="text" value="' . $product->amount . '">'; ?>
 			    
                 <span class="product-plus"><?php echo '<input type="submit" name="submit" value="+">'; ?></span>
-                <span class="product-minus"><?php echo '<input type="submit" name="submit" value="-">'; ?></span>
-
-			    <!-- <span class="product-plus"><a href="#" title="Verhoog de hoeveelheid">+</a></span> 
-			    <span class="product-minus"><a href="#" title="Verminder de hoeveelheid">-</a></span> -->
+                <span class="product-minus"><?php echo '<input type="submit" name="submit" class="amount-minus" value="-">'; ?></span>
 
 			</span>
 
 			<span class="delete">
 
 				<?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $product->listdetailid . '">'; ?>
-        		<?php echo '<input type="submit" id="delete-button-' . $product->listdetailid . '" name="submit" class="delete-button" value="Verwijderen">'; ?>
+        		<?php echo '<input type="submit" id="' . $product->name .'-' . $product->listdetailid . '" name="submit" class="delete-button" value="Verwijderen">'; ?>
 
         	</span>
 
@@ -68,7 +65,7 @@
 
 <div id="dialog-confirm">
 
-        <p>Weet u zeker dat u het product <!-- "<span id="productname"></span>" --> wilt verwijderen?</p>
+        <p>Weet u zeker dat u het product "<span id="productname"></span>" wilt verwijderen?</p>
 
         <div id="dialog-buttons">
 
@@ -95,9 +92,11 @@
         $(".delete-button").click(function(){
             
             var delete_id = $(this).attr("id").match(/[\d]+$/);
-            var list_name = $(this).attr("name");
+            var id = $(this).attr("id");
 
-            $("#dialog-confirm span#productname").html(list_name);
+            var product_name = id.split('-');
+
+            $("#dialog-confirm span#productname").html(product_name[0]);
             $("#dialog-buttons #delete-id").attr("value", delete_id);
 
             $("#dialog-confirm").modal({overlayClose:true});
