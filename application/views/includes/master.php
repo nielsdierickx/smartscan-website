@@ -9,7 +9,8 @@
                     <li><a href="transactions"><img src="resources/img/icon-transactions.png"/>Aankopen</a></li>
                     <li><a href="lists"><img src="resources/img/icon-list.png"/>Lijstjes</a></li>
                     <li><a href="products"><img src="resources/img/icon-transactions.png"/>Producten</a></li>
-                    <li><a href="profile"><img src="resources/img/icon-user.png"/>Profiel</a></li>
+                    <li><a href="promotions"><img src="resources/img/icon-user.png"/>Promoties</a></li>
+                    <!-- <li><a href="profile"><img src="resources/img/icon-user.png"/>Profiel</a></li> -->
                 </ul>
 
             </nav>

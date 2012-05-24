@@ -1,25 +1,39 @@
 <div class="list-header">
 
-    <p><?php echo $list->name ?></p>
+    <p><?php echo $list->name; ?></p>
     <a class="button" href="lists">Alle lijstjes</a>
-    <?php echo '<a class="button-accent" href="products/index/' . $list->id . '">Product toevoegen</a>'; ?>
+
+    <?php echo form_open(); ?>
+
+        <?php echo '<input type="hidden" id="list-id" name="list-id" value="' . $list->id . '">'; ?>
+        <?php echo '<input type="submit" name="submit" class="button-accent" value="Producten toevoegen">'; ?>
+
+    <?php echo form_close(); ?>
 
 </div>
 
+<?php $total = 0;?>
 
 <?php if ($products): ?>
 
-<ul class="products-overview">
-
-	<?php $total = 0;?>
+<ul class="products-overview">	
 
     <?php foreach ($products as $product):?>
 
     	<li>
 
         <?php 
+                
+        	echo '<img src="' .$product->photo . '" alt="product-photo" /><p>' . $product->name . '</p>';
 
-        	echo '<img src="' .$product->photo . '" alt="product-photo" /><p>' . $product->name . '</p><span>' . $product->price . ' €</span>';
+            if($product->discount)
+            {
+                echo '<span class="promo">PROMO</span><span class="promo-new">' . ($product->price - ($product->price * $product->discount)) . ' €</span><span class="promo-old">' . $product->price . ' €</span>';
+            }
+            else
+            {
+                echo '<span>' . $product->price . ' €</span>';
+            }
 
         	if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; }
 
@@ -49,7 +63,18 @@
 
         </li>		
 
-        <?php $total += $product->amount * $product->price; ?>
+        <?php 
+
+        if($product->discount)
+        {
+            $total += $product->amount * ($product->price - ($product->price * $product->discount));
+        }
+        else
+        {
+            $total += $product->amount * $product->price; 
+        }
+        
+        ?>
 
     <?php endforeach;?>
 

@@ -42,7 +42,11 @@ class Lists_model extends CI_Model {
 
     function get_products($listid)
     {
-        $this->db->select('list_details.id as listdetailid, list_details.list_id, list_details.amount, products.*')->from('list_details')->where('list_id', $listid)->join('products', 'products.id = list_details.product_id');
+        $this->db->select('list_details.id as listdetailid, list_details.list_id, list_details.amount, products.*, promotions.*')->from('list_details')
+        ->where('list_id', $listid)
+        ->join('products', 'products.id = list_details.product_id')
+        ->join('promotions', 'promotions.id = list_details.promotion_id', 'left');
+
         $query = $this->db->get();
         return $query->result(); 
     }
@@ -95,8 +99,7 @@ class Lists_model extends CI_Model {
             ->where('list_id',$product['list_id'])
             ->where('product_id',$product['product_id'])
             ->update('list_details');
-        }
-        
+        }       
     }
 
 }

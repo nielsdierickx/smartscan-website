@@ -11,11 +11,12 @@ class Products extends User_Controller {
 
 		$this->load->model('lists_model');
 		$this->load->model('products_model');
+		$this->load->model('promotions_model');
 	}
 
-	public function index($listid = null)
+	public function index()
 	{ 
-		if($listid != null)
+		if($listid = $this->session->userdata('list-id'))
 		{
 			$data['list'] = $this->lists_model->get_list_by_id($listid);
 			$data['productcount'] = $this->lists_model->get_product_count($listid);
@@ -23,12 +24,20 @@ class Products extends User_Controller {
 			$products = $this->lists_model->get_products($listid);
 
 			$total = 0;
+
 			foreach ($products as $product)
 			{
-				$total += $product->amount * $product->price;
+				if($product->discount)
+		        {
+		            $total += $product->amount * ($product->price - ($product->price * $product->discount));
+		        }
+		        else
+		        {
+		            $total += $product->amount * $product->price; 
+		        }
 			}
+			
 			$data['totalprice'] = $total;
-
 		}
 
 		$data['categories'] = $this->products_model->get_categories();
@@ -41,9 +50,9 @@ class Products extends User_Controller {
 		$this->load->view('includes/footer');
 	}
 
-	public function category($id, $listid = null)
+	public function category($id)
 	{
-		if($listid != null)
+		if($listid = $this->session->userdata('list-id'))
 		{
 			$data['list'] = $this->lists_model->get_list_by_id($listid);
 			$data['productcount'] = $this->lists_model->get_product_count($listid);
@@ -51,10 +60,19 @@ class Products extends User_Controller {
 			$products = $this->lists_model->get_products($listid);
 
 			$total = 0;
+
 			foreach ($products as $product)
 			{
-				$total += $product->amount * $product->price;
+				if($product->discount)
+		        {
+		            $total += $product->amount * ($product->price - ($product->price * $product->discount));
+		        }
+		        else
+		        {
+		            $total += $product->amount * $product->price; 
+		        }
 			}
+
 			$data['totalprice'] = $total;
 
 			if($this->input->post('add-id'))
@@ -62,15 +80,17 @@ class Products extends User_Controller {
 				$product = array(
 						'product_id' => $this->input->post('add-id'),
 						'amount' => $this->input->post('add-amount'),
-						'list_id' => $this->input->post('add-list-id')
+						'list_id' => $this->input->post('add-list-id'),
+						'promotion_id' => $this->input->post('add-promotion-id')
 				);
 				
 				$this->lists_model->add_product($product);
-				redirect('/lists/listdetail/' . $listid, 'refresh');
+				redirect($this->uri->uri_string());
 			}
 		}
 
-		$data['products'] = $this->products_model->get_products_by_category($id);
+		$data['promotions'] = $this->promotions_model->get_promotions_by_category($id);
+		$data['products'] = $this->products_model->get_products_by_category($id, $data['promotions']);
 		$data['category'] = $this->products_model->get_category_by_id($id);
 
 		$data['content'] = $this->load->view('products/products', $data, true);

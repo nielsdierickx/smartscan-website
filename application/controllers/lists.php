@@ -78,12 +78,23 @@ class Lists extends User_Controller {
 				case 'Verwijderen':
 					$this->lists_model->delete_product($this->input->post('delete-id'));
 			 		break;
+
 				case '+':
 			  		$this->lists_model->update_amount_plus($this->input->post('delete-id'));
 					break;
+
 				case '-':
 			  		$this->lists_model->update_amount_minus($this->input->post('delete-id'));
-					break;	
+					break;
+
+				case 'Producten toevoegen':
+			  		$listdata = array(
+	                   'list-id'  => $this->input->post('list-id')
+	               	);
+
+					$this->session->set_userdata($listdata);
+					redirect('/products', 'refresh');
+					break;		
 			}
 		}
 

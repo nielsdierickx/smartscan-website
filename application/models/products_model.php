@@ -15,11 +15,27 @@ class Products_model extends CI_Model {
         return $query->result();  
     }
 
-    function get_products_by_category($categoryid)
+    function get_products_by_category($categoryid, $promotions = null)
     {
-        $this->db->select('*')->from('products')->where('category', $categoryid);
-        $query = $this->db->get();
-        return $query->result(); 
+        if($promotions != null)
+        {
+            $array = array();
+
+            foreach ($promotions as $promotion)
+            {
+                $array[] = $promotion->product_id;
+            }
+
+            $this->db->select('*')->from('products')->where('category', $categoryid)->where_not_in('id', $array);
+            $query = $this->db->get();
+            return $query->result(); 
+        }
+        else
+        {
+            $this->db->select('*')->from('products')->where('category', $categoryid);
+            $query = $this->db->get();
+            return $query->result(); 
+        }
     }
 
     function get_category_by_id($categoryid)
