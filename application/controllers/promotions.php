@@ -34,8 +34,21 @@ class Promotions extends User_Controller {
 		            $total += $product->amount * $product->price; 
 		        }
 			}
-			
+
 			$data['totalprice'] = $total;
+
+			if($this->input->post('add-id'))
+			{
+				$product = array(
+						'product_id' => $this->input->post('add-id'),
+						'amount' => $this->input->post('add-amount'),
+						'list_id' => $this->input->post('add-list-id'),
+						'promotion_id' => $this->input->post('add-promotion-id')
+				);
+				
+				$this->lists_model->add_product($product);
+				redirect($this->uri->uri_string());
+			}
 		}
 
 		$data['promotions'] = $this->promotions_model->get_promotions();

@@ -789,14 +789,34 @@ nav#profile-nav ul li a.selected:after {
         }
       }
 
-      span {
+      span.transaction-price {
+        position: absolute;
+        right: 140px;
+        top: 11px;
+        width: 80px;
+        text-align: center;
+        color: #000000;
+        font-weight: bold;
+      }
+
+      span.transaction-promo {
+        position: absolute;
+        right: 280px;
+        top: 11px;
+        width: 80px;
+        text-align: center;
+        color: $color;
+        font-weight: bold;
+      }
+
+      span.productcount {
         position: absolute;
         right: 60px;
         width: 30px;
         background-color: $color-accent;
         text-align: center;
         color: #FFFFFF;
-        border: 1px solid #353535;
+        border: 1px solid $color-accent-dark;
       }
     }
   }
@@ -874,6 +894,7 @@ div.newlist-top {
 
 div.newlist-bottom {
   width: 100%;
+  clear: both;
 }
 
 div.newlist-left-column {
@@ -1266,6 +1287,37 @@ p.products-total-price {
 
 .promo-new {
   margin-right: 20px;
+}
+
+div.transactions-header {
+  float: left;
+  margin-bottom: 30px;
+  height: 100%;
+  width: 100%;
+
+  img {
+    float: left;
+    margin-top: 3px;
+  }
+  h3 {
+    float: left;
+    margin-left: 20px;
+    line-height: 100%;
+  }
+
+  p {
+    float: right;
+    font-weight: bold;
+    font-size: 14px;
+    margin-right: 20px;
+    line-height: 100%;
+  }
+}
+
+p.transactions-recent-price {
+  float: right;
+  font-weight: bold;
+  margin: 20px;
 }
 
 // -----------------------------------------------------------------------------------------------------------------------------------

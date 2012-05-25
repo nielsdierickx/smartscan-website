@@ -10,7 +10,7 @@ class Promotions_model extends CI_Model {
 
     function get_promotions()
     {
-        $this->db->select('promotions.id as promotion_id, discount, products.*')->from('promotions')
+        $this->db->select('promotions.id as promotionid, discount, products.*')->from('promotions')
         ->where('date_start <=', date('Y-m-d h:m:s'))
         ->where('date_end >=', date('Y-m-d h:m:s'))
         ->join('products', 'products.id = promotions.product_id');

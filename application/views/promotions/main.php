@@ -61,6 +61,7 @@
 
                     <?php if (isset($list)) { echo '<input type="hidden" id="add-list-id" name="add-list-id" value="' . $list->id . '">'; } ?>
                     <?php echo '<input type="hidden" id="add-id" name="add-id" value="' . $product->id . '">'; ?>
+                    <?php echo '<input type="hidden" id="add-promotion-id" name="add-promotion-id" value="' . $product->promotionid . '">'; ?>
                     <?php 
 
                         if (isset($list)) 
@@ -86,7 +87,11 @@
 
     <?php else: ?>
 
-    <p class="products-empty">Er zijn momenteel geen promoties</p>
+    <div class="newlist-bottom">
+
+        <p class="products-empty">Er zijn momenteel geen promoties</p>
+
+    </div>
 
     <?php endif;?>
 
