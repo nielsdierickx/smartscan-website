@@ -25,11 +25,42 @@ class Transactions extends User_Controller {
 		$data['recent_transactions'] = $this->transactions_model->get_recent_transactions($this->user->id);
 		$data['recent_transaction_totalprice'] = $recent_transactions_total;
 
+		$transactions = $this->transactions_model->get_transactions($this->user->id);	
+
+		$transactions_total = 0;
+
+		foreach ($transactions as $transaction)
+		{
+			$transactions_total += $transaction->amount * $transaction->price;
+		}
+
 		$data['transactions'] = $this->transactions_model->get_transactions($this->user->id);
-		//$data['recent_transaction_totalprice'] = $recent_transactions_total;
+		$data['transaction_totalprice'] = $transactions_total;
 
 		$data['content'] = $this->load->view('transactions/main', $data, true);
 		$data['title'] = "Aankopen";
+
+		$this->load->view('includes/header-loggedin');
+		$this->load->view('includes/master', $data);
+		$this->load->view('includes/footer');
+	}
+
+	public function detail($id)
+	{ 
+		$data['transaction'] = $this->transactions_model->get_transaction($id, $this->user->id);
+		$data['transactions'] = $this->transactions_model->get_product_transactions($data['transaction']->tproduct_id, $this->user->id); 
+		
+		$transactions_total = 0;
+
+		foreach ($data['transactions'] as $transaction)
+		{
+			$transactions_total += $transaction->total_price;
+		}
+	
+		$data['transactions_total'] = $transactions_total;
+
+		$data['content'] = $this->load->view('transactions/detail', $data, true);
+		$data['title'] = "Detail aankoop";
 
 		$this->load->view('includes/header-loggedin');
 		$this->load->view('includes/master', $data);

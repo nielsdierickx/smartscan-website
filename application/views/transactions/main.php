@@ -16,7 +16,7 @@
 
         <?php 
 
-        	echo '<a href="#">' . $transaction->name . '<span class="productcount">' . $transaction->amount . '</span>';
+        	echo '<a href="transactions/detail/' . $transaction->transactionid . '">' . $transaction->name . '<span class="productcount">' . $transaction->amount . '</span>';
         	echo '<span class="transaction-price">' . $transaction->total_price . ' €</span>';
         	if($transaction->promotion_id != null) { echo '<span class="transaction-promo">PROMO</span>'; }  
         	echo '</a>';
@@ -36,7 +36,7 @@
 	<div class="transactions-header">
 
             <img src="resources/img/list-bullet.png" alt="icon">
-            <h3>Vroeger</h3>
+            <h3>Vroeger</h3><p><?php echo $transaction_totalprice; ?> €</p>
             
   	</div>
 	
@@ -50,7 +50,7 @@
 
         <?php 
 
-        	echo '<a href="#">' . $transaction->name . '<span class="productcount">' . $transaction->amount . '</span>';
+        	echo '<a href="transactions/detail/' . $transaction->transactionid . '">' . $transaction->name . '<span class="productcount">' . $transaction->amount . '</span>';
         	echo '<span class="transaction-price">' . $transaction->total_price . ' €</span>';
         	if($transaction->promotion_id != null) { echo '<span class="transaction-promo">PROMO</span>'; }  
         	echo '</a>';

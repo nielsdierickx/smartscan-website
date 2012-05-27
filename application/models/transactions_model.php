@@ -10,7 +10,7 @@ class Transactions_model extends CI_Model {
 
     function get_recent_transactions($userid)
     {
-        $this->db->select('transactions.id as transactionid, transactions.*, products.*')->from('transactions')
+        $this->db->select('transactions.id as transactionid, transactions.*, products.*, promotions.*')->from('transactions')
         ->where('user_id', $userid)
         ->where('date >= DATE_SUB(NOW(), INTERVAL 7 DAY)') 
         ->join('products', 'products.id = transactions.product_id')
@@ -31,11 +31,34 @@ class Transactions_model extends CI_Model {
             $array[] = $transaction->transactionid;
         }
 
-        $this->db->select('transactions.id as promotionid, transactions.*, products.*')->from('transactions')
+        $this->db->select('transactions.id as transactionid, transactions.*, products.*, promotions.*')->from('transactions')
         ->where('user_id', $userid)
         ->where_not_in('transactions.id', $array)
         ->join('products', 'products.id = transactions.product_id')
         ->join('promotions', 'promotions.id = transactions.promotion_id', 'left');
+
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function get_transaction($id, $userid)
+    {
+        $this->db->select('transactions.id as transactionid, transactions.product_id as tproduct_id, transactions.*, products.*, promotions.*')->from('transactions')
+        ->where('user_id', $userid)
+        ->where('transactions.id', $id)
+        ->join('products', 'products.id = transactions.product_id')
+        ->join('promotions', 'promotions.id = transactions.promotion_id', 'left');
+
+        $query = $this->db->get();
+        return $query->row();
+    }
+
+    function get_product_transactions($id, $userid)
+    {
+        $this->db->select('transactions.id as transactionid, transactions.*, products.*')->from('transactions')
+        ->where('user_id', $userid)
+        ->where('transactions.product_id', $id)
+        ->join('products', 'products.id = transactions.product_id');
 
         $query = $this->db->get();
         return $query->result();
