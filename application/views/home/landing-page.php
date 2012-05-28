@@ -10,7 +10,7 @@
 
 		<div id="welcome-text">
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a tortor est.</p>
+			<p>Winkelen was nog nooit zo makkelijk ! &nbsp; Ontdek de mogelijkheden van Smartscan.</p>
 			<a href="register" class="button-accent-big">Registreer je nu gratis</a>
 
 		</div><!-- end welcome-text -->

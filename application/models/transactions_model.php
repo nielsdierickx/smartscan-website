@@ -24,21 +24,35 @@ class Transactions_model extends CI_Model {
     {
         $recent_transactions = $this->get_recent_transactions($userid);
 
-        $array = array();
-
-        foreach ($recent_transactions as $transaction)
+        if(count($recent_transactions) > 0)
         {
-            $array[] = $transaction->transactionid;
+            $array = array();
+
+            foreach ($recent_transactions as $transaction)
+            {
+                $array[] = $transaction->transactionid;
+            }
+
+            $this->db->select('transactions.id as transactionid, transactions.*, products.*, promotions.*')->from('transactions')
+            ->where('user_id', $userid)
+            ->where_not_in('transactions.id', $array)
+            ->join('products', 'products.id = transactions.product_id')
+            ->join('promotions', 'promotions.id = transactions.promotion_id', 'left');
+
+            $query = $this->db->get();
+            return $query->result();
         }
+        else
+        {
+            $this->db->select('transactions.id as transactionid, transactions.*, products.*, promotions.*')->from('transactions')
+            ->where('user_id', $userid)
+            ->join('products', 'products.id = transactions.product_id')
+            ->join('promotions', 'promotions.id = transactions.promotion_id', 'left');
 
-        $this->db->select('transactions.id as transactionid, transactions.*, products.*, promotions.*')->from('transactions')
-        ->where('user_id', $userid)
-        ->where_not_in('transactions.id', $array)
-        ->join('products', 'products.id = transactions.product_id')
-        ->join('promotions', 'promotions.id = transactions.promotion_id', 'left');
-
-        $query = $this->db->get();
-        return $query->result();
+            $query = $this->db->get();
+            return $query->result();   
+        }
+        
     }
 
     function get_transaction($id, $userid)

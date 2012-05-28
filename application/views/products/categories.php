@@ -1,6 +1,6 @@
 <div class="newlist-top">
     
-	<form action="" method="post">
+	<form action="" method="post" style="visibility: hidden">
     <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
     <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
   </form>

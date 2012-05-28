@@ -1,15 +1,5 @@
 
-<?php if (isset($feedback)): ?>
-    
-    <div class="feedback">
-
-        <?php echo $feedback; ?>
-
-    </div>
-
-<?php endif;?>
-
-<?php if (isset($recent_transactions)): ?>
+<?php if ($recent_transactions != null): ?>
 
 	<div class="transactions-header">
 
@@ -37,6 +27,21 @@
     <?php endforeach;?>
 
 	</ul>
+
+<?php else: ?>
+
+    <div class="transactions-header">
+
+            <img src="resources/img/list-bullet.png" alt="icon">
+            <h3>Deze week</h3><p><?php echo $recent_transaction_totalprice; ?> €</p>
+
+    </div>
+
+    <div class="feedback">
+
+        <?php echo $feedback; ?>
+
+    </div>
 
 <?php endif;?>
 

@@ -13,28 +13,23 @@ class Transactions extends User_Controller {
 
 	public function index()
 	{ 
-		try
+		if(!$recent_transactions = $this->transactions_model->get_recent_transactions($this->user->id))
 		{
-			if(!$recent_transactions = $this->transactions_model->get_recent_transactions($this->user->id))
-			{
-				throw new Exception('Je hebt geen recente aankopen');
-			}
+			$data['feedback'] = "Geen recente aankopen";
+		}
 
-			$recent_transactions_total = 0;
+		$recent_transactions_total = 0;
 
-			foreach ($recent_transactions as $transaction)
-			{
-				$recent_transactions_total += $transaction->amount * $transaction->price;
-			}
+		foreach ($recent_transactions as $transaction)
+		{
+			$recent_transactions_total += $transaction->amount * $transaction->price;
+		}
 
-			$data['recent_transactions'] = $this->transactions_model->get_recent_transactions($this->user->id);
-			$data['recent_transaction_totalprice'] = $recent_transactions_total;
+		$data['recent_transactions'] = $this->transactions_model->get_recent_transactions($this->user->id);
+		$data['recent_transaction_totalprice'] = $recent_transactions_total;
 
-			if(!$transactions = $this->transactions_model->get_transactions($this->user->id))
-			{
-				throw new Exception('');
-			}
-				
+		if($transactions = $this->transactions_model->get_transactions($this->user->id))
+		{
 			$transactions_total = 0;
 
 			foreach ($transactions as $transaction)
@@ -44,11 +39,6 @@ class Transactions extends User_Controller {
 
 			$data['transactions'] = $this->transactions_model->get_transactions($this->user->id);
 			$data['transaction_totalprice'] = $transactions_total;
-
-		}
-		catch (Exception $e)
-		{
-			$data['feedback'] = $e->getMessage();
 		}
 
 		$data['content'] = $this->load->view('transactions/main', $data, true);
