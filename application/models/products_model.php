@@ -44,4 +44,11 @@ class Products_model extends CI_Model {
         $query = $this->db->get();
         return $query->row(); 
     }
+
+    function search_in_category($search, $catid)
+    {
+        $this->db->select('*')->from('products')->where('category', $catid)->like('name', $search);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

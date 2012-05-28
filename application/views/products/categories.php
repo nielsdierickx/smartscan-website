@@ -1,6 +1,9 @@
 <div class="newlist-top">
     
-	<input type="search" class="search round" placeholder="Zoeken...">
+	<form action="" method="post">
+    <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
+    <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
+  </form>
 
 	<?php 
 
@@ -10,7 +13,7 @@
    			echo '<div id="newlist-top-basket">';
 		
 				echo '<p id="list-name">' . $list->name . '</p>';
-    			echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>';
+    			echo '<p><span>' . $productcount . '</span>' . number_format($totalprice, 2, '.', '') . ' €<p>';
 
 			echo '</div>';
 			echo '</a>';

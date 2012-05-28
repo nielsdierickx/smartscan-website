@@ -1,5 +1,15 @@
 
-<?php if ($recent_transactions): ?>
+<?php if (isset($feedback)): ?>
+    
+    <div class="feedback">
+
+        <?php echo $feedback; ?>
+
+    </div>
+
+<?php endif;?>
+
+<?php if (isset($recent_transactions)): ?>
 
 	<div class="transactions-header">
 
@@ -30,7 +40,7 @@
 
 <?php endif;?>
 
-<?php if ($transactions): ?>
+<?php if (isset($transactions)): ?>
 
 	<br/><br/>
 	<div class="transactions-header">

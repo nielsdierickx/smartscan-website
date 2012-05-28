@@ -1,86 +1,72 @@
-<div class="profile-left-column">
 
-    <select>
-        <option value="sorteer">Sorteer</option>
-        <option value="naam">Naam</option>
-        <option value="datum">Datum toegevoegd</option>
-        <option value="items">Aantal items</option>
-    </select>
+<form action="" method="post">
+    <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
+    <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
+</form>
 
-</div>
+<a href="lists/newlist" class="button-accent newlist-button">+</a>
 
-<div class="profile-right-column">
+<div id="lists-overview">
 
-    <form action="" method="post">
-        <input type="search" id="search-lists" name="search-lists" class="search round" placeholder="Zoeken..." autocomplete="off" value=<?php echo $this->input->post('search-lists') ;?>>
-        <input type="submit" value="Zoeken" style="visibility: hidden; display:none;" />
-    </form>
+    <?php if (isset($feedback)): ?>
+        <div class="feedback">
+            <?php echo $feedback; ?>
+        </div>
+    <?php endif;?>
 
-    <a href="lists/newlist" class="button-accent newlist-button">+</a>
+    <?php if (isset($lists)): ?>
 
-    <div id="lists-overview">
+    <ul class="lists-overview">
 
-        <?php if (isset($feedback)): ?>
-            <div class="feedback">
-                <?php echo $feedback; ?>
-            </div>
-        <?php endif;?>
+        <?php $i=0; ?>
 
-        <?php if (isset($lists)): ?>
+        <?php foreach ($lists as $list): ?> 
+            
+            <li>
 
-        <ul class="lists-overview">
+            <?php echo '<a href="lists/listdetail/' . $list->id . '">' . $list->name . '<span class="productcount">' . $products[$i] . '</span></a>'; ?>
 
-            <?php $i=0; ?>
-
-            <?php foreach ($lists as $list): ?> 
-                
-                <li>
-
-                <?php echo '<a href="lists/listdetail/' . $list->id . '">' . $list->name . '<span class="productcount">' . $products[$i] . '</span></a>'; ?>
-
-
-                <?php echo form_open();?>
-
-                <span class="delete">
-
-                    <?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $list->id . '">'; ?>
-                    <?php echo '<input type="submit" id="delete-button-'. $list->id .'" name="' . $list->name .'" class="delete-button" value="">'; ?>
-
-                </span>
-
-                <?php echo form_close();?>
-
-                </li>    
-                
-                <?php $i++; ?>
-
-            <?php endforeach;?>
-
-        </ul>
-
-        <?php endif;?>
-
-    </div>
-
-    <div id="dialog-confirm">
-
-        <p>Weet u zeker dat u het lijstje "<span id="listname"></span>" wilt verwijderen?</p>
-
-        <div id="dialog-buttons">
 
             <?php echo form_open();?>
 
-                <input type="hidden" id="delete-id" name="delete-id" value="">
-                <input type="submit" class="button-accent" value="Verwijderen">
+            <span class="delete">
 
-                <a href="lists" class="button">Behouden</a>
+                <?php echo '<input type="hidden" id="delete-id" name="delete-id" value="' . $list->id . '">'; ?>
+                <?php echo '<input type="submit" id="delete-button-'. $list->id .'" name="' . $list->name .'" class="delete-button" value="">'; ?>
+
+            </span>
 
             <?php echo form_close();?>
 
-        </div>
-        
-    </div>
+            </li>    
+            
+            <?php $i++; ?>
 
+        <?php endforeach;?>
+
+    </ul>
+
+    <?php endif;?>
+
+</div>
+
+<div id="dialog-confirm">
+
+    <p>Weet u zeker dat u het lijstje "<span id="listname"></span>" wilt verwijderen?</p>
+
+    <div id="dialog-buttons">
+
+        <?php echo form_open();?>
+
+            <input type="hidden" id="delete-id" name="delete-id" value="">
+            <input type="submit" class="button-accent" value="Verwijderen">
+
+            <a href="lists" class="button">Behouden</a>
+
+        <?php echo form_close();?>
+
+    </div>
+    
 </div>
 
 <script>

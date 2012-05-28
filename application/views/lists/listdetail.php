@@ -28,7 +28,7 @@
 
             if($product->discount)
             {
-                echo '<span class="promo">PROMO</span><span class="promo-new">' . ($product->price - ($product->price * $product->discount)) . ' €</span><span class="promo-old">' . $product->price . ' €</span>';
+                echo '<span class="promo">PROMO</span><span class="promo-new">' . number_format(($product->price - ($product->price * $product->discount)), 2, '.', '') . ' €</span><span class="promo-old">' . $product->price . ' €</span>';
             }
             else
             {
@@ -80,7 +80,7 @@
 
 </ul>
 
-<?php echo '<p class="products-total-price">Totaal: <span>' . $total . ' €</span></p>'; ?>
+<?php echo '<p class="products-total-price">Totaal: <span>' . number_format($total, 2, '.', '') . ' €</span></p>'; ?>
 
 <?php else: ?>
 

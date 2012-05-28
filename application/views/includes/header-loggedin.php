@@ -44,7 +44,7 @@
 
                 <nav id="navigation-main">
                     <ul>
-                        <li><a href="profile"><?php echo $user->email; ?> &nbsp; &#x25BE;</a></li>
+                        <li><a href="promotions"><?php echo $user->email; ?> &nbsp; &#x25BE;</a></li>
                         <li><a href="logout">Afmelden</a></li>
                     </ul>
                 </nav>

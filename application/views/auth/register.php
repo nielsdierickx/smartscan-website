@@ -48,13 +48,12 @@
     </div>
 
     <div class="column-right">
-        <p class="column-right-title">Waarom registreren?</p>
+        <p class="column-right-title"><strong>Waarom registreren?</strong></p>
         
         <p class="form-footer">
             <ul class="register-list">
-                <li>Voordelen</li>
-                <li>Nog een voordeel</li>
-                <li>Nog een voordeel</li>
+                <li><img src="resources/img/list-bullet.png" alt="icon"><p>Lijstjes maken</p></li>
+                <li><img src="resources/img/list-bullet.png" alt="icon"><p>Aankopen beheren</p></li>
             </ul>
         </p>
         

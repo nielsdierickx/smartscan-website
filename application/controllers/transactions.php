@@ -13,29 +13,43 @@ class Transactions extends User_Controller {
 
 	public function index()
 	{ 
-		$recent_transactions = $this->transactions_model->get_recent_transactions($this->user->id);	
-
-		$recent_transactions_total = 0;
-
-		foreach ($recent_transactions as $transaction)
+		try
 		{
-			$recent_transactions_total += $transaction->amount * $transaction->price;
+			if(!$recent_transactions = $this->transactions_model->get_recent_transactions($this->user->id))
+			{
+				throw new Exception('Je hebt geen recente aankopen');
+			}
+
+			$recent_transactions_total = 0;
+
+			foreach ($recent_transactions as $transaction)
+			{
+				$recent_transactions_total += $transaction->amount * $transaction->price;
+			}
+
+			$data['recent_transactions'] = $this->transactions_model->get_recent_transactions($this->user->id);
+			$data['recent_transaction_totalprice'] = $recent_transactions_total;
+
+			if(!$transactions = $this->transactions_model->get_transactions($this->user->id))
+			{
+				throw new Exception('');
+			}
+				
+			$transactions_total = 0;
+
+			foreach ($transactions as $transaction)
+			{
+				$transactions_total += $transaction->amount * $transaction->price;
+			}
+
+			$data['transactions'] = $this->transactions_model->get_transactions($this->user->id);
+			$data['transaction_totalprice'] = $transactions_total;
+
 		}
-
-		$data['recent_transactions'] = $this->transactions_model->get_recent_transactions($this->user->id);
-		$data['recent_transaction_totalprice'] = $recent_transactions_total;
-
-		$transactions = $this->transactions_model->get_transactions($this->user->id);	
-
-		$transactions_total = 0;
-
-		foreach ($transactions as $transaction)
+		catch (Exception $e)
 		{
-			$transactions_total += $transaction->amount * $transaction->price;
+			$data['feedback'] = $e->getMessage();
 		}
-
-		$data['transactions'] = $this->transactions_model->get_transactions($this->user->id);
-		$data['transaction_totalprice'] = $transactions_total;
 
 		$data['content'] = $this->load->view('transactions/main', $data, true);
 		$data['title'] = "Aankopen";

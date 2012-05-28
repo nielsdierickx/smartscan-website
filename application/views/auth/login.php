@@ -31,7 +31,7 @@
 
     <?php echo form_error('password', '<div class="error">', '</div>'); ?>
 
-    <p class="form-item"><a href="auth/forgot_password">Ik ben mijn wachtwoord vergeten</a></p>
+    <!-- <p class="form-item"><a href="auth/forgot_password">Ik ben mijn wachtwoord vergeten</a></p> -->
 
     <p class="form-footer">
 	   <?php 
@@ -46,7 +46,7 @@
     </div>
 
     <div class="column-right">
-        <p class="column-right-title">Heb je nog geen account?</p>
+        <p class="column-right-title"><strong>Heb je nog geen account?</strong></p>
         <p class="form-footer"><a href="register" class="button button-gradient round">Registreer je nu gratis</a></p>
     </div>
 

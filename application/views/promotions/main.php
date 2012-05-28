@@ -1,7 +1,7 @@
 
 <div class="newlist-top">
     
-    <input type="search" class="search round" placeholder="Zoeken...">
+    <input type="search" class="search round" placeholder="Zoeken..." style="visibility:hidden;">
     
     <?php 
 
@@ -11,7 +11,7 @@
             echo '<div id="newlist-top-basket">';
         
                 echo '<p id="list-name">' . $list->name . '</p>';
-                echo '<p><span>' . $productcount . '</span>' . $totalprice . ' €<p>';
+                echo '<p><span>' . $productcount . '</span>' . number_format($totalprice, 2, '.', '') . ' €<p>';
 
             echo '</div>';
             echo '</a>';
@@ -41,7 +41,7 @@
             <?php 
 
                 echo '<img src="' .$product->photo . '" alt="product-photo" /><p>'
-                . $product->name . '</p><span class="promo">PROMO</span><span class="promo-new">' . ($product->price - ($product->price * $product->discount)) . ' €</span><span class="promo-old">' . $product->price . ' €</span>';
+                . $product->name . '</p><span class="promo">PROMO</span><span class="promo-new">' . number_format(($product->price - ($product->price * $product->discount)), 2, '.', '') . ' €</span><span class="promo-old">' . $product->price . ' €</span>';
 
                 if($product->price_amount != null) { echo '<span class="product-price-amount">' . $product->price_amount . ' €/kg</span>'; } 
 

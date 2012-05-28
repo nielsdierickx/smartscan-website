@@ -157,6 +157,11 @@ class Lists extends User_Controller {
 	{
 		$this->load->model('lists_model');
 		$this->lists_model->delete_list($id);
+
+		if($id = $this->session->userdata('list-id'))
+		{
+			$this->session->unset_userdata('list-id');
+		}
 	}
 }
 
